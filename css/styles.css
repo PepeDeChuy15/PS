@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    background: #f7f7f7;
+}
+
+/* HERO */
+.hero {
+    background: url('../assets/images/hero.jpg') center/cover no-repeat;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-overlay {
+    background: rgba(0,0,0,0.5);
+    padding: 40px;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+.hero span {
+    color: #d4af37;
+}
+
+/* COUNTDOWN */
+.countdown {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.countdown-container div {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 80px;
+}
+
+/* EVENTS */
+.events {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 50px 20px;
+    justify-content: center;
+}
+
+.event-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 300px;
+}
+
+/* WELCOME */
+.welcome {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 12px;
+}
+
+/* PARTY INFO */
+.party-info {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.info-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+/* GALLERY */
+.gallery {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* GIFT */
+.gift {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.gift-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gift-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 250px;
+}
+
+/* PARENTS */
+.parents {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.parents-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* SHARE */
+.share {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* FOOTER */
+.footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .events {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gift-grid {
+        flex-direction: column;
+    }
+
+    .parents-grid {
+        flex-direction: column;
+    }
+}

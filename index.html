@@ -5,42 +5,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pepe & Sofi | Nuestra Boda</title>
+<title>Nuestra Boda</title>
 
 <link rel="stylesheet" href="css/styles.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <script defer src="js/countdown.js"></script>
+<script defer src="js/carousel.js"></script>
 
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-
 <header class="header">
 
-<div class="logo">Pepe & Sofi</div>
+<div class="logo">
+<img src="assets/images/escudo.png">
+</div>
 
 <nav id="nav">
-
-<a href="#eventos">Eventos</a>
+<a href="#timeline">Eventos</a>
 <a href="#info">Detalles</a>
 <a href="#galeria">Galería</a>
-<a href="#mapas">Ubicación</a>
-
 </nav>
 
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
 </header>
 
-<!-- HERO -->
 
 <section class="hero">
 
-<div class="hero-overlay">
+<div class="hero-overlay fade">
 
 <p class="date">24 Octubre 2026</p>
 
@@ -52,9 +49,8 @@
 
 </section>
 
-<!-- COUNTDOWN -->
 
-<section class="countdown">
+<section class="countdown fade">
 
 <h2>Faltan</h2>
 
@@ -84,15 +80,18 @@
 
 </section>
 
-<!-- EVENTOS -->
 
-<section class="events" id="eventos">
+<section class="timeline fade" id="timeline">
 
-<h2>Nuestros Eventos</h2>
+<h2>Nuestro Gran Día</h2>
 
-<div class="events-grid">
+<div class="timeline-container">
 
-<div class="event-card">
+<div class="timeline-item">
+
+<div class="timeline-icon">⛪</div>
+
+<div class="timeline-content">
 
 <h3>Boda Religiosa</h3>
 
@@ -100,29 +99,47 @@
 
 <p>17:00</p>
 
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.9367214336726!2d-102.87712172509272!3d23.17250951071701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86830bc61aa40b29%3A0x6872955ad1b5f35e!2sParroquia%20del%20Sagrado%20Coraz%C3%B3n!5e0!3m2!1ses-419!2smx!4v1773006783603!5m2!1ses-419!2smx"></iframe>
+
+<a class="map-btn" target="_blank" href="https://maps.app.goo.gl/nAPxPNNEFrnNbbTj7">
+Abrir en Maps
+</a>
+
 </div>
 
-<div class="event-card">
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-icon">💍</div>
+
+<div class="timeline-content">
 
 <h3>Boda Civil</h3>
-
 <p>Antigua San Felipe</p>
-
 <p>19:00</p>
 
-</div>
-
-<div class="event-card">
-
-<h3>Fiesta</h3>
-
+<h3 style="margin-top:15px;">Fiesta</h3>
 <p>Antigua San Felipe</p>
-
 <p>20:00</p>
 
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.7480869098677!2d-102.81350662403973!3d23.17939261045664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86830a79a3c528bd%3A0x800d9e4b5d86343!2sCentro%20de%20Convenciones%20Antigua%20San%20Felipe!5e0!3m2!1ses-419!2smx!4v1773006746587!5m2!1ses-419!2smx"></iframe>
+
+<a class="map-btn" target="_blank" href="https://maps.app.goo.gl/mkwkb79YpXYWtDRU6">
+Abrir en Maps
+</a>
+
 </div>
 
-<div class="event-card">
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-icon">🎉</div>
+
+<div class="timeline-content">
 
 <h3>Tornaboda</h3>
 
@@ -130,15 +147,22 @@
 
 <p>25 Octubre</p>
 
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.654362481721!2d-102.89639282403964!3d23.182811810328186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86830b618bd279ef%3A0x47d84add4bef061a!2zU2Fsw7NuIEFH!5e0!3m2!1ses-419!2smx!4v1773005011032!5m2!1ses-419!2smx"></iframe>
+
+<a class="map-btn" target="_blank" href="https://maps.app.goo.gl/hs9Ypzja8RYMzjCB9">
+Abrir en Maps
+</a>
+
+</div>
+
 </div>
 
 </div>
 
 </section>
 
-<!-- INFO -->
 
-<section class="info" id="info">
+<section class="info fade" id="info">
 
 <h2>Detalles de la celebración</h2>
 
@@ -150,11 +174,6 @@
 </div>
 
 <div class="info-card">
-<h3>Música</h3>
-<p>Puedes sugerir canciones</p>
-</div>
-
-<div class="info-card">
 <h3>Mascotas</h3>
 <p>Pet Friendly</p>
 </div>
@@ -163,41 +182,26 @@
 
 </section>
 
-<!-- MAPAS -->
 
-<section class="maps" id="mapas">
+<section class="gallery fade" id="galeria">
 
-<h2>Ubicaciones</h2>
+<h2>Nuestra Historia</h2>
 
-<div class="map-card">
+<div class="carousel">
 
-<h3>Parroquia del Sagrado Corazón</h3>
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.9367214337276!2d-102.87712172403985!3d23.172509510715006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86830bc61aa40b29%3A0x6872955ad1b5f35e!2sParroquia%20del%20Sagrado%20Coraz%C3%B3n!5e0!3m2!1ses-419!2smx!4v1773002520725!5m2!1ses-419!2smx"></iframe>
-
-</div>
-
-<div class="map-card">
-
-<h3>Centro de Convenciones Antigua San Felipe</h3>
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.7480869098677!2d-102.81350662403976!3d23.179392610456645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86830a79a3c528bd%3A0x800d9e4b5d86343!2sCentro%20de%20Convenciones%20Antigua%20San%20Felipe!5e0!3m2!1ses-419!2smx!4v1773002658233!5m2!1ses-419!2smx"></iframe>
-
-</div>
-
-<div class="map-card">
-
-<h3>Salón AG</h3>
-
-<iframe src="https://www.google.com/maps/embed?pb=!3m2!1ses-419!2smx!4v1773002758539!5m2!1ses-419!2smx!6m8!1m7!1syDw1wr90gGxgjGLVbN_e_A!2m2!1d23.18274306653763!2d-102.893721922526!3f26.554628448871156!4f-21.46228540497708!5f0.7820865974627469"></iframe>
+<img src="assets/images/gallery1.jpg" class="carousel-img active">
+<img src="assets/images/gallery2.jpg" class="carousel-img">
+<img src="assets/images/gallery3.jpg" class="carousel-img">
 
 </div>
 
 </section>
 
+
 <footer>
 
-<h2>Pepe & Sofi</h2>
+<img src="assets/images/escudo.png" class="footer-logo">
+
 <p>24 Octubre 2026</p>
 
 </footer>

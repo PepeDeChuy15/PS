@@ -35,9 +35,10 @@ background:transparent;
 }
 
 .logo img{
-height:80px;
+height: 100px;
 width:auto;
 object-fit:contain;
+position: center;
 }
 
 nav a{

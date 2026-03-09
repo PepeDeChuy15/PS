@@ -26,21 +26,27 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:20px 40px;
-background:white;
+background:var(--blanco);
 position:sticky;
 top:0;
 z-index:100;
+box-shadow:0 3px 10px rgba(0,0,0,.05);
 }
 
 .logo img{
-height:70px;
+height:80px;
 }
 
 nav a{
 margin:0 15px;
 text-decoration:none;
-color:#333;
+color:var(--lila-oscuro);
 font-weight:500;
+transition:.3s;
+}
+
+nav a:hover{
+color:var(--lila);
 }
 
 /* HERO */
@@ -54,19 +60,21 @@ align-items:center;
 }
 
 .hero-overlay{
-background:rgba(0,0,0,.5);
-padding:50px;
+background:rgba(0,0,0,.45);
+padding:60px;
 text-align:center;
 color:white;
+border-radius:10px;
 }
 
 .hero h1{
 font-family:'Playfair Display';
 font-size:60px;
+letter-spacing:2px;
 }
 
 .hero span{
-color:var(--dorado);
+color:var(--lila);
 }
 
 /* COUNTDOWN */
@@ -76,20 +84,26 @@ text-align:center;
 padding:80px 20px;
 }
 
+.countdown h2{
+font-family:'Playfair Display';
+margin-bottom:20px;
+}
+
 .countdown-container{
 display:flex;
 justify-content:center;
-gap:20px;
+gap:25px;
 flex-wrap:wrap;
 margin-top:30px;
 }
 
 .countdown-container div{
-background:white;
+background:var(--blanco);
 padding:25px;
-border-radius:10px;
+border-radius:12px;
 min-width:90px;
-box-shadow:0 5px 10px rgba(0,0,0,.1);
+box-shadow:0 8px 20px rgba(0,0,0,.05);
+border:1px solid var(--lila-suave);
 }
 
 /* TIMELINE */

@@ -1,7 +1,10 @@
 :root{
---morado:#5b2c6f;
---dorado:#d4af37;
---gris:#f5f5f5;
+--lila:#b79ad6;
+--lila-suave:#e9e2f3;
+--lila-oscuro:#8e6bbf;
+--blanco:#ffffff;
+--gris-suave:#faf9fc;
+--texto:#444;
 }
 
 *{
@@ -12,8 +15,8 @@ box-sizing:border-box;
 
 body{
 font-family:'Poppins',sans-serif;
-background:var(--gris);
-color:#333;
+background:var(--gris-suave);
+color:var(--texto);
 }
 
 /* NAV */

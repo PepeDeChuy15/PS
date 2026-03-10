@@ -5,6 +5,7 @@
 --blanco:#ffffff;
 --gris-suave:#faf9fc;
 --texto:#444;
+--cremita: #fcf9f2;
 }
 
 *{
@@ -15,7 +16,7 @@ box-sizing:border-box;
 
 body{
 font-family:'Poppins',sans-serif;
-background:var(--gris-suave);
+background:var(--cremita);
 color:var(--texto);
 }
 

@@ -21,11 +21,6 @@ color:var(--texto);
 
 /* NAV */
 
-header,
-.hero{
-display:none;
-}
-
 .header{
 display:flex;
 justify-content:space-between;
@@ -307,7 +302,7 @@ display:flex;
 
 .menu-btn{
 display:block;
-color: #4a235a;
+color: var(--lila);
 }
 
 .hero h1{
@@ -324,49 +319,4 @@ text-align:center;
 text-align:center;
 }
 
-}
-
-intro-envelope{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:var(--gris-suave);
-}
-
-.envelope-container{
-position:relative;
-text-align:center;
-}
-
-.envelope-img{
-width:420px;
-max-width:90%;
-}
-
-.seal-logo{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-}
-
-.seal-logo img{
-width:90px;
-}
-
-.open-btn{
-margin-top:25px;
-padding:12px 28px;
-border:none;
-background:var(--lila-oscuro);
-color:white;
-font-size:16px;
-border-radius:30px;
-cursor:pointer;
-transition:.3s;
-}
-
-.open-btn:hover{
-background:var(--lila);
 }

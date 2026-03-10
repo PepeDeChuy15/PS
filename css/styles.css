@@ -101,29 +101,61 @@ color:var(--lila);
 
 .countdown{
 text-align:center;
-padding:80px 20px;
+padding:100px 20px;
+background:linear-gradient(to bottom,var(--lila-suave),var(--gris-suave));
 }
 
 .countdown h2{
 font-family:'Playfair Display';
-margin-bottom:20px;
+font-size:36px;
+color:var(--lila-oscuro);
+margin-bottom:30px;
+letter-spacing:1px;
 }
 
 .countdown-container{
 display:flex;
 justify-content:center;
-gap:25px;
+gap:30px;
 flex-wrap:wrap;
 margin-top:30px;
 }
 
 .countdown-container div{
-background:var(--blanco);
-padding:25px;
-border-radius:12px;
-min-width:90px;
-box-shadow:0 8px 20px rgba(0,0,0,.05);
-border:1px solid var(--lila-suave);
+background:linear-gradient(145deg,#ffffff,var(--lila-suave));
+padding:30px 25px;
+border-radius:18px;
+min-width:120px;
+text-align:center;
+box-shadow:0 10px 25px rgba(142,107,191,.25);
+border:1px solid var(--lila);
+transition:transform .3s, box-shadow .3s;
+}
+
+/* efecto elegante */
+
+.countdown-container div:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 35px rgba(142,107,191,.35);
+}
+
+/* NUMEROS */
+
+.countdown-container span{
+font-size:42px;
+font-weight:600;
+color:var(--lila-oscuro);
+display:block;
+font-family:'Playfair Display';
+}
+
+/* TEXTO */
+
+.countdown-container p{
+margin-top:8px;
+font-size:14px;
+letter-spacing:1px;
+color:#666;
 }
 
 /* TIMELINE */

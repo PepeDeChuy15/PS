@@ -97,66 +97,95 @@ letter-spacing:2px;
 color:var(--lila);
 }
 
-/* COUNTDOWN */
+
+
+/* COUNTDOWN PREMIUM */
 
 .countdown{
 text-align:center;
-padding:100px 20px;
-background:linear-gradient(to bottom,var(--lila-suave),var(--gris-suave));
+padding:120px 20px;
+background:linear-gradient(180deg,#f6f2fb,#ffffff);
+position:relative;
 }
+
+/* titulo */
 
 .countdown h2{
 font-family:'Playfair Display';
-font-size:36px;
+font-size:42px;
 color:var(--lila-oscuro);
-margin-bottom:30px;
-letter-spacing:1px;
+margin-bottom:50px;
+letter-spacing:2px;
+position:relative;
 }
+
+/* linea elegante bajo titulo */
+
+.countdown h2::after{
+content:"";
+display:block;
+width:80px;
+height:2px;
+background:var(--lila);
+margin:15px auto 0;
+}
+
+/* contenedor */
 
 .countdown-container{
 display:flex;
 justify-content:center;
-gap:30px;
+gap:35px;
 flex-wrap:wrap;
-margin-top:30px;
 }
+
+/* tarjetas */
 
 .countdown-container div{
-background:linear-gradient(145deg,#ffffff,var(--lila-suave));
-padding:30px 25px;
-border-radius:18px;
-min-width:120px;
-text-align:center;
-box-shadow:0 10px 25px rgba(142,107,191,.25);
-border:1px solid var(--lila);
-transition:transform .3s, box-shadow .3s;
+background:rgba(255,255,255,.65);
+backdrop-filter:blur(8px);
+padding:40px 35px;
+border-radius:20px;
+min-width:140px;
+border:1px solid rgba(183,154,214,.6);
+box-shadow:
+0 10px 30px rgba(142,107,191,.15),
+inset 0 0 0 1px rgba(255,255,255,.6);
+transition:all .35s ease;
+position:relative;
 }
 
-/* efecto elegante */
+/* efecto hover elegante */
 
 .countdown-container div:hover{
-transform:translateY(-6px);
-box-shadow:0 15px 35px rgba(142,107,191,.35);
+transform:translateY(-8px) scale(1.03);
+box-shadow:
+0 18px 40px rgba(142,107,191,.25);
 }
 
-/* NUMEROS */
+/* numeros */
 
 .countdown-container span{
-font-size:42px;
+font-size:52px;
 font-weight:600;
 color:var(--lila-oscuro);
 display:block;
 font-family:'Playfair Display';
 }
 
-/* TEXTO */
+/* texto */
 
 .countdown-container p{
-margin-top:8px;
-font-size:14px;
-letter-spacing:1px;
-color:#666;
+margin-top:12px;
+font-size:13px;
+letter-spacing:2px;
+text-transform:uppercase;
+color:#777;
 }
+
+
+
+
 
 /* TIMELINE */
 

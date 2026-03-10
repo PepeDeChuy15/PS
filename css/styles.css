@@ -16,7 +16,7 @@ box-sizing:border-box;
 
 body{
 font-family:'Poppins',sans-serif;
-background:var(--cremita);
+background:linear-gradient(to bottom,var(--lila-suave),var(--gris-suave));
 color:var(--texto);
 }
 

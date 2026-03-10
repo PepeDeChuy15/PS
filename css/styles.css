@@ -108,6 +108,24 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 position:relative;
 }
 
+.countdown::before,
+.countdown::after{
+content:"✦";
+position:absolute;
+font-size:26px;
+color:var(--lila);
+left:50%;
+transform:translateX(-50%);
+}
+
+.countdown::before{
+top:40px;
+}
+
+.countdown::after{
+bottom:40px;
+}
+
 /* titulo */
 
 .countdown h2{

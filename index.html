@@ -16,7 +16,30 @@
 
 </head>
 
+
+
 <body>
+
+
+
+
+<!-- INVITACION CON SOBRE-->
+<div class="intro-screen" id="intro">
+    <div class="envelope">
+        <img src="assets/images/sobre.png" class="envelope-img">
+        <div class="seal" onclick="openInvitation()">
+        <img src="assets/images/Escudosinfondo.png">
+        </div>
+        <p class="open-text">Abrir invitación</p>
+        </div>
+    </div>
+<div id="invitation-content"></div>
+
+<!-- INVITACION CON SOBRE-->
+
+
+
+
 
 <header class="header">
 
@@ -38,22 +61,14 @@
 
 
 <section class="hero">
-
 <div class="hero-overlay fade">
-
-<p class="date">24 Octubre 2026</p>
-
-<h1>Pepe <span>&</span> Sofi</h1>
-
-<p class="quote">¡Nos Casamos!</p>
-
-
-<div class="logo">
-<img src="assets/images/Escudosinfondo.png">
+    <p class="date">24 Octubre 2026</p>
+    <h1>Pepe <span>&</span> Sofi</h1>
+    <p class="quote">¡Nos Casamos!</p>
+    <div class="logo">
+    <img src="assets/images/Escudosinfondo.png">
+    </div>
 </div>
-
-</div>
-
 </section>
 
 
@@ -63,27 +78,27 @@
 
 <div class="countdown-container">
 
-<div>
-<span id="days">0</span>
-<p>Días</p>
-</div>
+    <div>
+    <span id="days">0</span>
+    <p>Días</p>
+    </div>
 
-<div>
-<span id="hours">0</span>
-<p>Horas</p>
-</div>
+    <div>
+    <span id="hours">0</span>
+    <p>Horas</p>
+    </div>
 
-<div>
-<span id="minutes">0</span>
-<p>Min</p>
-</div>
+    <div>
+    <span id="minutes">0</span>
+    <p>Min</p>
+    </div>
 
-<div>
-<span id="seconds">0</span>
-<p>Seg</p>
-</div>
+    <div>
+    <span id="seconds">0</span>
+    <p>Seg</p>
+    </div>
 
-</div>
+    </div>
 
 </section>
 
@@ -91,29 +106,19 @@
 <section class="timeline fade" id="timeline">
 
 <h2>Nuestro Gran Día</h2>
-
 <div class="timeline-container">
+    <div class="timeline-item">
+    <div class="timeline-icon">⛪</div>
+    <div class="timeline-content">
+    <h3>Boda Religiosa</h3>
+    <p>Parroquia del Sagrado Corazón</p>
+    <p>17:00</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.9367214336726!2d-102.87712172509272!3d23.17250951071701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86830bc61aa40b29%3A0x6872955ad1b5f35e!2sParroquia%20del%20Sagrado%20Coraz%C3%B3n!5e0!3m2!1ses-419!2smx!4v1773006783603!5m2!1ses-419!2smx"></iframe>
 
-<div class="timeline-item">
-
-<div class="timeline-icon">⛪</div>
-
-<div class="timeline-content">
-
-<h3>Boda Religiosa</h3>
-
-<p>Parroquia del Sagrado Corazón</p>
-
-<p>17:00</p>
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.9367214336726!2d-102.87712172509272!3d23.17250951071701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86830bc61aa40b29%3A0x6872955ad1b5f35e!2sParroquia%20del%20Sagrado%20Coraz%C3%B3n!5e0!3m2!1ses-419!2smx!4v1773006783603!5m2!1ses-419!2smx"></iframe>
-
-<a class="map-btn" target="_blank" href="https://maps.app.goo.gl/nAPxPNNEFrnNbbTj7">
-Abrir en Maps
-</a>
-
-</div>
-
+    <a class="map-btn" target="_blank" href="https://maps.app.goo.gl/nAPxPNNEFrnNbbTj7">
+    Abrir en Maps
+    </a>
+    </div>
 </div>
 
 
@@ -221,5 +226,27 @@ document.getElementById("nav").classList.toggle("active");
 
 </script>
 
+
+
+
+<!-- INVITACION CON SOBRE-->
+
+<script>
+    function openInvitation(){
+    document.getElementById("intro").style.opacity="0"
+    setTimeout(()=>{
+    document.getElementById("intro").style.display="none"
+    document.getElementById("invitation-content").style.display="block"
+    },800)
+    }
+</script>
+
+<!-- INVITACION CON SOBRE-->
+
+
 </body>
+
+</div>
+
+
 </html>

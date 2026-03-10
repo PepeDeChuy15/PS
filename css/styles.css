@@ -36,7 +36,7 @@ background:transparent;
 }
 
 .logo img{
-height: 130px;
+height: 180px;
 width:auto;
 object-fit:contain;
 position: center;
@@ -165,7 +165,7 @@ box-shadow:
 /* numeros */
 
 .countdown-container span{
-font-size:52px;
+font-size:20px;
 font-weight:600;
 color:var(--lila-oscuro);
 display:block;
@@ -377,4 +377,58 @@ text-align:center;
 text-align:center;
 }
 
+}
+
+
+
+
+/* INTRO SOBRE */
+
+#invitation-content{
+display:none;
+}
+
+.intro-screen{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(180deg,var(--cremita),var(--lila-suave));
+transition:opacity .8s;
+}
+
+.envelope{
+position:relative;
+text-align:center;
+}
+
+.envelope-img{
+width:700px;
+max-width:130%;
+filter:drop-shadow(0 15px 25px rgba(0,0,0,.2));
+}
+
+.seal{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+cursor:pointer;
+transition:transform .3s;
+}
+
+.seal img{
+width:85px;
+}
+
+.seal:hover{
+transform:translate(-50%,-50%) scale(1.1);
+}
+
+.open-text{
+margin-top:20px;
+font-family:'Playfair Display';
+letter-spacing:2px;
+color:var(--lila-oscuro);
+font-size:18px;
 }

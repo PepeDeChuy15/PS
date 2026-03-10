@@ -36,7 +36,7 @@ background:transparent;
 }
 
 .logo img{
-height: 80%;
+height: 130px;
 width:auto;
 object-fit:contain;
 position: center;
@@ -98,7 +98,6 @@ color:var(--lila);
 }
 
 
-
 /* COUNTDOWN PREMIUM */
 
 .countdown{
@@ -108,29 +107,11 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 position:relative;
 }
 
-.countdown::before,
-.countdown::after{
-content:"✦";
-position:absolute;
-font-size:26px;
-color:var(--lila);
-left:50%;
-transform:translateX(-50%);
-}
-
-.countdown::before{
-top:40px;
-}
-
-.countdown::after{
-bottom:40px;
-}
-
 /* titulo */
 
 .countdown h2{
 font-family:'Playfair Display';
-font-size:22px;
+font-size:42px;
 color:var(--lila-oscuro);
 margin-bottom:50px;
 letter-spacing:2px;
@@ -153,11 +134,8 @@ margin:15px auto 0;
 .countdown-container{
 display:flex;
 justify-content:center;
-align-items:center;
 gap:35px;
-flex-wrap:nowrap;
-overflow-x:auto;
-padding-bottom:10px;
+flex-wrap:wrap;
 }
 
 /* tarjetas */
@@ -203,9 +181,6 @@ letter-spacing:2px;
 text-transform:uppercase;
 color:#777;
 }
-
-
-
 
 
 /* TIMELINE */

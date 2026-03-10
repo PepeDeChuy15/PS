@@ -130,7 +130,7 @@ bottom:40px;
 
 .countdown h2{
 font-family:'Playfair Display';
-font-size:42px;
+font-size:22px;
 color:var(--lila-oscuro);
 margin-bottom:50px;
 letter-spacing:2px;
@@ -153,8 +153,11 @@ margin:15px auto 0;
 .countdown-container{
 display:flex;
 justify-content:center;
+align-items:center;
 gap:35px;
-flex-wrap:wrap;
+flex-wrap:nowrap;
+overflow-x:auto;
+padding-bottom:10px;
 }
 
 /* tarjetas */

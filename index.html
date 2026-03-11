@@ -9,7 +9,7 @@
 
 <link rel="stylesheet" href="css/styles.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@300;400;500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <script defer src="js/countdown.js"></script>
 <script defer src="js/carousel.js"></script>
@@ -24,6 +24,8 @@
 
 
 <!-- INVITACION CON SOBRE-->
+
+
 <div class="intro-screen" id="intro">
     <div class="envelope">
         <img src="assets/images/sobre2.png" class="envelope-img">
@@ -35,6 +37,7 @@
     </div>
 <div id="invitation-content"></div>
 
+
 <!-- INVITACION CON SOBRE-->
 
 
@@ -43,11 +46,6 @@
 
 <header class="header">
 
-    <!---
-<div class="logo">
-<img src="assets/images/Escudosinfondo.png">
-</div>
--->
 
 <nav id="nav">
 <a href="#timeline">Eventos</a>
@@ -101,6 +99,76 @@
     </div>
 
 </section>
+
+<!--- Linea delk tiempo -->
+<section class="timeline-horizontal fade">
+
+<h2>Programa</h2>
+
+<div class="timeline-wrapper">
+
+<div class="timeline-line"></div>
+
+<div class="timeline-event top">
+<span class="time">01:45 pm</span>
+<img src="assets/icons/llegada.png">
+<p>Llegada</p>
+</div>
+
+<div class="timeline-event bottom">
+<span class="time">03:00 pm</span>
+<img src="assets/images/iglesia.png">
+<p>Misa</p>
+</div>
+
+<div class="timeline-event top">
+<span class="time">03:30 pm</span>
+<img src="assets/images/comer.png">
+<p>Comida</p>
+</div>
+
+<div class="timeline-event bottom">
+<span class="time">05:00 pm</span>
+<img src="assets/icons/banda.png">
+<p>Banda versátil</p>
+</div>
+
+<div class="timeline-event top">
+<span class="time">07:00 pm</span>
+<img src="assets/icons/brindis.png">
+<p>Brindis y pastel</p>
+</div>
+
+<div class="timeline-event bottom">
+<span class="time">08:30 pm</span>
+<img src="assets/icons/baile.png">
+<p>Primer baile</p>
+</div>
+
+<div class="timeline-event top">
+<span class="time">09:00 pm</span>
+<img src="assets/icons/fiesta.png">
+<p>Víbora de la mar</p>
+</div>
+
+<div class="timeline-event bottom">
+<span class="time">09:30 pm</span>
+<img src="assets/icons/grupo.png">
+<p>Grupo norteño</p>
+</div>
+
+<div class="timeline-event top">
+<span class="time">02:30 am</span>
+<img src="assets/icons/salida.png">
+<p>Partida de novios</p>
+</div>
+
+</div>
+
+</section>
+
+<!--FIN DE LA LINEA DE TIEMPO-->
+
 
 
 <section class="timeline fade" id="timeline">
@@ -232,13 +300,35 @@ document.getElementById("nav").classList.toggle("active");
 <!-- INVITACION CON SOBRE-->
 
 <script>
-    function openInvitation(){
-    document.getElementById("intro").style.opacity="0"
-    setTimeout(()=>{
-    document.getElementById("intro").style.display="none"
-    document.getElementById("invitation-content").style.display="block"
-    },800)
-    }
+   function openInvitation(){
+
+const seal = document.querySelector(".seal")
+const envelope = document.querySelector(".envelope")
+
+/* romper sello */
+
+seal.classList.add("break")
+
+/* mover sobre */
+
+setTimeout(()=>{
+envelope.classList.add("open")
+},300)
+
+/* abrir invitacion */
+
+setTimeout(()=>{
+
+document.getElementById("intro").style.opacity="0"
+
+setTimeout(()=>{
+document.getElementById("intro").style.display="none"
+document.getElementById("invitation-content").style.display="block"
+},800)
+
+},900)
+
+}
 </script>
 
 <!-- INVITACION CON SOBRE-->

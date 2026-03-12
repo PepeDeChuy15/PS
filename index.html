@@ -38,6 +38,28 @@
 <div id="invitation-content"></div>
 
 
+<!--NOTA ELEGANTE ANTES DE ENTRAR AL CONTENIDO-->
+    <div class="note-screen" id="note">
+
+    <div class="note-card">
+
+    <h2>Con Mucho Amor</h2>
+
+    <p>
+    Porque el amor es un viaje que se disfruta más en compañía,
+    hemos decidido que el resto de nuestros días sean una sola
+    historia escrita a cuatro manos y dos corazones.
+    </p>
+
+    <p class="note-signature">
+        Pepe & Sofi 
+    </p>
+
+    </div>
+
+    </div>
+
+
 <!-- INVITACION CON SOBRE-->
 
 
@@ -66,11 +88,6 @@
     <div class="logo">
     <img src="assets/images/Escudosinfondo.png">
     </div>
-    <p class="quote">Porque el amor es un viaje que se</p>
-    <p class="quote">disfruta mas en compañia, hemos</p>
-    <p class="quote">decidido que el resto de4nuestros</p>
-    <p class="quote">dias sean una sola historia escrita</p>
-    <p class="quote">a cuatro manos y dos corazones</p>
 </div>
 </section>
 
@@ -114,11 +131,6 @@
 
 <div class="timeline-line"></div>
 
-<div class="timeline-event top">
-<span class="time">01:45 pm</span>
-<img src="assets/icons/llegada.png">
-<p>Llegada</p>
-</div>
 
 <div class="timeline-event bottom">
 <span class="time">03:00 pm</span>
@@ -127,39 +139,39 @@
 </div>
 
 <div class="timeline-event top">
-<span class="time">03:30 pm</span>
+<span class="time">07:00 pm</span>
+<img src="assets/icons/llegada.png">
+<p>Llegada</p>
+</div>
+
+<div class="timeline-event top">
+<span class="time">07:30 pm</span>
+<img src="assets/icons/llegada.png">
+<p>Boda Civil</p>
+</div>
+
+<div class="timeline-event top">
+<span class="time">08:30 pm</span>
 <img src="assets/images/comer.png">
 <p>Comida</p>
 </div>
 
 <div class="timeline-event bottom">
-<span class="time">05:00 pm</span>
+<span class="time">09:30 pm</span>
 <img src="assets/icons/banda.png">
-<p>Banda versátil</p>
+<p>Primer Baile</p>
 </div>
 
 <div class="timeline-event top">
-<span class="time">07:00 pm</span>
+<span class="time">10:30 pm</span>
 <img src="assets/icons/brindis.png">
 <p>Brindis y pastel</p>
-</div>
-
-<div class="timeline-event bottom">
-<span class="time">08:30 pm</span>
-<img src="assets/icons/baile.png">
-<p>Primer baile</p>
 </div>
 
 <div class="timeline-event top">
 <span class="time">09:00 pm</span>
 <img src="assets/icons/fiesta.png">
 <p>Víbora de la mar</p>
-</div>
-
-<div class="timeline-event bottom">
-<span class="time">09:30 pm</span>
-<img src="assets/icons/grupo.png">
-<p>Grupo norteño</p>
 </div>
 
 <div class="timeline-event top">
@@ -305,10 +317,13 @@ document.getElementById("nav").classList.toggle("active");
 <!-- INVITACION CON SOBRE-->
 
 <script>
-   function openInvitation(){
+  function openInvitation(){
 
 const seal = document.querySelector(".seal")
 const envelope = document.querySelector(".envelope")
+const intro = document.getElementById("intro")
+const note = document.getElementById("note")
+const content = document.getElementById("invitation-content")
 
 /* romper sello */
 
@@ -320,18 +335,62 @@ setTimeout(()=>{
 envelope.classList.add("open")
 },300)
 
-/* abrir invitacion */
+setTimeout(()=>{
+intro.style.display="none"
+
+/* mostrar nota */
+
+note.classList.add("show")
+
+},700)
+
+/* quitar pantalla del sobre */
 
 setTimeout(()=>{
 
-document.getElementById("intro").style.opacity="0"
-
-setTimeout(()=>{
-document.getElementById("intro").style.display="none"
-document.getElementById("invitation-content").style.display="block"
-},800)
+intro.style.opacity="0"
 
 },900)
+
+/* despues de mostrar la nota */
+
+setTimeout(()=>{
+
+note.style.opacity="0"
+
+setTimeout(()=>{
+
+note.style.display="none"
+
+
+
+/* desaparecer carta */
+
+setTimeout(()=>{
+
+card.classList.add("hide")
+
+},5000)
+
+/* ocultar intro */
+
+setTimeout(()=>{
+
+intro.style.opacity="0"
+
+},5600)
+
+/* mostrar invitacion */
+
+content.style.display="block"
+
+setTimeout(()=>{
+content.style.opacity="1"
+},50)
+
+},800)
+
+},6000)
 
 }
 </script>

@@ -63,6 +63,8 @@ intro.style.opacity="0"
 
 /* mostrar invitacion */
 
+document.body.classList.remove("locked")
+
 content.style.display="block"
 
 setTimeout(()=>{

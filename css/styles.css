@@ -594,12 +594,12 @@ text-align:center;
 .timeline-horizontal h2{
 font-family:'Cinzel',serif;
 font-size:44px;
-margin-bottom:60px;
+margin-bottom:70px;
 color:var(--lila-oscuro);
-letter-spacing:2px;
+letter-spacing:3px;
 }
 
-/* contenedor: stretch permite controlar cada mitad por separado */
+/* contenedor */
 
 .timeline-wrapper{
 position:relative;
@@ -608,18 +608,18 @@ justify-content:space-between;
 align-items:stretch;
 max-width:1200px;
 margin:auto;
-padding:0 40px;
-min-height:480px;
+padding:0 30px;
+min-height:520px;
 }
 
-/* linea elegante exactamente al 50% */
+/* linea al 50% */
 
 .timeline-line{
 position:absolute;
 top:50%;
 left:0;
 width:100%;
-height:2px;
+height:1.5px;
 background:linear-gradient(
 90deg,
 transparent,
@@ -631,192 +631,215 @@ z-index:1;
 transform:translateY(-50%);
 }
 
-/* evento base: columna flex, invisible hasta que anima */
+/* evento base — paused hasta que el padre tenga .visible */
 
 .timeline-event{
 position:relative;
 z-index:3;
-width:130px;
+width:120px;
 text-align:center;
 display:flex;
 flex-direction:column;
 opacity:0;
-animation:fadeInEvent .7s ease forwards;
+animation:fadeInEvent .65s cubic-bezier(.4,0,.2,1) forwards;
+animation-play-state:paused;
 }
 
-/* arriba: ocupa mitad superior, card pegado a la línea */
+/* disparar animaciones al hacer scroll */
+
+.timeline-horizontal.visible .timeline-event{
+animation-play-state:running;
+}
+
+/* arriba */
 
 .timeline-event.top{
 align-self:flex-start;
 height:50%;
 justify-content:flex-end;
-padding-bottom:28px;
+padding-bottom:46px;
 }
 
-/* abajo: ocupa mitad inferior, card pegado a la línea */
+/* abajo */
 
 .timeline-event.bottom{
 align-self:flex-end;
 height:50%;
 justify-content:flex-start;
-padding-top:28px;
+padding-top:46px;
 }
 
-/* punto exactamente sobre la línea */
+/* punto sobre la línea */
 
 .timeline-event::before{
 content:"";
 position:absolute;
 left:50%;
-width:14px;
-height:14px;
+width:10px;
+height:10px;
 background:var(--lila-oscuro);
 border-radius:50%;
 z-index:4;
-box-shadow:
-0 0 0 5px rgba(183,154,214,.3),
-0 0 0 11px rgba(183,154,214,.1);
+box-shadow:0 0 0 4px rgba(183,154,214,.3);
 }
 
 .timeline-event.top::before{
-bottom:-7px;
+bottom:-5px;
 top:auto;
 transform:translateX(-50%);
 }
 
 .timeline-event.bottom::before{
-top:-7px;
+top:-5px;
 bottom:auto;
 transform:translateX(-50%);
 }
 
-/* conector del card al punto */
+/* conector vertical */
 
 .timeline-event.top::after{
 content:"";
 position:absolute;
-bottom:7px;
+bottom:5px;
 left:50%;
 transform:translateX(-50%);
-width:2px;
-height:21px;
-background:linear-gradient(to bottom,rgba(183,154,214,.2),var(--lila-oscuro));
+width:1.5px;
+height:41px;
+background:linear-gradient(to bottom,rgba(183,154,214,.15),var(--lila));
 z-index:2;
 }
 
 .timeline-event.bottom::after{
 content:"";
 position:absolute;
-top:7px;
+top:5px;
 left:50%;
 transform:translateX(-50%);
-width:2px;
-height:21px;
-background:linear-gradient(to top,rgba(183,154,214,.2),var(--lila-oscuro));
+width:1.5px;
+height:41px;
+background:linear-gradient(to top,rgba(183,154,214,.15),var(--lila));
 z-index:2;
 }
 
-/* tarjeta del evento — transparente, sin relleno */
+/* tarjeta transparente */
 
 .event-card{
 background:transparent;
 border:none;
 box-shadow:none;
-backdrop-filter:none;
--webkit-backdrop-filter:none;
-padding:8px 6px 6px;
-transition:transform .35s ease;
+padding:6px 4px;
+transition:transform .3s ease;
 }
 
 .timeline-event:hover .event-card{
-transform:translateY(-5px);
+transform:translateY(-6px);
 }
+
+/* círculo del icono — fondo suave */
+
+.event-icon{
+font-size:20px;
+width:68px;
+height:68px;
+border-radius:50%;
+border:1.5px solid rgba(142,107,191,.3);
+background:rgba(183,154,214,.18);
+display:block;
+text-align:center;
+line-height:68px;
+margin:6px auto 10px;
+color:var(--lila-oscuro);
+transition:background .3s ease, transform .3s ease, box-shadow .3s ease;
+box-sizing:border-box;
+}
+
+/* tono ligeramente distinto por evento */
+
+.timeline-event:nth-child(2) .event-icon{ background:rgba(183,154,214,.20); }
+.timeline-event:nth-child(3) .event-icon{ background:rgba(162,130,205,.17); }
+.timeline-event:nth-child(4) .event-icon{ background:rgba(198,170,228,.22); }
+.timeline-event:nth-child(5) .event-icon{ background:rgba(175,145,215,.18); }
+.timeline-event:nth-child(6) .event-icon{ background:rgba(148,115,195,.16); }
+.timeline-event:nth-child(7) .event-icon{ background:rgba(190,160,222,.20); }
+.timeline-event:nth-child(8) .event-icon{ background:rgba(165,135,208,.18); }
+.timeline-event:nth-child(9) .event-icon{ background:rgba(180,150,218,.20); }
 
 .timeline-event:hover .event-icon{
 background:var(--lila-oscuro);
 color:#fff;
 border-color:var(--lila-oscuro);
-}
-
-/* icono minimalista: círculo con trazo lila */
-
-.event-icon{
-font-size:18px;
-width:52px;
-height:52px;
-border-radius:50%;
-border:1.5px solid rgba(142,107,191,.5);
-display:block;
-text-align:center;
-line-height:52px;
-margin:4px auto 8px;
-color:var(--lila-oscuro);
-transition:background .3s ease, color .3s ease, border-color .3s ease;
-box-sizing:border-box;
+box-shadow:0 8px 22px rgba(142,107,191,.35);
+transform:scale(1.06);
 }
 
 /* hora */
 
 .timeline-event .time{
 display:block;
-font-size:11px;
+font-family:'Cinzel',serif;
+font-size:10px;
 letter-spacing:2px;
 color:var(--lila-oscuro);
-font-weight:700;
-margin-bottom:7px;
-text-transform:uppercase;
+font-weight:600;
+margin-bottom:6px;
+opacity:.85;
 }
 
-/* texto */
+/* nombre del evento */
 
 .timeline-event p{
 font-family:'Cormorant Garamond',serif;
 font-size:15px;
-font-weight:500;
-margin-top:4px;
+font-style:italic;
+font-weight:400;
+margin-top:6px;
 color:var(--texto);
 line-height:1.3;
 }
 
-/* animacion */
+/* animaciones con delay escalonado — paused por defecto */
+
+.timeline-event:nth-child(2){ animation-delay:.05s }
+.timeline-event:nth-child(3){ animation-delay:.15s }
+.timeline-event:nth-child(4){ animation-delay:.25s }
+.timeline-event:nth-child(5){ animation-delay:.35s }
+.timeline-event:nth-child(6){ animation-delay:.45s }
+.timeline-event:nth-child(7){ animation-delay:.55s }
+.timeline-event:nth-child(8){ animation-delay:.65s }
+.timeline-event:nth-child(9){ animation-delay:.75s }
+.timeline-event:nth-child(10){ animation-delay:.85s }
 
 @keyframes fadeInEvent{
-from{ opacity:0; transform:translateY(12px); }
+from{ opacity:0; transform:translateY(18px); }
 to{ opacity:1; transform:translateY(0); }
 }
 
-/* delays escalonados */
-
-.timeline-event:nth-child(2){animation-delay:.1s}
-.timeline-event:nth-child(3){animation-delay:.2s}
-.timeline-event:nth-child(4){animation-delay:.3s}
-.timeline-event:nth-child(5){animation-delay:.4s}
-.timeline-event:nth-child(6){animation-delay:.5s}
-.timeline-event:nth-child(7){animation-delay:.6s}
-.timeline-event:nth-child(8){animation-delay:.7s}
-.timeline-event:nth-child(9){animation-delay:.8s}
-.timeline-event:nth-child(10){animation-delay:.9s}
-
-/* RESPONSIVE */
+/* ─── RESPONSIVE MOBILE ──────────────────────────── */
 
 @media(max-width:900px){
+
+.timeline-horizontal{
+padding:70px 0 60px;
+}
 
 .timeline-wrapper{
 flex-direction:column;
 min-height:auto;
-padding:0 24px;
+padding:0 20px 0 60px;
 gap:0;
 align-items:stretch;
 }
 
 .timeline-line{
-width:2px;
+width:1.5px;
 height:100%;
-left:24px;
+left:28px;
 top:0;
 transform:none;
 background:linear-gradient(180deg,transparent,var(--lila),var(--lila),transparent);
 }
+
+/* todos los eventos en columna sin transform de posición */
 
 .timeline-event,
 .timeline-event.top,
@@ -827,42 +850,57 @@ align-self:auto;
 justify-content:flex-start;
 flex-direction:row;
 align-items:center;
-padding:8px 0 8px 52px;
+padding:12px 0 12px 0;
+gap:16px;
 }
+
+/* punto a la izquierda sobre la línea vertical */
 
 .timeline-event.top::before,
 .timeline-event.bottom::before{
-left:24px;
+left:calc(-32px);
 top:50%;
 bottom:auto;
 transform:translate(-50%,-50%);
 }
+
+/* sin conector vertical en mobile */
 
 .timeline-event.top::after,
 .timeline-event.bottom::after{
 display:none;
 }
 
+/* card en fila */
+
 .event-card{
-flex:1;
 display:flex;
-flex-direction:column;
-align-items:flex-start;
-padding:12px 14px;
+flex-direction:row;
+align-items:center;
+gap:14px;
+padding:4px 0;
 text-align:left;
 }
 
+/* círculo más pequeño en mobile */
+
 .event-icon{
-font-size:16px;
-width:40px;
-height:40px;
-line-height:40px;
-margin:0 0 4px 0;
+font-size:17px;
+width:52px;
+height:52px;
+line-height:52px;
+margin:0;
 flex-shrink:0;
 }
 
 .timeline-event .time{
-margin-bottom:3px;
+display:block;
+margin-bottom:2px;
+}
+
+.timeline-event p{
+margin-top:0;
+font-size:16px;
 }
 
 }

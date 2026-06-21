@@ -609,7 +609,7 @@ align-items:stretch;
 max-width:1200px;
 margin:auto;
 padding:0 30px;
-min-height:520px;
+min-height:500px;
 }
 
 /* linea al 50% */
@@ -636,7 +636,7 @@ transform:translateY(-50%);
 .timeline-event{
 position:relative;
 z-index:3;
-width:120px;
+width:110px;
 text-align:center;
 display:flex;
 flex-direction:column;
@@ -657,7 +657,7 @@ animation-play-state:running;
 align-self:flex-start;
 height:50%;
 justify-content:flex-end;
-padding-bottom:46px;
+padding-bottom:28px;
 }
 
 /* abajo */
@@ -666,7 +666,7 @@ padding-bottom:46px;
 align-self:flex-end;
 height:50%;
 justify-content:flex-start;
-padding-top:46px;
+padding-top:28px;
 }
 
 /* punto sobre la línea */
@@ -675,22 +675,22 @@ padding-top:46px;
 content:"";
 position:absolute;
 left:50%;
-width:10px;
-height:10px;
+width:8px;
+height:8px;
 background:var(--lila-oscuro);
 border-radius:50%;
 z-index:4;
-box-shadow:0 0 0 4px rgba(183,154,214,.3);
+box-shadow:0 0 0 4px rgba(183,154,214,.35);
 }
 
 .timeline-event.top::before{
-bottom:-5px;
+bottom:-4px;
 top:auto;
 transform:translateX(-50%);
 }
 
 .timeline-event.bottom::before{
-top:-5px;
+top:-4px;
 bottom:auto;
 transform:translateX(-50%);
 }
@@ -700,25 +700,27 @@ transform:translateX(-50%);
 .timeline-event.top::after{
 content:"";
 position:absolute;
-bottom:5px;
+bottom:4px;
 left:50%;
 transform:translateX(-50%);
-width:1.5px;
-height:41px;
-background:linear-gradient(to bottom,rgba(183,154,214,.15),var(--lila));
+width:1px;
+height:24px;
+background:var(--lila);
 z-index:2;
+opacity:.55;
 }
 
 .timeline-event.bottom::after{
 content:"";
 position:absolute;
-top:5px;
+top:4px;
 left:50%;
 transform:translateX(-50%);
-width:1.5px;
-height:41px;
-background:linear-gradient(to top,rgba(183,154,214,.15),var(--lila));
+width:1px;
+height:24px;
+background:var(--lila);
 z-index:2;
+opacity:.55;
 }
 
 /* tarjeta transparente */
@@ -729,40 +731,65 @@ border:none;
 box-shadow:none;
 padding:6px 4px;
 transition:transform .3s ease;
+position:relative;
 }
 
 .timeline-event:hover .event-card{
 transform:translateY(-6px);
 }
 
-/* círculo del icono — fondo suave */
+/* pequeña decoración tipo hoja en el conector (top: abajo del card; bottom: arriba) */
+
+.timeline-event.top .event-card::after{
+content:"";
+display:block;
+width:6px;
+height:6px;
+border-right:1.5px solid rgba(142,107,191,.55);
+border-bottom:1.5px solid rgba(142,107,191,.55);
+transform:rotate(45deg);
+margin:7px auto 0;
+}
+
+.timeline-event.bottom .event-card::before{
+content:"";
+display:block;
+width:6px;
+height:6px;
+border-left:1.5px solid rgba(142,107,191,.55);
+border-top:1.5px solid rgba(142,107,191,.55);
+transform:rotate(45deg);
+margin:0 auto 7px;
+}
+
+/* círculo del icono — grande, pastel, como referencia */
 
 .event-icon{
-font-size:20px;
-width:68px;
-height:68px;
+font-size:22px;
+width:84px;
+height:84px;
 border-radius:50%;
-border:1.5px solid rgba(142,107,191,.3);
-background:rgba(183,154,214,.18);
+border:none;
+background:rgba(183,154,214,.25);
 display:block;
 text-align:center;
-line-height:68px;
-margin:6px auto 10px;
+line-height:84px;
+margin:0 auto 8px;
 color:var(--lila-oscuro);
 transition:background .3s ease, transform .3s ease, box-shadow .3s ease;
 box-sizing:border-box;
 }
 
-/* tono ligeramente distinto por evento */
+/* pasteles distintos por evento (tono morado variado) */
 
-.timeline-event:nth-child(2) .event-icon{ background:rgba(183,154,214,.20); }
-.timeline-event:nth-child(3) .event-icon{ background:rgba(162,130,205,.17); }
-.timeline-event:nth-child(4) .event-icon{ background:rgba(198,170,228,.22); }
-.timeline-event:nth-child(5) .event-icon{ background:rgba(175,145,215,.18); }
-.timeline-event:nth-child(6) .event-icon{ background:rgba(148,115,195,.16); }
-.timeline-event:nth-child(7) .event-icon{ background:rgba(190,160,222,.20); }
-.timeline-event:nth-child(8) .event-icon{ background:rgba(165,135,208,.18); }
-.timeline-event:nth-child(9) .event-icon{ background:rgba(180,150,218,.20); }
+.timeline-event:nth-child(2) .event-icon{ background:rgba(183,154,214,.28); }
+.timeline-event:nth-child(3) .event-icon{ background:rgba(198,175,230,.30); }
+.timeline-event:nth-child(4) .event-icon{ background:rgba(162,128,208,.22); }
+.timeline-event:nth-child(5) .event-icon{ background:rgba(210,185,235,.32); }
+.timeline-event:nth-child(6) .event-icon{ background:rgba(148,112,198,.20); }
+.timeline-event:nth-child(7) .event-icon{ background:rgba(192,165,225,.28); }
+.timeline-event:nth-child(8) .event-icon{ background:rgba(175,145,215,.25); }
+.timeline-event:nth-child(9) .event-icon{ background:rgba(205,180,232,.30); }
 
 .timeline-event:hover .event-icon{
 background:var(--lila-oscuro);
@@ -772,27 +799,28 @@ box-shadow:0 8px 22px rgba(142,107,191,.35);
 transform:scale(1.06);
 }
 
-/* hora */
+/* hora — superscript estilo referencia */
 
 .timeline-event .time{
 display:block;
-font-family:'Cinzel',serif;
-font-size:10px;
-letter-spacing:2px;
+font-family:'Cormorant Garamond',serif;
+font-size:13px;
+letter-spacing:1px;
 color:var(--lila-oscuro);
 font-weight:600;
-margin-bottom:6px;
-opacity:.85;
+font-style:italic;
+margin-bottom:4px;
+opacity:.9;
 }
 
-/* nombre del evento */
+/* nombre del evento — script elegante */
 
 .timeline-event p{
 font-family:'Cormorant Garamond',serif;
-font-size:15px;
+font-size:16px;
 font-style:italic;
 font-weight:400;
-margin-top:6px;
+margin-top:8px;
 color:var(--texto);
 line-height:1.3;
 }
@@ -885,10 +913,10 @@ text-align:left;
 /* círculo más pequeño en mobile */
 
 .event-icon{
-font-size:17px;
-width:52px;
-height:52px;
-line-height:52px;
+font-size:18px;
+width:56px;
+height:56px;
+line-height:56px;
 margin:0;
 flex-shrink:0;
 }

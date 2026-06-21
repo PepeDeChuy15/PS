@@ -762,64 +762,118 @@ transform:rotate(45deg);
 margin:0 auto 7px;
 }
 
-/* mancha de pintura — icono centrado con grid, color negro */
+/* mancha de acuarela — gradientes radiales superpuestos + halo suave */
 
 .event-icon{
 font-size:22px;
-width:84px;
-height:84px;
-border-radius:58% 42% 46% 54% / 52% 38% 62% 48%;
+width:90px;
+height:90px;
 border:none;
-background:rgba(183,154,214,.28);
 display:grid;
 place-items:center;
-margin:0 auto 8px;
+margin:0 auto 10px;
 color:#1c1c1c;
-transition:border-radius .5s ease, transform .3s ease, background .3s ease;
 box-sizing:border-box;
-}
-
-/* manchas distintas por evento */
-
-.timeline-event:nth-child(2) .event-icon{
-background:rgba(183,154,214,.28);
+transition:border-radius .6s ease, transform .35s ease;
+/* forma y acuarela por defecto — sobreescrita por nth-child */
 border-radius:58% 42% 46% 54% / 52% 38% 62% 48%;
-}
-.timeline-event:nth-child(3) .event-icon{
-background:rgba(198,175,230,.32);
-border-radius:40% 60% 52% 48% / 44% 56% 44% 56%;
-}
-.timeline-event:nth-child(4) .event-icon{
-background:rgba(162,128,208,.24);
-border-radius:62% 38% 44% 56% / 48% 54% 46% 52%;
-}
-.timeline-event:nth-child(5) .event-icon{
-background:rgba(210,185,235,.34);
-border-radius:46% 54% 60% 40% / 56% 42% 58% 44%;
-}
-.timeline-event:nth-child(6) .event-icon{
-background:rgba(148,112,198,.22);
-border-radius:54% 46% 38% 62% / 50% 60% 40% 50%;
-}
-.timeline-event:nth-child(7) .event-icon{
-background:rgba(192,165,225,.30);
-border-radius:42% 58% 56% 44% / 62% 46% 54% 38%;
-}
-.timeline-event:nth-child(8) .event-icon{
-background:rgba(175,145,215,.27);
-border-radius:56% 44% 42% 58% / 46% 58% 42% 54%;
-}
-.timeline-event:nth-child(9) .event-icon{
-background:rgba(205,180,232,.32);
-border-radius:48% 52% 58% 42% / 54% 44% 56% 46%;
+background:
+  radial-gradient(ellipse 55% 48% at 36% 30%, rgba(105,55,185,.68) 0%, transparent 55%),
+  radial-gradient(ellipse 45% 55% at 67% 66%, rgba(145,95,215,.52) 0%, transparent 52%),
+  radial-gradient(ellipse 80% 75% at 50% 50%, rgba(183,145,222,.30) 0%, transparent 78%);
+box-shadow:
+  0 0 18px 8px rgba(120,65,200,.18),
+  0 0 38px 16px rgba(150,100,220,.10);
 }
 
-/* hover: suaviza la mancha y oscurece ligeramente */
+/* Misa — violeta profundo izquierda, lavanda derecha */
+.timeline-event:nth-child(2) .event-icon{
+border-radius:58% 42% 46% 54% / 52% 38% 62% 48%;
+background:
+  radial-gradient(ellipse 52% 46% at 33% 28%, rgba(100,50,185,.72) 0%, transparent 54%),
+  radial-gradient(ellipse 42% 56% at 68% 68%, rgba(148,92,218,.55) 0%, transparent 52%),
+  radial-gradient(ellipse 82% 76% at 50% 50%, rgba(180,142,220,.28) 0%, transparent 80%);
+box-shadow:0 0 20px 9px rgba(110,55,195,.20),0 0 42px 18px rgba(148,92,218,.11);
+}
+
+/* Llegada — morado medio desplazado a la derecha */
+.timeline-event:nth-child(3) .event-icon{
+border-radius:40% 60% 52% 48% / 44% 56% 44% 56%;
+background:
+  radial-gradient(ellipse 50% 44% at 64% 32%, rgba(118,65,198,.70) 0%, transparent 54%),
+  radial-gradient(ellipse 44% 52% at 30% 70%, rgba(155,100,225,.53) 0%, transparent 51%),
+  radial-gradient(ellipse 78% 72% at 50% 50%, rgba(185,148,222,.27) 0%, transparent 78%);
+box-shadow:0 0 18px 8px rgba(118,65,198,.19),0 0 38px 16px rgba(155,100,225,.10);
+}
+
+/* Boda Civil — violeta cálido centrado arriba */
+.timeline-event:nth-child(4) .event-icon{
+border-radius:62% 38% 44% 56% / 48% 54% 46% 52%;
+background:
+  radial-gradient(ellipse 56% 42% at 45% 25%, rgba(108,55,190,.72) 0%, transparent 55%),
+  radial-gradient(ellipse 38% 54% at 65% 72%, rgba(150,98,222,.52) 0%, transparent 50%),
+  radial-gradient(ellipse 80% 78% at 48% 52%, rgba(178,140,218,.28) 0%, transparent 80%);
+box-shadow:0 0 20px 9px rgba(108,55,190,.21),0 0 40px 17px rgba(150,98,222,.11);
+}
+
+/* Comida — lavanda más suave */
+.timeline-event:nth-child(5) .event-icon{
+border-radius:46% 54% 60% 40% / 56% 42% 58% 44%;
+background:
+  radial-gradient(ellipse 48% 46% at 38% 34%, rgba(130,80,205,.65) 0%, transparent 54%),
+  radial-gradient(ellipse 46% 50% at 62% 64%, rgba(165,115,228,.50) 0%, transparent 52%),
+  radial-gradient(ellipse 76% 74% at 50% 50%, rgba(190,155,225,.26) 0%, transparent 78%);
+box-shadow:0 0 18px 7px rgba(130,80,205,.18),0 0 36px 14px rgba(165,115,228,.10);
+}
+
+/* Primer Baile — violeta oscuro base, destellos azul-morado */
+.timeline-event:nth-child(6) .event-icon{
+border-radius:54% 46% 38% 62% / 50% 60% 40% 50%;
+background:
+  radial-gradient(ellipse 54% 44% at 30% 35%, rgba(95,48,182,.74) 0%, transparent 53%),
+  radial-gradient(ellipse 40% 56% at 70% 62%, rgba(140,88,215,.55) 0%, transparent 52%),
+  radial-gradient(ellipse 80% 76% at 50% 50%, rgba(175,138,220,.28) 0%, transparent 80%);
+box-shadow:0 0 20px 9px rgba(95,48,182,.22),0 0 40px 18px rgba(140,88,215,.12);
+}
+
+/* Brindis — morado vivo más saturado */
+.timeline-event:nth-child(7) .event-icon{
+border-radius:42% 58% 56% 44% / 62% 46% 54% 38%;
+background:
+  radial-gradient(ellipse 50% 48% at 40% 30%, rgba(115,60,195,.72) 0%, transparent 54%),
+  radial-gradient(ellipse 44% 52% at 64% 70%, rgba(155,100,228,.54) 0%, transparent 51%),
+  radial-gradient(ellipse 78% 74% at 50% 50%, rgba(183,148,222,.28) 0%, transparent 79%);
+box-shadow:0 0 19px 8px rgba(115,60,195,.20),0 0 40px 16px rgba(155,100,228,.11);
+}
+
+/* Víbora — lila ahumado más suave */
+.timeline-event:nth-child(8) .event-icon{
+border-radius:56% 44% 42% 58% / 46% 58% 42% 54%;
+background:
+  radial-gradient(ellipse 52% 46% at 36% 32%, rgba(125,75,200,.68) 0%, transparent 55%),
+  radial-gradient(ellipse 42% 54% at 66% 66%, rgba(160,108,225,.52) 0%, transparent 52%),
+  radial-gradient(ellipse 78% 72% at 50% 50%, rgba(188,152,222,.26) 0%, transparent 78%);
+box-shadow:0 0 18px 7px rgba(125,75,200,.19),0 0 36px 15px rgba(160,108,225,.10);
+}
+
+/* Partida — tono más cálido lila-rosado */
+.timeline-event:nth-child(9) .event-icon{
+border-radius:48% 52% 58% 42% / 54% 44% 56% 46%;
+background:
+  radial-gradient(ellipse 54% 44% at 62% 30%, rgba(135,80,205,.70) 0%, transparent 54%),
+  radial-gradient(ellipse 42% 52% at 32% 68%, rgba(168,118,228,.53) 0%, transparent 52%),
+  radial-gradient(ellipse 80% 76% at 50% 50%, rgba(192,158,225,.27) 0%, transparent 80%);
+box-shadow:0 0 19px 8px rgba(135,80,205,.20),0 0 38px 16px rgba(168,118,228,.11);
+}
+
+/* hover: blob se redondea suavemente, halo más intenso */
 
 .timeline-event:hover .event-icon{
-transform:scale(1.07);
-border-radius:50% 50% 50% 50% / 50% 50% 50% 50%;
-filter:brightness(.92);
+transform:scale(1.08);
+border-radius:44% 56% 48% 52% / 52% 44% 56% 48%;
+box-shadow:
+  0 0 24px 10px rgba(120,65,200,.28),
+  0 0 50px 22px rgba(148,95,220,.15);
 }
 
 /* hora — superscript estilo referencia */
@@ -937,8 +991,8 @@ text-align:left;
 
 .event-icon{
 font-size:18px;
-width:56px;
-height:56px;
+width:60px;
+height:60px;
 margin:0;
 flex-shrink:0;
 display:grid;

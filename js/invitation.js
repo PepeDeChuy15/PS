@@ -1,3 +1,22 @@
+let _noteSkipped = false
+
+function skipNote(){
+  if(_noteSkipped) return
+  _noteSkipped = true
+
+  const note = document.getElementById("note")
+  const content = document.getElementById("invitation-content")
+
+  note.style.opacity = "0"
+
+  setTimeout(()=>{
+    note.style.display = "none"
+    document.body.classList.remove("locked")
+    content.style.display = "block"
+    setTimeout(()=>{ content.style.opacity = "1" }, 50)
+  }, 650)
+}
+
 function openInvitation(){
 
 const seal = document.querySelector(".seal")
@@ -36,6 +55,9 @@ intro.style.opacity="0"
 /* despues de mostrar la nota */
 
 setTimeout(()=>{
+
+if(_noteSkipped) return
+_noteSkipped = true
 
 note.style.opacity="0"
 

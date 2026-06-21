@@ -716,33 +716,42 @@ background:linear-gradient(to top,rgba(183,154,214,.2),var(--lila-oscuro));
 z-index:2;
 }
 
-/* tarjeta del evento */
+/* tarjeta del evento — transparente, sin relleno */
 
 .event-card{
-background:rgba(255,255,255,.78);
-backdrop-filter:blur(10px);
--webkit-backdrop-filter:blur(10px);
-border:1px solid rgba(183,154,214,.35);
-border-radius:16px;
-padding:14px 10px 12px;
-box-shadow:
-0 6px 20px rgba(142,107,191,.12),
-inset 0 0 8px rgba(255,255,255,.55);
-transition:transform .35s ease, box-shadow .35s ease;
+background:transparent;
+border:none;
+box-shadow:none;
+backdrop-filter:none;
+-webkit-backdrop-filter:none;
+padding:8px 6px 6px;
+transition:transform .35s ease;
 }
 
 .timeline-event:hover .event-card{
-transform:translateY(-6px);
-box-shadow:0 14px 28px rgba(142,107,191,.22);
+transform:translateY(-5px);
 }
 
-/* icono emoji */
+.timeline-event:hover .event-icon{
+background:var(--lila-oscuro);
+color:#fff;
+border-color:var(--lila-oscuro);
+}
+
+/* icono minimalista: círculo con trazo lila */
 
 .event-icon{
-font-size:38px;
-display:block;
-margin:4px auto 2px;
-line-height:1;
+font-size:19px;
+width:50px;
+height:50px;
+border-radius:50%;
+border:1.5px solid rgba(142,107,191,.45);
+display:flex;
+align-items:center;
+justify-content:center;
+margin:4px auto 8px;
+color:var(--lila-oscuro);
+transition:background .3s ease, color .3s ease, border-color .3s ease;
 }
 
 /* hora */
@@ -843,8 +852,11 @@ text-align:left;
 }
 
 .event-icon{
-font-size:30px;
-margin:0 0 4px 0;
+font-size:16px;
+width:40px;
+height:40px;
+margin:0 0 0 0;
+flex-shrink:0;
 }
 
 .timeline-event .time{

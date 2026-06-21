@@ -36,11 +36,13 @@ envelope.classList.add("open")
 },300)
 
 setTimeout(()=>{
-intro.style.display="none"
 
-/* mostrar nota */
-
+/* mostrar nota sin transición para evitar flash del contenido */
+note.style.transition = "none"
 note.classList.add("show")
+setTimeout(()=>{ note.style.transition = "" }, 50)
+
+intro.style.display="none"
 
 },700)
 

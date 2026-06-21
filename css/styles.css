@@ -741,17 +741,19 @@ border-color:var(--lila-oscuro);
 /* icono minimalista: círculo con trazo lila */
 
 .event-icon{
-font-size:19px;
-width:50px;
-height:50px;
+font-size:18px;
+width:52px;
+height:52px;
 border-radius:50%;
-border:1.5px solid rgba(142,107,191,.45);
+border:1.5px solid rgba(142,107,191,.5);
 display:flex;
 align-items:center;
 justify-content:center;
+line-height:1;
 margin:4px auto 8px;
 color:var(--lila-oscuro);
 transition:background .3s ease, color .3s ease, border-color .3s ease;
+box-sizing:border-box;
 }
 
 /* hora */

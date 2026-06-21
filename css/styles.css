@@ -762,41 +762,64 @@ transform:rotate(45deg);
 margin:0 auto 7px;
 }
 
-/* círculo del icono — grande, pastel, como referencia */
+/* mancha de pintura — icono centrado con grid, color negro */
 
 .event-icon{
 font-size:22px;
 width:84px;
 height:84px;
-border-radius:50%;
+border-radius:58% 42% 46% 54% / 52% 38% 62% 48%;
 border:none;
-background:rgba(183,154,214,.25);
-display:block;
-text-align:center;
-line-height:84px;
+background:rgba(183,154,214,.28);
+display:grid;
+place-items:center;
 margin:0 auto 8px;
-color:var(--lila-oscuro);
-transition:background .3s ease, transform .3s ease, box-shadow .3s ease;
+color:#1c1c1c;
+transition:border-radius .5s ease, transform .3s ease, background .3s ease;
 box-sizing:border-box;
 }
 
-/* pasteles distintos por evento (tono morado variado) */
+/* manchas distintas por evento */
 
-.timeline-event:nth-child(2) .event-icon{ background:rgba(183,154,214,.28); }
-.timeline-event:nth-child(3) .event-icon{ background:rgba(198,175,230,.30); }
-.timeline-event:nth-child(4) .event-icon{ background:rgba(162,128,208,.22); }
-.timeline-event:nth-child(5) .event-icon{ background:rgba(210,185,235,.32); }
-.timeline-event:nth-child(6) .event-icon{ background:rgba(148,112,198,.20); }
-.timeline-event:nth-child(7) .event-icon{ background:rgba(192,165,225,.28); }
-.timeline-event:nth-child(8) .event-icon{ background:rgba(175,145,215,.25); }
-.timeline-event:nth-child(9) .event-icon{ background:rgba(205,180,232,.30); }
+.timeline-event:nth-child(2) .event-icon{
+background:rgba(183,154,214,.28);
+border-radius:58% 42% 46% 54% / 52% 38% 62% 48%;
+}
+.timeline-event:nth-child(3) .event-icon{
+background:rgba(198,175,230,.32);
+border-radius:40% 60% 52% 48% / 44% 56% 44% 56%;
+}
+.timeline-event:nth-child(4) .event-icon{
+background:rgba(162,128,208,.24);
+border-radius:62% 38% 44% 56% / 48% 54% 46% 52%;
+}
+.timeline-event:nth-child(5) .event-icon{
+background:rgba(210,185,235,.34);
+border-radius:46% 54% 60% 40% / 56% 42% 58% 44%;
+}
+.timeline-event:nth-child(6) .event-icon{
+background:rgba(148,112,198,.22);
+border-radius:54% 46% 38% 62% / 50% 60% 40% 50%;
+}
+.timeline-event:nth-child(7) .event-icon{
+background:rgba(192,165,225,.30);
+border-radius:42% 58% 56% 44% / 62% 46% 54% 38%;
+}
+.timeline-event:nth-child(8) .event-icon{
+background:rgba(175,145,215,.27);
+border-radius:56% 44% 42% 58% / 46% 58% 42% 54%;
+}
+.timeline-event:nth-child(9) .event-icon{
+background:rgba(205,180,232,.32);
+border-radius:48% 52% 58% 42% / 54% 44% 56% 46%;
+}
+
+/* hover: suaviza la mancha y oscurece ligeramente */
 
 .timeline-event:hover .event-icon{
-background:var(--lila-oscuro);
-color:#fff;
-border-color:var(--lila-oscuro);
-box-shadow:0 8px 22px rgba(142,107,191,.35);
-transform:scale(1.06);
+transform:scale(1.07);
+border-radius:50% 50% 50% 50% / 50% 50% 50% 50%;
+filter:brightness(.92);
 }
 
 /* hora — superscript estilo referencia */
@@ -916,9 +939,10 @@ text-align:left;
 font-size:18px;
 width:56px;
 height:56px;
-line-height:56px;
 margin:0;
 flex-shrink:0;
+display:grid;
+place-items:center;
 }
 
 .timeline-event .time{

@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nuestra Boda</title>
+  <title>Nuestra Boda</title>
 
-<link rel="icon" type="image/png" href="assets/images/Escudosinfondo.png">
+  <link rel="icon" type="image/png" href="assets/images/Escudosinfondo.png">
 
-<link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@300;400;500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@300;400;500&family=Poppins:wght@300;400;500&display=swap"
+    rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
 
-<script defer src="js/countdown.js"></script>
-<script defer src="js/carousel.js"></script>
-<script defer src="js/scroll.js"></script>
+  <script defer src="js/countdown.js"></script>
+  <script defer src="js/carousel.js"></script>
+  <script defer src="js/scroll.js"></script>
 
 </head>
 
@@ -28,335 +31,340 @@
 
 
 
-<!-- INVITACION CON SOBRE-->
+  <!-- INVITACION CON SOBRE-->
 
 
-<div class="intro-screen" id="intro">
+  <div class="intro-screen" id="intro">
     <div class="envelope">
-        <img src="assets/images/sobre2.png" class="envelope-img">
-        <div class="seal" onclick="openInvitation()">
+      <img src="assets/images/sobre2.png" class="envelope-img">
+      <div class="seal" onclick="openInvitation()">
         <img src="assets/images/Escudosinfondo.png">
-        </div>
-        <p class="open-text">Abrir invitación</p>
-        </div>
+      </div>
+      <p class="open-text">Abrir invitación</p>
     </div>
-<div id="invitation-content"></div>
+  </div>
+  <div id="invitation-content"></div>
 
 
-<!--NOTA ELEGANTE ANTES DE ENTRAR AL CONTENIDO-->
-    <div class="note-screen" id="note">
+  <!--NOTA ELEGANTE ANTES DE ENTRAR AL CONTENIDO-->
+  <div class="note-screen" id="note">
 
     <div class="note-card">
 
-    <h2>Con Mucho Amor</h2>
+      <h2>Con Mucho Amor</h2>
 
-    <p>
-    Porque el amor es un viaje que se disfruta más en compañía,
-    hemos decidido que el resto de nuestros días sean una sola
-    historia escrita a cuatro manos y dos corazones.
-    </p>
+      <p>
+        Porque el amor es un viaje que se disfruta más en compañía,
+        hemos decidido que el resto de nuestros días sean una sola
+        historia escrita a cuatro manos y dos corazones.
+      </p>
 
-    <p class="note-signature">
+      <p class="note-signature">
         Pepe & Sofi
-    </p>
+      </p>
 
-    <button class="skip-btn" onclick="skipNote()">Saltar ›</button>
+      <button class="skip-btn" onclick="skipNote()">Saltar ›</button>
 
-    </div>
-
-    </div>
-
-
-<!-- INVITACION CON SOBRE-->
-
-
-
-
-
-<header class="header">
-
-
-<nav id="nav">
-<a href="#timeline">Eventos</a>
-<a href="#info">Detalles</a>
-<a href="#galeria">Galería</a>
-</nav>
-
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-
-</header>
-
-
-<section class="hero">
-<div class="hero-overlay fade">
-    <p class="date">24 Octubre 2026</p>
-    <h1>Pepe <span>&</span> Sofi</h1>
-    <p class="quote">¡Nos Casamos!</p>
-    <div class="logo">
-    <img src="assets/images/Escudosinfondo.png">
-    </div>
-</div>
-</section>
-
-
-<section class="countdown fade">
-
-<h2>Faltan</h2>
-
-<div class="countdown-container">
-
-    <div>
-    <span id="days">0</span>
-    <p>Días</p>
-    </div>
-
-    <div>
-    <span id="hours">0</span>
-    <p>Horas</p>
-    </div>
-
-    <div>
-    <span id="minutes">0</span>
-    <p>Min</p>
-    </div>
-
-    <div>
-    <span id="seconds">0</span>
-    <p>Seg</p>
-    </div>
-
-    </div>
-
-</section>
-
-<!--- Linea delk tiempo -->
-<section class="timeline-horizontal fade">
-
-<h2>Programa</h2>
-
-<div class="timeline-wrapper">
-
-<div class="timeline-line"></div>
-
-
-<div class="timeline-event bottom">
-<div class="event-card">
-<span class="time">02:00 pm</span>
-<i class="ti ti-building-church event-icon"></i>
-<p>Misa</p>
-</div>
-</div>
-
-<div class="timeline-event top">
-<div class="event-card">
-<span class="time">06:30 pm</span>
-<i class="ti ti-map-pin event-icon"></i>
-<p>Recepción</p>
-</div>
-</div>
-
-<div class="timeline-event bottom">
-<div class="event-card">
-<span class="time">07:00 pm</span>
-<i class="ti ti-heart event-icon"></i>
-<p>Boda Civil</p>
-</div>
-</div>
-
-<div class="timeline-event top">
-<div class="event-card">
-<span class="time">08:00 pm</span>
-<i class="ti ti-tools-kitchen-2 event-icon"></i>
-<p>Comida</p>
-</div>
-</div>
-
-<div class="timeline-event bottom">
-<div class="event-card">
-<span class="time">09:30 pm</span>
-<i class="ti ti-music event-icon"></i>
-<p>Primer Baile</p>
-</div>
-</div>
-
-<div class="timeline-event top">
-<div class="event-card">
-<span class="time">10:30 pm</span>
-<i class="ti ti-glass event-icon"></i>
-<p>Brindis y pastel</p>
-</div>
-</div>
-
-<div class="timeline-event bottom">
-<div class="event-card">
-<span class="time">09:00 pm</span>
-<i class="ti ti-infinity event-icon"></i>
-<p>Víbora de la mar</p>
-</div>
-</div>
-
-<div class="timeline-event top">
-<div class="event-card">
-<span class="time">02:30 am</span>
-<i class="ti ti-send event-icon"></i>
-<p>Partida de novios</p>
-</div>
-</div>
-
-</div>
-
-</section>
-
-<!--FIN DE LA LINEA DE TIEMPO-->
-
-
-
-<section class="timeline fade" id="timeline">
-
-<h2>Nuestro Gran Día</h2>
-<div class="timeline-container">
-    <div class="timeline-item">
-    <div class="timeline-icon">⛪</div>
-    <div class="timeline-content">
-    <h3>Boda Religiosa</h3>
-    <p>Parroquia del Sagrado Corazón</p>
-    <p>17:00</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.9367214336726!2d-102.87712172509272!3d23.17250951071701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86830bc61aa40b29%3A0x6872955ad1b5f35e!2sParroquia%20del%20Sagrado%20Coraz%C3%B3n!5e0!3m2!1ses-419!2smx!4v1773006783603!5m2!1ses-419!2smx"></iframe>
-
-    <a class="map-btn" target="_blank" href="https://maps.app.goo.gl/nAPxPNNEFrnNbbTj7">
-    Abrir en Maps
-    </a>
-    </div>
-</div>
-
-
-<div class="timeline-item">
-
-<div class="timeline-icon">💍</div>
-
-<div class="timeline-content">
-
-<h3>Boda Civil</h3>
-<p>Antigua San Felipe</p>
-<p>19:00</p>
-
-<h3 style="margin-top:15px;">Fiesta</h3>
-<p>Antigua San Felipe</p>
-<p>20:00</p>
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.7480869098677!2d-102.81350662403973!3d23.17939261045664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86830a79a3c528bd%3A0x800d9e4b5d86343!2sCentro%20de%20Convenciones%20Antigua%20San%20Felipe!5e0!3m2!1ses-419!2smx!4v1773006746587!5m2!1ses-419!2smx"></iframe>
-
-<a class="map-btn" target="_blank" href="https://maps.app.goo.gl/mkwkb79YpXYWtDRU6">
-Abrir en Maps
-</a>
-
-</div>
-
-</div>
-
-
-<div class="timeline-item">
-
-<div class="timeline-icon">🎉</div>
-
-<div class="timeline-content">
-
-<h3>Tornaboda</h3>
-
-<p>Salón AG</p>
-
-<p>25 Octubre</p>
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.654362481721!2d-102.89639282403964!3d23.182811810328186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86830b618bd279ef%3A0x47d84add4bef061a!2zU2Fsw7NuIEFH!5e0!3m2!1ses-419!2smx!4v1773005011032!5m2!1ses-419!2smx"></iframe>
-
-<a class="map-btn" target="_blank" href="https://maps.app.goo.gl/hs9Ypzja8RYMzjCB9">
-Abrir en Maps
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section class="info fade" id="info">
-
-<h2>Detalles de la celebración</h2>
-
-<div class="info-grid">
-
-<div class="info-card">
-<h3>Dress Code</h3>
-<p>Formal Elegante</p>
-</div>
-
-<div class="info-card">
-<h3>Mascotas</h3>
-<p>Pet Friendly</p>
-</div>
-
-</div>
-
-<div class="gifts-section">
-
-  <h3 class="gifts-title">Regalos</h3>
-  <p class="gifts-subtitle">Su presencia es nuestro mayor regalo, pero si desean obsequiarnos algo, aquí algunas opciones:</p>
-
-  <div class="gifts-grid">
-
-    <div class="gift-card">
-      <i class="ti ti-building-store gift-icon"></i>
-      <h4>Mesa de Regalos Liverpool</h4>
-      <p>Contamos con una mesa de regalos en Liverpool donde encontrarás opciones seleccionadas especialmente para nosotros.</p>
-    </div>
-
-    <div class="gift-card">
-      <i class="ti ti-gift gift-icon"></i>
-      <h4>Regalo Libre</h4>
-      <p>Si prefieres elegir tú mismo el detalle, recibiremos con mucho cariño el regalo de tu elección.</p>
-    </div>
-
-    <div class="gift-card">
-      <i class="ti ti-mail gift-icon"></i>
-      <h4>Lluvia de Sobres</h4>
-      <p>Tu aportación en efectivo será muy bienvenida y nos ayudará a hacer realidad nuestros sueños juntos.</p>
     </div>
 
   </div>
 
-</div>
 
-</section>
-
-
-<section class="gallery fade" id="galeria">
-
-<h2>Nuestra Historia</h2>
-
-<div class="carousel">
-
-<img src="assets/images/gallery1.jpg" class="carousel-img active">
-<img src="assets/images/gallery2.jpg" class="carousel-img">
-<img src="assets/images/gallery3.jpg" class="carousel-img">
-
-</div>
-
-</section>
+  <!-- INVITACION CON SOBRE-->
 
 
-<footer>
 
-<img src="assets/images/escudo.png" class="footer-logo">
 
-<p>24 Octubre 2026</p>
 
-</footer>
+  <header class="header">
 
-<script defer src="js/menu.js"></script>
-<script defer src="js/invitation.js"></script>
+
+    <nav id="nav">
+      <a href="#timeline">Eventos</a>
+      <a href="#info">Detalles</a>
+      <a href="#galeria">Galería</a>
+    </nav>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  </header>
+
+
+  <section class="hero">
+    <div class="hero-overlay fade">
+      <p class="date">24 Octubre 2026</p>
+      <h1>Pepe <span>&</span> Sofi</h1>
+      <p class="quote">¡Nos Casamos!</p>
+      <div class="logo">
+        <img src="assets/images/Escudosinfondo.png">
+      </div>
+    </div>
+  </section>
+
+
+  <section class="countdown fade">
+
+    <h2>Faltan</h2>
+
+    <div class="countdown-container">
+
+      <div>
+        <span id="days">0</span>
+        <p>Días</p>
+      </div>
+
+      <div>
+        <span id="hours">0</span>
+        <p>Horas</p>
+      </div>
+
+      <div>
+        <span id="minutes">0</span>
+        <p>Min</p>
+      </div>
+
+      <div>
+        <span id="seconds">0</span>
+        <p>Seg</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!--- Linea delk tiempo -->
+  <section class="timeline-horizontal fade">
+
+    <h2>Programa</h2>
+
+    <div class="timeline-wrapper">
+
+      <div class="timeline-line"></div>
+
+
+      <div class="timeline-event bottom">
+        <div class="event-card">
+          <span class="time">02:00 pm</span>
+          <i class="ti ti-building-church event-icon"></i>
+          <p>Misa</p>
+        </div>
+      </div>
+
+      <div class="timeline-event top">
+        <div class="event-card">
+          <span class="time">06:30 pm</span>
+          <i class="ti ti-map-pin event-icon"></i>
+          <p>Recepción</p>
+        </div>
+      </div>
+
+      <div class="timeline-event bottom">
+        <div class="event-card">
+          <span class="time">07:00 pm</span>
+          <i class="ti ti-heart event-icon"></i>
+          <p>Boda Civil</p>
+        </div>
+      </div>
+
+      <div class="timeline-event top">
+        <div class="event-card">
+          <span class="time">08:00 pm</span>
+          <i class="ti ti-tools-kitchen-2 event-icon"></i>
+          <p>Comida</p>
+        </div>
+      </div>
+
+      <div class="timeline-event bottom">
+        <div class="event-card">
+          <span class="time">09:30 pm</span>
+          <i class="ti ti-music event-icon"></i>
+          <p>Primer Baile</p>
+        </div>
+      </div>
+
+      <div class="timeline-event top">
+        <div class="event-card">
+          <span class="time">10:30 pm</span>
+          <i class="ti ti-glass event-icon"></i>
+          <p>Brindis y pastel</p>
+        </div>
+      </div>
+
+      <div class="timeline-event bottom">
+        <div class="event-card">
+          <span class="time">09:00 pm</span>
+          <i class="ti ti-infinity event-icon"></i>
+          <p>Víbora de la mar</p>
+        </div>
+      </div>
+
+      <div class="timeline-event top">
+        <div class="event-card">
+          <span class="time">02:30 am</span>
+          <i class="ti ti-send event-icon"></i>
+          <p>Partida de novios</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!--FIN DE LA LINEA DE TIEMPO-->
+
+
+
+  <section class="timeline fade" id="timeline">
+
+    <h2>Nuestro Gran Día</h2>
+    <div class="timeline-container">
+      <div class="timeline-item">
+        <div class="timeline-icon">⛪</div>
+        <div class="timeline-content">
+          <h3>Boda Religiosa</h3>
+          <p>Parroquia del Sagrado Corazón</p>
+          <p>14:00</p>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.9367214336726!2d-102.87712172509272!3d23.17250951071701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86830bc61aa40b29%3A0x6872955ad1b5f35e!2sParroquia%20del%20Sagrado%20Coraz%C3%B3n!5e0!3m2!1ses-419!2smx!4v1773006783603!5m2!1ses-419!2smx"></iframe>
+
+          <a class="map-btn" target="_blank" href="https://maps.app.goo.gl/nAPxPNNEFrnNbbTj7">
+            Abrir en Maps
+          </a>
+        </div>
+      </div>
+
+
+      <div class="timeline-item">
+
+        <div class="timeline-icon">💍</div>
+
+        <div class="timeline-content">
+
+          <h3>Boda Civil</h3>
+          <p>Antigua San Felipe</p>
+          <p>19:00</p>
+
+          <h3 style="margin-top:15px;">Fiesta</h3>
+          <p>Antigua San Felipe</p>
+          <p>20:00</p>
+
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.7480869098677!2d-102.81350662403973!3d23.17939261045664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86830a79a3c528bd%3A0x800d9e4b5d86343!2sCentro%20de%20Convenciones%20Antigua%20San%20Felipe!5e0!3m2!1ses-419!2smx!4v1773006746587!5m2!1ses-419!2smx"></iframe>
+
+          <a class="map-btn" target="_blank" href="https://maps.app.goo.gl/mkwkb79YpXYWtDRU6">
+            Abrir en Maps
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="timeline-item">
+
+        <div class="timeline-icon">🎉</div>
+
+        <div class="timeline-content">
+
+          <h3>Tornaboda</h3>
+
+          <p>Salón AG</p>
+
+          <p>25 Octubre</p>
+
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.654362481721!2d-102.89639282403964!3d23.182811810328186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86830b618bd279ef%3A0x47d84add4bef061a!2zU2Fsw7NuIEFH!5e0!3m2!1ses-419!2smx!4v1773005011032!5m2!1ses-419!2smx"></iframe>
+
+          <a class="map-btn" target="_blank" href="https://maps.app.goo.gl/hs9Ypzja8RYMzjCB9">
+            Abrir en Maps
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="info fade" id="info">
+
+    <h2>Detalles de la celebración</h2>
+
+    <div class="info-grid">
+
+      <div class="info-card">
+        <h3>Dress Code</h3>
+        <p>Formal Elegante</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Mascotas</h3>
+        <p>Pet Friendly</p>
+      </div>
+
+    </div>
+
+    <div class="gifts-section">
+
+      <h3 class="gifts-title">Regalos</h3>
+      <p class="gifts-subtitle">Su presencia es nuestro mayor regalo, pero si desean obsequiarnos algo, aquí algunas
+        opciones:</p>
+
+      <div class="gifts-grid">
+
+        <div class="gift-card">
+          <i class="ti ti-building-store gift-icon"></i>
+          <h4>Mesa de Regalos Liverpool</h4>
+          <p>Contamos con una mesa de regalos en Liverpool donde encontrarás opciones seleccionadas especialmente para
+            nosotros.</p>
+        </div>
+
+        <div class="gift-card">
+          <i class="ti ti-gift gift-icon"></i>
+          <h4>Regalo Libre</h4>
+          <p>Si prefieres elegir tú mismo el detalle, recibiremos con mucho cariño el regalo de tu elección.</p>
+        </div>
+
+        <div class="gift-card">
+          <i class="ti ti-mail gift-icon"></i>
+          <h4>Lluvia de Sobres</h4>
+          <p>Tu aportación en efectivo será muy bienvenida y nos ayudará a hacer realidad nuestros sueños juntos.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="gallery fade" id="galeria">
+
+    <h2>Nuestra Historia</h2>
+
+    <div class="carousel">
+
+      <img src="assets/images/gallery1.jpg" class="carousel-img active">
+      <img src="assets/images/gallery2.jpg" class="carousel-img">
+      <img src="assets/images/gallery3.jpg" class="carousel-img">
+
+    </div>
+
+  </section>
+
+
+  <footer>
+
+    <img src="assets/images/escudo.png" class="footer-logo">
+
+    <p>24 Octubre 2026</p>
+
+  </footer>
+
+  <script defer src="js/menu.js"></script>
+  <script defer src="js/invitation.js"></script>
 
 
 </body>

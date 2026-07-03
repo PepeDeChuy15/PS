@@ -1,19 +1,18 @@
 let index = 0;
 
 const images = document.querySelectorAll(".carousel-img");
+const dots   = document.querySelectorAll(".carousel-dot");
 
-function showImage(){
-
-images.forEach(img => img.classList.remove("active"));
-
-index++;
-
-if(index >= images.length){
-index = 0;
+function goToSlide(n) {
+  images[index].classList.remove("active");
+  dots[index].classList.remove("active");
+  index = (n + images.length) % images.length;
+  images[index].classList.add("active");
+  dots[index].classList.add("active");
 }
 
-images[index].classList.add("active");
-
+function showNext() {
+  goToSlide(index + 1);
 }
 
-setInterval(showImage,4000);
+setInterval(showNext, 4000);

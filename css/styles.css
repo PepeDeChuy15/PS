@@ -408,18 +408,55 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 }
 
 .carousel {
-  max-width: 800px;
-  margin: auto;
+  max-width: 820px;
+  margin: 36px auto 0;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #ede8e0;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .14);
 }
 
 .carousel-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  border-radius: 10px;
-  display: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+  display: block;
+  opacity: 0;
+  transition: opacity .9s ease;
 }
 
 .carousel-img.active {
-  display: block;
+  opacity: 1;
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 5;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .55);
+  cursor: pointer;
+  transition: background .3s ease, transform .3s ease;
+}
+
+.carousel-dot.active {
+  background: #ffffff;
+  transform: scale(1.35);
 }
 
 /* FOOTER */

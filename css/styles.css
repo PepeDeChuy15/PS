@@ -314,15 +314,34 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 
 .info-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
-  margin-top: 30px;
+  max-width: 900px;
+  margin: 30px auto 0;
+  align-items: stretch;
 }
 
 .info-card {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
+  padding: 36px 24px 30px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.info-card h3 {
+  font-size: 18px;
+  color: #1c1c1c;
+  margin-bottom: 14px;
+}
+
+.info-card p {
+  max-width: 520px;
+  margin: 0 auto;
+  font-size: 18px;
+  color: #666;
+  line-height: 1.55;
 }
 
 .dress-code-list {
@@ -330,14 +349,18 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   display: grid;
   gap: 12px;
   margin-top: 16px;
-  justify-content: center;
-  text-align: center;
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: start;
+  text-align: left;
 }
 
 .dress-code-list li {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
   font-size: 19px;
   line-height: 1.45;

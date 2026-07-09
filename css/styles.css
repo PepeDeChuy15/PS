@@ -326,14 +326,14 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   min-height: 220px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   text-align: center;
 }
 
 .info-card h3 {
   font-size: 18px;
   color: #1c1c1c;
-  margin-bottom: 14px;
+  margin-bottom: 22px;
 }
 
 .info-card p {
@@ -342,40 +342,6 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   font-size: 18px;
   color: #666;
   line-height: 1.55;
-}
-
-.dress-code-list {
-  list-style: none;
-  display: grid;
-  gap: 12px;
-  margin-top: 16px;
-  width: fit-content;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: start;
-  text-align: left;
-}
-
-.dress-code-list li {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-  font-size: 19px;
-  line-height: 1.45;
-  color: var(--texto);
-}
-
-.dress-code-list i {
-  flex: 0 0 auto;
-  width: 24px;
-  height: 24px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--lila-oscuro);
-  font-size: 19px;
 }
 
 /* REGALOS */

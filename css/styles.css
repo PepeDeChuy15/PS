@@ -676,6 +676,7 @@ footer {
 
   .header {
     padding: 15px 20px;
+    justify-content: flex-end;
   }
 
   .logo img {
@@ -684,20 +685,38 @@ footer {
 
   nav {
     position: absolute;
-    top: 80px;
-    right: 0;
-    background: rgba(0, 0, 0, .9);
-    width: 200px;
+    top: 64px;
+    left: 20px;
+    right: 20px;
+    width: auto;
+    max-width: calc(100vw - 40px);
+    background: rgba(252, 249, 242, .96);
+    border: 1px solid rgba(183, 154, 214, .45);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, .12);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     flex-direction: column;
+    align-items: center;
     display: none;
-    padding: 20px;
-    border-radius: 10px 0 0 10px;
+    padding: 18px 20px;
+    border-radius: 14px;
   }
 
   nav a {
     display: block;
-    margin: 10px 0;
-    color: white;
+    width: 100%;
+    margin: 0;
+    padding: 12px 0;
+    color: var(--lila-oscuro);
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-align: center;
+    border-bottom: 1px solid rgba(183, 154, 214, .22);
+  }
+
+  nav a:last-child {
+    border-bottom: 0;
   }
 
   nav.active {

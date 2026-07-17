@@ -549,6 +549,22 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   border-radius: 14px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, .08), inset 0 0 8px rgba(255, 255, 255, .6);
   scroll-margin-top: 90px;
+  position: relative;
+  overflow: hidden;
+}
+
+.rsvp-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../assets/images/DSC6780.jpg") center / cover no-repeat;
+  opacity: 0.38;
+  z-index: 0;
+}
+
+.rsvp-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .rsvp-icon {

@@ -435,6 +435,28 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   line-height: 1.6;
 }
 
+.gift-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--lila-oscuro);
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background .3s ease, transform .2s ease;
+}
+
+.gift-link:hover {
+  background: #6a4d9a;
+  transform: translateY(-2px);
+}
+
 .lodging-section {
   margin-top: 58px;
   text-align: center;
@@ -1092,7 +1114,7 @@ p {
 
 /* Tarjetas y título sobre la foto de la línea de tiempo. */
 .timeline .timeline-content {
-  background: rgba(255, 253, 248, 0.78);
+  background: rgba(255, 253, 248, 0.68);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 }
@@ -1101,7 +1123,6 @@ p {
   color: #ffffff;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
 }
-
 
 /* TIMELINE PREMIUM */
 

@@ -359,9 +359,9 @@
       <i class="ti ti-calendar-heart rsvp-icon"></i>
       <h3>Confirma tu asistencia</h3>
       <p>Nos encantaría saber si podrás acompañarnos en este día tan especial.</p>
-      <button class="rsvp-link" type="button" id="open-rsvp">
+      <a class="rsvp-link" target="_blank" rel="noopener" href="https://forms.gle/tu-formulario">
         Confirmar asistencia
-      </button>
+      </a>
     </div>
 
   </section>
@@ -398,45 +398,8 @@
 
   </footer>
 
-  <dialog class="rsvp-dialog" id="rsvp-dialog" aria-labelledby="rsvp-dialog-title">
-    <div class="rsvp-dialog-header">
-      <div>
-        <p class="rsvp-eyebrow">Confirmación</p>
-        <h2 id="rsvp-dialog-title">Confirma tu asistencia</h2>
-      </div>
-      <button class="rsvp-close" type="button" id="close-rsvp" aria-label="Cerrar formulario">×</button>
-    </div>
-
-    <div id="rsvp-lookup-view">
-      <p class="rsvp-dialog-copy">Ingresa el código de tu invitación para confirmar quiénes asistirán.</p>
-      <form id="rsvp-lookup-form">
-        <label for="invitation-code">Código de invitación</label>
-        <div class="rsvp-code-row">
-          <input id="invitation-code" name="invitation-code" type="text" autocomplete="off" autocapitalize="characters"
-            maxlength="20" placeholder="Ej. GARCIA26" required>
-          <button class="rsvp-submit" type="submit">Continuar</button>
-        </div>
-      </form>
-    </div>
-
-    <div id="rsvp-guests-view" hidden>
-      <p class="rsvp-dialog-copy" id="rsvp-family-message"></p>
-      <form id="rsvp-attendance-form">
-        <fieldset id="rsvp-guests-list" class="rsvp-guests-list">
-          <legend>¿Quiénes asistirán?</legend>
-        </fieldset>
-        <button class="rsvp-submit" type="submit">Enviar confirmación</button>
-        <button class="rsvp-back" type="button" id="rsvp-back">Usar otro código</button>
-      </form>
-    </div>
-
-    <p class="rsvp-status" id="rsvp-status" role="status" aria-live="polite"></p>
-  </dialog>
-
   <script defer src="js/menu.js"></script>
   <script defer src="js/invitation.js"></script>
-  <script defer src="js/rsvp-config.js"></script>
-  <script defer src="js/rsvp.js"></script>
 
 
 </body>

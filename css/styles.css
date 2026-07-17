@@ -996,10 +996,7 @@ p {
   box-shadow: 0 0 0 5px rgba(183, 154, 214, .3);
 }
 
-.timeline-event.top::before,
-.timeline-event.bottom::before {
-  /* igual para ambos: centrado en la línea */
-}
+
 
 /* conector horizontal dot → tarjeta */
 

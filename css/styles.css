@@ -822,7 +822,7 @@ footer {
   justify-content: center;
   align-items: center;
   background: linear-gradient(180deg, var(--cremita), var(--lila-suave));
-  transition: opacity .8s ease;
+  transition: opacity .35s ease;
   z-index: 9999;
   padding: 20px;
 }
@@ -830,7 +830,7 @@ footer {
 .envelope {
   position: relative;
   text-align: center;
-  transition: opacity .7s ease, transform .7s ease;
+  transition: opacity .35s ease, transform .35s ease;
 }
 
 .envelope-img {

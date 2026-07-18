@@ -31,17 +31,17 @@ function openInvitation(){
   setTimeout(()=>{
     intro.classList.add("leaving")
     intro.style.opacity = "0"
-  }, 1000)
+  }, 400)
 
   setTimeout(()=>{
     note.style.transition = "none"
     note.classList.add("show")
     setTimeout(()=>{ note.style.transition = "" }, 50)
     intro.style.display = "none"
-  }, 1450)
+  }, 700)
 
   setTimeout(()=>{
     if(_noteSkipped) return
     skipNote()
-  }, 8000)
+  }, 5000)
 }

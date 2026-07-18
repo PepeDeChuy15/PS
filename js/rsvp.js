@@ -79,6 +79,11 @@ function send(asistencia, pases, extra, comentarios) {
 }
 
 (function init() {
+  if (new Date() >= new Date('2026-09-01')) {
+    showState('rsvp-closed');
+    return;
+  }
+
   var params = new URLSearchParams(window.location.search);
   var inv    = params.get('inv');
 

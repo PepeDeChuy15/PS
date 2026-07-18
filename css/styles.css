@@ -270,7 +270,7 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   margin: auto;
 }
 
-.timeline-item {
+.timeline-item { 
   display: flex;
   align-items: flex-start;
   margin: 50px 0;
@@ -280,7 +280,7 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 .timeline-icon {
   font-size: 30px;
   background: var(--cremita);
-  opacity: 0.3;
+  opacity: 0.6;
   color: white;
   width: 60px;
   height: 60px;

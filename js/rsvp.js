@@ -1,5 +1,5 @@
 // Pega aquí la URL de tu Apps Script Web App después de publicarla
-const APPS_SCRIPT_URL = 'TU_APPS_SCRIPT_URL_AQUI';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzTbd4EnvoME0szwB8cwkUNLqzKrO89Dz1mW5cIPXpmUuwMjDnFFPFBFDYjAVX4LZK5/exec';
 
 let guestData = null;
 let pasesVal  = 1;

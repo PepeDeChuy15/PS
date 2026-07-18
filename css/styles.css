@@ -560,12 +560,12 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   margin: 0 auto;
   padding: 44px 28px;
   text-align: center;
-  background: rgba(255, 253, 248, .30);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(183, 154, 214, .45);
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, .10);
+  background: rgba(22, 10, 45, 0.84);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(183, 154, 214, .30);
+  border-radius: 18px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, .35);
   scroll-margin-top: 90px;
   position: relative;
   z-index: 1;
@@ -574,20 +574,22 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 .rsvp-icon {
   display: block;
   margin-bottom: 12px;
-  font-size: 34px;
-  color: var(--lila-oscuro);
+  font-size: 38px;
+  color: #c9a8f0;
 }
 
 .rsvp-section h3 {
-  font-size: 23px;
-  color: #1c1c1c;
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  color: #fff;
   margin-bottom: 12px;
+  letter-spacing: 1px;
 }
 
 .rsvp-section p {
   max-width: 480px;
   margin: 0 auto;
-  color: #777;
+  color: rgba(255, 255, 255, .70);
   font-size: 17px;
 }
 

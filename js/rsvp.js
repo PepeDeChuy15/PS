@@ -97,15 +97,29 @@ function send(asistencia, pases, extra, comentarios) {
         return;
       }
 
+      if (data.yaConfirmo) {
+        var title = document.getElementById('rsvp-success-title');
+        var msg   = document.getElementById('rsvp-success-msg');
+        if (data.asistencia === 'si') {
+          title.textContent = '¡Ya confirmaste tu asistencia!';
+          msg.textContent   = 'Tu lugar ya está reservado. ¡Nos vemos el 24 de octubre!';
+        } else {
+          title.textContent = 'Ya enviaste tu respuesta';
+          msg.textContent   = 'Registramos que no podrás asistir. ¡Te extrañaremos!';
+        }
+        showState('rsvp-success');
+        return;
+      }
+
       guestData = data;
       pasesVal  = 1;
       extraVal  = 0;
 
-      document.getElementById('rsvp-name-display').textContent  = data.nombre;
-      document.getElementById('rsvp-passes-display').textContent = data.pases;
-      document.getElementById('rsvp-passes-plural').textContent  = data.pases === 1 ? '' : 's';
-      document.getElementById('rsvp-val-pases').textContent      = pasesVal;
-      document.getElementById('rsvp-val-extra').textContent      = extraVal;
+      document.getElementById('rsvp-name-display').textContent   = data.nombre;
+      document.getElementById('rsvp-passes-display').textContent  = data.pases;
+      document.getElementById('rsvp-passes-plural').textContent   = data.pases === 1 ? '' : 's';
+      document.getElementById('rsvp-val-pases').textContent       = pasesVal;
+      document.getElementById('rsvp-val-extra').textContent       = extraVal;
 
       document.getElementById('rsvp-step-1').classList.remove('rsvp-hidden');
       document.getElementById('rsvp-step-2').classList.add('rsvp-hidden');

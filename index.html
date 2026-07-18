@@ -21,6 +21,7 @@
   <script defer src="js/countdown.js"></script>
   <script defer src="js/carousel.js"></script>
   <script defer src="js/scroll.js"></script>
+  <script defer src="js/rsvp.js"></script>
 
 </head>
 
@@ -363,12 +364,83 @@
 
     <div class="rsvp-background">
       <div class="rsvp-section" id="confirmacion">
-        <i class="ti ti-calendar-heart rsvp-icon"></i>
-        <h3>Confirma tu asistencia</h3>
-        <p>Nos encantaría saber si podrás acompañarnos en este día tan especial.</p>
-        <a class="rsvp-link" target="_blank" rel="noopener" href="https://forms.gle/tu-formulario">
-          Confirmar asistencia
-        </a>
+
+        <!-- sin parámetro de invitación -->
+        <div class="rsvp-state" id="rsvp-noparam">
+          <i class="ti ti-calendar-heart rsvp-icon"></i>
+          <h3>Confirma tu Asistencia</h3>
+          <p>Usa el enlace personalizado de tu invitación para confirmar tu asistencia.</p>
+        </div>
+
+        <!-- cargando -->
+        <div class="rsvp-state rsvp-hidden" id="rsvp-loading">
+          <div class="rsvp-spinner"></div>
+          <p class="rsvp-hint">Buscando tu invitación…</p>
+        </div>
+
+        <!-- no encontrado -->
+        <div class="rsvp-state rsvp-hidden" id="rsvp-notfound">
+          <i class="ti ti-mood-sad rsvp-icon"></i>
+          <h3>Invitación no encontrada</h3>
+          <p class="rsvp-hint">Verifica el enlace o contáctanos directamente.</p>
+        </div>
+
+        <!-- formulario -->
+        <div class="rsvp-state rsvp-hidden" id="rsvp-form">
+
+          <p class="rsvp-greeting">Hola, <strong id="rsvp-name-display"></strong></p>
+          <p class="rsvp-passes-info">Tu invitación incluye <strong><span id="rsvp-passes-display"></span> pase<span id="rsvp-passes-plural"></span></strong></p>
+
+          <!-- paso 1: ¿asistirás? -->
+          <div id="rsvp-step-1">
+            <p class="rsvp-question">¿Confirmas tu asistencia?</p>
+            <div class="rsvp-btns">
+              <button class="rsvp-btn rsvp-btn-confirm" onclick="rsvpGoStep2()">Sí, asistiré ✓</button>
+              <button class="rsvp-btn rsvp-btn-deny" onclick="rsvpDeny()">No podré asistir</button>
+            </div>
+          </div>
+
+          <!-- paso 2: detalles -->
+          <div id="rsvp-step-2" class="rsvp-hidden">
+            <p class="rsvp-question">Cuéntanos más</p>
+
+            <div class="rsvp-field">
+              <label>Pases que utilizarás</label>
+              <div class="rsvp-counter">
+                <button onclick="rsvpChange('pases',-1)">−</button>
+                <span id="rsvp-val-pases">1</span>
+                <button onclick="rsvpChange('pases',1)">+</button>
+              </div>
+            </div>
+
+            <div class="rsvp-field">
+              <label>Pases adicionales <em>(opcional)</em></label>
+              <div class="rsvp-counter">
+                <button onclick="rsvpChange('extra',-1)">−</button>
+                <span id="rsvp-val-extra">0</span>
+                <button onclick="rsvpChange('extra',1)">+</button>
+              </div>
+            </div>
+
+            <div class="rsvp-field">
+              <label>Comentarios <em>(alergias, restricciones…)</em></label>
+              <textarea id="rsvp-comments" rows="3" placeholder="Opcional"></textarea>
+            </div>
+
+            <div class="rsvp-btns">
+              <button class="rsvp-btn rsvp-btn-confirm" onclick="rsvpSubmit()">Confirmar asistencia</button>
+              <button class="rsvp-btn rsvp-btn-back" onclick="rsvpBack()">← Volver</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- éxito -->
+        <div class="rsvp-state rsvp-hidden" id="rsvp-success">
+          <i class="ti ti-circle-check rsvp-icon rsvp-icon-success"></i>
+          <h3 id="rsvp-success-title"></h3>
+          <p class="rsvp-hint" id="rsvp-success-msg"></p>
+        </div>
+
       </div>
     </div>
 

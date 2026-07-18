@@ -1,143 +1,118 @@
-(() => {
-  const config = window.RSVP_CONFIG || {};
-  const dialog = document.getElementById("rsvp-dialog");
-  const openButton = document.getElementById("open-rsvp");
-  const closeButton = document.getElementById("close-rsvp");
-  const lookupForm = document.getElementById("rsvp-lookup-form");
-  const attendanceForm = document.getElementById("rsvp-attendance-form");
-  const codeInput = document.getElementById("invitation-code");
-  const lookupView = document.getElementById("rsvp-lookup-view");
-  const guestsView = document.getElementById("rsvp-guests-view");
-  const guestsList = document.getElementById("rsvp-guests-list");
-  const familyMessage = document.getElementById("rsvp-family-message");
-  const status = document.getElementById("rsvp-status");
-  const backButton = document.getElementById("rsvp-back");
+// Pega aquí la URL de tu Apps Script Web App después de publicarla
+const APPS_SCRIPT_URL = 'TU_APPS_SCRIPT_URL_AQUI';
 
-  let invitation = null;
-  let invitationCode = "";
+let guestData = null;
+let pasesVal  = 1;
+let extraVal  = 0;
 
-  const configured = () => Boolean(config.supabaseUrl && config.supabaseAnonKey);
+function showState(id) {
+  document.querySelectorAll('.rsvp-state').forEach(function(el) {
+    el.classList.add('rsvp-hidden');
+  });
+  document.getElementById(id).classList.remove('rsvp-hidden');
+}
 
-  const showStatus = (message, success = false) => {
-    status.textContent = message;
-    status.classList.toggle("success", success);
-  };
+function rsvpChange(type, delta) {
+  if (type === 'pases') {
+    pasesVal = Math.max(1, Math.min(guestData.pases, pasesVal + delta));
+    document.getElementById('rsvp-val-pases').textContent = pasesVal;
+  } else {
+    extraVal = Math.max(0, extraVal + delta);
+    document.getElementById('rsvp-val-extra').textContent = extraVal;
+  }
+}
 
-  const rpc = async (functionName, body) => {
-    if (!configured()) {
-      throw new Error("El sistema de confirmación aún no está configurado.");
-    }
+function rsvpGoStep2() {
+  document.getElementById('rsvp-step-1').classList.add('rsvp-hidden');
+  document.getElementById('rsvp-step-2').classList.remove('rsvp-hidden');
+}
 
-    const response = await fetch(`${config.supabaseUrl.replace(/\/$/, "")}/rest/v1/rpc/${functionName}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        apikey: config.supabaseAnonKey,
-        Authorization: `Bearer ${config.supabaseAnonKey}`
-      },
-      body: JSON.stringify(body)
-    });
+function rsvpBack() {
+  document.getElementById('rsvp-step-2').classList.add('rsvp-hidden');
+  document.getElementById('rsvp-step-1').classList.remove('rsvp-hidden');
+}
 
-    const payload = await response.json().catch(() => null);
-    if (!response.ok) {
-      throw new Error(payload?.message || "No pudimos conectar con las confirmaciones. Intenta de nuevo.");
-    }
-    return payload;
-  };
+function rsvpDeny() {
+  send('no', 0, 0, '');
+}
 
-  const setLoading = (form, loading, label) => {
-    const button = form.querySelector("button[type='submit']");
-    button.disabled = loading;
-    button.textContent = loading ? "Un momento..." : label;
-  };
+function rsvpSubmit() {
+  var comentarios = document.getElementById('rsvp-comments').value.trim();
+  send('si', pasesVal, extraVal, comentarios);
+}
 
-  const showLookup = () => {
-    invitation = null;
-    invitationCode = "";
-    lookupView.hidden = false;
-    guestsView.hidden = true;
-    status.textContent = "";
-    guestsList.replaceChildren();
-    codeInput.focus();
-  };
+function send(asistencia, pases, extra, comentarios) {
+  showState('rsvp-loading');
 
-  const showGuests = (data) => {
-    invitation = data;
-    lookupView.hidden = true;
-    guestsView.hidden = false;
-    status.textContent = "";
-    guestsList.replaceChildren();
-    familyMessage.textContent = `Hola, ${data.family_name}. Seleccionen a las personas que asistirán.`;
-
-    data.guests.forEach((guest) => {
-      const label = document.createElement("label");
-      label.className = "rsvp-guest-option";
-      const checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
-      checkbox.name = "guests";
-      checkbox.value = guest.id;
-      checkbox.checked = Boolean(guest.is_attending);
-      const name = document.createElement("span");
-      name.textContent = guest.full_name;
-      label.append(checkbox, name);
-      guestsList.append(label);
-    });
-  };
-
-  const openDialog = () => {
-    if (typeof dialog.showModal === "function") dialog.showModal();
-    else dialog.setAttribute("open", "");
-    showLookup();
-    const codeFromLink = new URLSearchParams(window.location.search).get("codigo");
-    if (codeFromLink) codeInput.value = codeFromLink.toUpperCase();
-  };
-
-  const closeDialog = () => {
-    if (typeof dialog.close === "function") dialog.close();
-    else dialog.removeAttribute("open");
-  };
-
-  openButton.addEventListener("click", openDialog);
-  closeButton.addEventListener("click", closeDialog);
-  backButton.addEventListener("click", showLookup);
-
-  lookupForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    invitationCode = codeInput.value.trim().toUpperCase();
-    if (!invitationCode) return;
-
-    setLoading(lookupForm, true, "Continuar");
-    showStatus("");
-    try {
-      const data = await rpc("rsvp_get_invitation", { p_access_code: invitationCode });
-      if (!data) throw new Error("No encontramos ese código. Revísalo e intenta de nuevo.");
-      showGuests(data);
-    } catch (error) {
-      showStatus(error.message);
-    } finally {
-      setLoading(lookupForm, false, "Continuar");
-    }
+  var params = new URLSearchParams({
+    action:      'submit',
+    inv:         guestData.nombre,
+    asistencia:  asistencia,
+    pases:       pases,
+    extra:       extra,
+    comentarios: comentarios
   });
 
-  attendanceForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    if (!invitation) return;
+  fetch(APPS_SCRIPT_URL + '?' + params.toString())
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.ok) {
+        var title = document.getElementById('rsvp-success-title');
+        var msg   = document.getElementById('rsvp-success-msg');
+        if (asistencia === 'si') {
+          title.textContent = '¡Te esperamos!';
+          msg.textContent   = 'Tu asistencia ha sido confirmada. ¡Nos vemos el 24 de octubre!';
+        } else {
+          title.textContent = 'Lo sentiremos mucho';
+          msg.textContent   = 'Gracias por avisarnos. Te tendremos en nuestros pensamientos ese día.';
+        }
+        showState('rsvp-success');
+      } else {
+        alert('Hubo un problema al guardar tu respuesta. Intenta de nuevo.');
+        showState('rsvp-form');
+      }
+    })
+    .catch(function() {
+      alert('Error de conexión. Verifica tu internet e intenta de nuevo.');
+      showState('rsvp-form');
+    });
+}
 
-    const selectedGuests = [...attendanceForm.querySelectorAll("input[name='guests']:checked")]
-      .map((input) => input.value);
-    setLoading(attendanceForm, true, "Enviar confirmación");
-    showStatus("");
-    try {
-      await rpc("rsvp_confirm_attendance", {
-        p_access_code: invitationCode,
-        p_selected_guest_ids: selectedGuests
-      });
-      guestsView.hidden = true;
-      showStatus("¡Gracias! Su confirmación fue registrada correctamente.", true);
-    } catch (error) {
-      showStatus(error.message);
-    } finally {
-      setLoading(attendanceForm, false, "Enviar confirmación");
-    }
-  });
+(function init() {
+  var params = new URLSearchParams(window.location.search);
+  var inv    = params.get('inv');
+
+  if (!inv) {
+    showState('rsvp-noparam');
+    return;
+  }
+
+  showState('rsvp-loading');
+
+  fetch(APPS_SCRIPT_URL + '?action=lookup&inv=' + encodeURIComponent(inv))
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (!data.found) {
+        showState('rsvp-notfound');
+        return;
+      }
+
+      guestData = data;
+      pasesVal  = 1;
+      extraVal  = 0;
+
+      document.getElementById('rsvp-name-display').textContent  = data.nombre;
+      document.getElementById('rsvp-passes-display').textContent = data.pases;
+      document.getElementById('rsvp-passes-plural').textContent  = data.pases === 1 ? '' : 's';
+      document.getElementById('rsvp-val-pases').textContent      = pasesVal;
+      document.getElementById('rsvp-val-extra').textContent      = extraVal;
+
+      document.getElementById('rsvp-step-1').classList.remove('rsvp-hidden');
+      document.getElementById('rsvp-step-2').classList.add('rsvp-hidden');
+
+      showState('rsvp-form');
+    })
+    .catch(function() {
+      showState('rsvp-notfound');
+    });
 })();

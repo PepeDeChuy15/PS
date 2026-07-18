@@ -560,12 +560,12 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   margin: 0 auto;
   padding: 44px 28px;
   text-align: center;
-  background: rgba(22, 10, 45, 0.84);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(183, 154, 214, .30);
-  border-radius: 18px;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, .35);
+  background: rgba(255, 253, 248, .50);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(183, 154, 214, .45);
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .10);
   scroll-margin-top: 90px;
   position: relative;
   z-index: 1;
@@ -575,13 +575,13 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   display: block;
   margin-bottom: 12px;
   font-size: 38px;
-  color: #c9a8f0;
+  color: var(--lila-oscuro);
 }
 
 .rsvp-section h3 {
   font-family: 'Cinzel', serif;
   font-size: 22px;
-  color: #fff;
+  color: #1c1c1c;
   margin-bottom: 12px;
   letter-spacing: 1px;
 }
@@ -589,7 +589,7 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 .rsvp-section p {
   max-width: 480px;
   margin: 0 auto;
-  color: rgba(255, 255, 255, .70);
+  color: #555;
   font-size: 17px;
 }
 
@@ -645,7 +645,7 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 }
 
 .rsvp-hint {
-  color: rgba(255, 255, 255, .75);
+  color: #555;
   font-size: 16px;
   max-width: 440px;
   margin: 0 auto;
@@ -654,20 +654,20 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 
 .rsvp-greeting {
   font-size: 22px;
-  color: #fff;
+  color: #1c1c1c;
   margin-bottom: 6px;
 }
 
 .rsvp-passes-info {
   font-size: 15px;
-  color: rgba(255, 255, 255, .7);
+  color: #666;
   margin-bottom: 32px;
 }
 
 .rsvp-question {
   font-family: 'Cinzel', serif;
   font-size: 17px;
-  color: #fff;
+  color: #1c1c1c;
   letter-spacing: 1px;
   margin-bottom: 24px;
 }
@@ -705,18 +705,18 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 }
 
 .rsvp-btn-deny {
-  background: rgba(255, 255, 255, .15);
-  color: rgba(255, 255, 255, .8);
-  border: 1px solid rgba(255, 255, 255, .3);
+  background: rgba(255, 255, 255, .35);
+  color: #555;
+  border: 1px solid rgba(142, 107, 191, .35);
 }
 
 .rsvp-btn-deny:hover {
-  background: rgba(255, 255, 255, .25);
+  background: rgba(255, 255, 255, .55);
 }
 
 .rsvp-btn-back {
   background: transparent;
-  color: rgba(255, 255, 255, .5);
+  color: #666;
   font-size: 14px;
   padding: 8px;
 }
@@ -731,7 +731,7 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, .65);
+  color: #555;
   margin-bottom: 12px;
 }
 
@@ -739,7 +739,7 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   text-transform: none;
   letter-spacing: 0;
   font-size: 12px;
-  color: rgba(255, 255, 255, .45);
+  color: #777;
 }
 
 .rsvp-counter {
@@ -752,9 +752,9 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, .4);
-  background: rgba(255, 255, 255, .1);
-  color: #fff;
+  border: 1px solid rgba(142, 107, 191, .4);
+  background: rgba(255, 255, 255, .35);
+  color: var(--lila-oscuro);
   font-size: 20px;
   cursor: pointer;
   display: grid;
@@ -764,13 +764,13 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 }
 
 .rsvp-counter button:hover {
-  background: rgba(255, 255, 255, .25);
+  background: rgba(255, 255, 255, .6);
 }
 
 .rsvp-counter span {
   font-family: 'Cinzel', serif;
   font-size: 28px;
-  color: #fff;
+  color: #1c1c1c;
   min-width: 36px;
   text-align: center;
 }
@@ -778,23 +778,23 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 .rsvp-field textarea {
   width: 100%;
   padding: 13px 16px;
-  border: 1px solid rgba(255, 255, 255, .3);
+  border: 1px solid rgba(142, 107, 191, .35);
   border-radius: 12px;
   font-family: 'Cormorant Garamond', serif;
   font-size: 16px;
-  color: #fff;
-  background: rgba(255, 255, 255, .12);
+  color: #1c1c1c;
+  background: rgba(255, 255, 255, .45);
   resize: vertical;
   outline: none;
   transition: border-color .3s ease;
 }
 
 .rsvp-field textarea::placeholder {
-  color: rgba(255, 255, 255, .35);
+  color: #888;
 }
 
 .rsvp-field textarea:focus {
-  border-color: rgba(255, 255, 255, .6);
+  border-color: var(--lila-oscuro);
 }
 
 /* GALERIA */

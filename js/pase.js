@@ -55,6 +55,9 @@ function doFase2Lookup(inv) {
         return;
       }
       if (data.yaConfirmo) {
+        var passes = data.pasesFinales || 0;
+        document.getElementById('c-already-passes').textContent = passes;
+        document.getElementById('c-already-plural').textContent = passes === 1 ? '' : 's';
         showState('c-already');
         return;
       }

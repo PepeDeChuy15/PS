@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Confirmar Asistencia · Pepe & Sofi</title>
+  <title>Tu Pase · Pepe & Sofi</title>
   <link rel="icon" type="image/png" href="assets/images/Escudosinfondo.png">
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
-  <script defer src="js/confirmar.js"></script>
+  <script defer src="js/pase.js"></script>
 </head>
 
 <body class="confirmar-body">
@@ -69,8 +69,12 @@
       <!-- ya respondió -->
       <div class="rsvp-state rsvp-hidden" id="c-already">
         <i class="ti ti-circle-check rsvp-icon rsvp-icon-success"></i>
-        <h3>¡Ya confirmaste!</h3>
-        <p class="rsvp-hint">Tu respuesta ya está registrada. ¡Nos vemos el 24 de octubre!</p>
+        <h3>¡Te esperamos!</h3>
+        <p class="rsvp-hint">
+          Tu lugar está confirmado con
+          <strong><span id="c-already-passes"></span> pase<span id="c-already-plural"></span></strong>.
+          ¡Nos vemos el 24 de octubre!
+        </p>
       </div>
 
       <!-- éxito -->

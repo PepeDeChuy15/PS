@@ -26,7 +26,7 @@ function showFase2Notice() {
   var link   = document.getElementById('rsvp-fase2-link');
   if (!notice) return;
   dateEl.textContent = formatDate(fechaFase2Cfg);
-  link.href = 'confirmar.html?inv=' + encodeURIComponent(guestId);
+  link.href = 'pase.html?inv=' + encodeURIComponent(guestId);
   notice.classList.remove('rsvp-hidden');
 }
 
@@ -156,7 +156,7 @@ function doLookup(inv) {
       if (new Date() >= new Date(fechaLimite + 'T00:00:00')) {
         if (inv) {
           var btn = document.getElementById('rsvp-fase2-btn');
-          btn.href = 'confirmar.html?inv=' + encodeURIComponent(inv);
+          btn.href = 'pase.html?inv=' + encodeURIComponent(inv);
           btn.classList.remove('rsvp-hidden');
         }
         showState('rsvp-closed');

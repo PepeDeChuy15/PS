@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmar Asistencia · Pepe & Sofi</title>
+  <link rel="icon" type="image/png" href="assets/images/Escudosinfondo.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <script defer src="js/confirmar.js"></script>
+</head>
+
+<body class="confirmar-body">
+
+  <div class="confirmar-wrap">
+
+    <div class="confirmar-card">
+
+      <div class="confirmar-logo">
+        <img src="assets/images/Escudosinfondo.png" alt="Pepe & Sofi">
+        <p class="confirmar-names">Pepe <span>&</span> Sofi</p>
+        <p class="confirmar-date">24 · Octubre · 2026</p>
+      </div>
+
+      <!-- sin parámetro -->
+      <div class="rsvp-state" id="c-noparam">
+        <i class="ti ti-calendar-heart rsvp-icon"></i>
+        <h3>Confirma tu Asistencia</h3>
+        <p class="rsvp-hint">Usa el enlace personalizado de tu invitación para confirmar.</p>
+      </div>
+
+      <!-- aún no disponible -->
+      <div class="rsvp-state rsvp-hidden" id="c-soon">
+        <i class="ti ti-clock rsvp-icon"></i>
+        <h3>Próximamente</h3>
+        <p class="rsvp-hint">La confirmación final estará disponible a partir del <strong style="color:#c9a8f0">1 de septiembre</strong>. Tu invitación de primera fase ya fue registrada.</p>
+      </div>
+
+      <!-- cargando -->
+      <div class="rsvp-state rsvp-hidden" id="c-loading">
+        <div class="rsvp-spinner"></div>
+        <p class="rsvp-hint">Buscando tu invitación…</p>
+      </div>
+
+      <!-- no encontrado -->
+      <div class="rsvp-state rsvp-hidden" id="c-notfound">
+        <i class="ti ti-mood-sad rsvp-icon"></i>
+        <h3>Invitación no encontrada</h3>
+        <p class="rsvp-hint">Verifica el enlace o contáctanos directamente.</p>
+      </div>
+
+      <!-- formulario fase 2 -->
+      <div class="rsvp-state rsvp-hidden" id="c-form">
+        <p class="rsvp-greeting">Hola, <strong id="c-name"></strong></p>
+        <p class="rsvp-passes-info">
+          Tu invitación incluye
+          <strong><span id="c-passes"></span> pase<span id="c-plural"></span></strong>
+          confirmado<span id="c-plural2"></span>
+        </p>
+        <p class="rsvp-question">¿Confirmas tu asistencia?</p>
+        <div class="rsvp-btns">
+          <button class="rsvp-btn rsvp-btn-confirm" onclick="cConfirm()">Sí, asistiré ✓</button>
+          <button class="rsvp-btn rsvp-btn-deny" onclick="cDeny()">No podré asistir</button>
+        </div>
+      </div>
+
+      <!-- ya respondió -->
+      <div class="rsvp-state rsvp-hidden" id="c-already">
+        <i class="ti ti-circle-check rsvp-icon rsvp-icon-success"></i>
+        <h3>¡Ya confirmaste!</h3>
+        <p class="rsvp-hint">Tu respuesta ya está registrada. ¡Nos vemos el 24 de octubre!</p>
+      </div>
+
+      <!-- éxito -->
+      <div class="rsvp-state rsvp-hidden" id="c-success">
+        <i class="ti ti-circle-check rsvp-icon rsvp-icon-success"></i>
+        <h3 id="c-success-title"></h3>
+        <p class="rsvp-hint" id="c-success-msg"></p>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

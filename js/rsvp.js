@@ -2,6 +2,7 @@
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzTbd4EnvoME0szwB8cwkUNLqzKrO89Dz1mW5cIPXpmUuwMjDnFFPFBFDYjAVX4LZK5/exec';
 
 let guestData = null;
+let guestId   = null;
 let pasesVal  = 1;
 let extraVal  = 0;
 
@@ -17,7 +18,7 @@ function rsvpChange(type, delta) {
     pasesVal = Math.max(1, Math.min(guestData.pases, pasesVal + delta));
     document.getElementById('rsvp-val-pases').textContent = pasesVal;
   } else {
-    extraVal = Math.max(0, extraVal + delta);
+    extraVal = Math.max(0, Math.min(2, extraVal + delta));
     document.getElementById('rsvp-val-extra').textContent = extraVal;
   }
 }
@@ -46,7 +47,7 @@ function send(asistencia, pases, extra, comentarios) {
 
   var params = new URLSearchParams({
     action:      'submit',
-    inv:         guestData.nombre,
+    inv:         guestId,
     asistencia:  asistencia,
     pases:       pases,
     extra:       extra,
@@ -92,6 +93,7 @@ function send(asistencia, pases, extra, comentarios) {
     return;
   }
 
+  guestId = inv;
   showState('rsvp-loading');
 
   fetch(APPS_SCRIPT_URL + '?action=lookup&inv=' + encodeURIComponent(inv))

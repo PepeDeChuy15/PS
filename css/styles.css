@@ -797,6 +797,87 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   border-color: var(--lila-oscuro);
 }
 
+.rsvp-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: rgba(201, 168, 240, .10);
+  border-left: 2px solid rgba(201, 168, 240, .45);
+  border-radius: 0 8px 8px 0;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, .55);
+  line-height: 1.6;
+  text-align: left;
+  font-style: italic;
+}
+
+.rsvp-note .ti {
+  font-size: 14px;
+  color: rgba(201, 168, 240, .70);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* PÁGINA CONFIRMAR (FASE 2) */
+
+.confirmar-body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("../assets/images/DSC6594.jpg") center / cover no-repeat fixed;
+}
+
+.confirmar-wrap {
+  width: 100%;
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirmar-card {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(22, 10, 45, 0.86);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(183, 154, 214, .28);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .45);
+  padding: 48px 36px;
+  text-align: center;
+}
+
+.confirmar-logo img {
+  width: 72px;
+  opacity: .92;
+  margin-bottom: 10px;
+}
+
+.confirmar-names {
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  color: #fff;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+
+.confirmar-names span {
+  color: #c9a8f0;
+}
+
+.confirmar-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, .45);
+  text-transform: uppercase;
+  margin-bottom: 36px;
+}
+
 /* GALERIA */
 
 .gallery {

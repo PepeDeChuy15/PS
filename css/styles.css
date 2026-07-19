@@ -797,6 +797,22 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   border-color: var(--lila-oscuro);
 }
 
+.rsvp-deadline-label {
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .45);
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+
+.rsvp-deadline-date {
+  color: #c9a8f0;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
 .rsvp-note {
   display: flex;
   align-items: flex-start;

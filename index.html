@@ -370,6 +370,7 @@
           <i class="ti ti-calendar-heart rsvp-icon"></i>
           <h3>Confirma tu Asistencia</h3>
           <p>Usa el enlace personalizado de tu invitación para confirmar tu asistencia.</p>
+          <p class="rsvp-deadline-label">Fecha límite: <span class="rsvp-deadline-date"></span></p>
         </div>
 
         <!-- cargando -->
@@ -382,7 +383,10 @@
         <div class="rsvp-state rsvp-hidden" id="rsvp-closed">
           <i class="ti ti-calendar-x rsvp-icon"></i>
           <h3>Confirmaciones cerradas</h3>
-          <p class="rsvp-hint">El periodo de confirmación cerró el 31 de agosto. Si tienes dudas, contáctanos directamente.</p>
+          <p class="rsvp-hint">El periodo de confirmación cerró el <span class="rsvp-deadline-date"></span>.</p>
+          <a id="rsvp-fase2-btn" class="rsvp-btn rsvp-btn-confirm rsvp-hidden" href="#" style="display:block; margin-top:24px; text-decoration:none;">
+            Ver mi confirmación final →
+          </a>
         </div>
 
         <!-- no encontrado -->
@@ -400,6 +404,7 @@
 
           <!-- paso 1: ¿asistirás? -->
           <div id="rsvp-step-1">
+            <p class="rsvp-deadline-label">Confirma antes del <span class="rsvp-deadline-date"></span></p>
             <p class="rsvp-question">¿Confirmas tu asistencia?</p>
             <div class="rsvp-btns">
               <button class="rsvp-btn rsvp-btn-confirm" onclick="rsvpGoStep2()">Sí, asistiré ✓</button>

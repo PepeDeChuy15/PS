@@ -1,4 +1,3 @@
-// Pega aquí la URL de tu Apps Script Web App después de publicarla
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzTbd4EnvoME0szwB8cwkUNLqzKrO89Dz1mW5cIPXpmUuwMjDnFFPFBFDYjAVX4LZK5/exec';
 
 let guestData = null;
@@ -10,6 +9,20 @@ function showState(id) {
     el.classList.add('rsvp-hidden');
   });
   document.getElementById(id).classList.remove('rsvp-hidden');
+}
+
+function formatDate(dateStr) {
+  var meses = ['enero','febrero','marzo','abril','mayo','junio','julio',
+               'agosto','septiembre','octubre','noviembre','diciembre'];
+  var p = dateStr.split('-');
+  return parseInt(p[2], 10) + ' de ' + meses[parseInt(p[1], 10) - 1] + ' de ' + p[0];
+}
+
+function setDeadlineDates(dateStr) {
+  var display = formatDate(dateStr);
+  document.querySelectorAll('.rsvp-deadline-date').forEach(function(el) {
+    el.textContent = display;
+  });
 }
 
 function rsvpChange(type, delta) {
@@ -75,23 +88,7 @@ function send(asistencia, pases, extra, comentarios) {
     });
 }
 
-(function init() {
-  if (new Date() >= new Date('2026-09-01')) {
-    showState('rsvp-closed');
-    return;
-  }
-
-  var params = new URLSearchParams(window.location.search);
-  var inv    = params.get('inv');
-
-  if (!inv) {
-    showState('rsvp-noparam');
-    return;
-  }
-
-  guestId = inv;
-  showState('rsvp-loading');
-
+function doLookup(inv) {
   fetch(APPS_SCRIPT_URL + '?action=lookup&inv=' + encodeURIComponent(inv))
     .then(function(r) { return r.json(); })
     .then(function(data) {
@@ -99,7 +96,6 @@ function send(asistencia, pases, extra, comentarios) {
         showState('rsvp-notfound');
         return;
       }
-
       if (data.yaConfirmo) {
         var title = document.getElementById('rsvp-success-title');
         var msg   = document.getElementById('rsvp-success-msg');
@@ -113,21 +109,61 @@ function send(asistencia, pases, extra, comentarios) {
         showState('rsvp-success');
         return;
       }
-
       guestData = data;
       pasesVal  = 1;
-
-      document.getElementById('rsvp-name-display').textContent   = data.nombre;
-      document.getElementById('rsvp-passes-display').textContent  = data.pases;
-      document.getElementById('rsvp-passes-plural').textContent   = data.pases === 1 ? '' : 's';
-      document.getElementById('rsvp-val-pases').textContent       = pasesVal;
-
+      document.getElementById('rsvp-name-display').textContent  = data.nombre;
+      document.getElementById('rsvp-passes-display').textContent = data.pases;
+      document.getElementById('rsvp-passes-plural').textContent  = data.pases === 1 ? '' : 's';
+      document.getElementById('rsvp-val-pases').textContent      = pasesVal;
       document.getElementById('rsvp-step-1').classList.remove('rsvp-hidden');
       document.getElementById('rsvp-step-2').classList.add('rsvp-hidden');
-
       showState('rsvp-form');
     })
     .catch(function() {
       showState('rsvp-notfound');
+    });
+}
+
+(function init() {
+  var urlParams = new URLSearchParams(window.location.search);
+  var inv       = urlParams.get('inv');
+  guestId       = inv;
+
+  showState('rsvp-loading');
+
+  fetch(APPS_SCRIPT_URL + '?action=config')
+    .then(function(r) { return r.json(); })
+    .then(function(cfg) {
+      var fechaLimite = cfg.fechaLimite || '2026-09-01';
+
+      setDeadlineDates(fechaLimite);
+
+      if (new Date() >= new Date(fechaLimite + 'T00:00:00')) {
+        if (inv) {
+          var btn = document.getElementById('rsvp-fase2-btn');
+          btn.href = 'confirmar.html?inv=' + encodeURIComponent(inv);
+          btn.classList.remove('rsvp-hidden');
+        }
+        showState('rsvp-closed');
+        return;
+      }
+
+      if (!inv) {
+        showState('rsvp-noparam');
+        return;
+      }
+
+      doLookup(inv);
+    })
+    .catch(function() {
+      // Fallback si el config falla
+      setDeadlineDates('2026-09-01');
+      if (new Date() >= new Date('2026-09-01T00:00:00')) {
+        showState('rsvp-closed');
+      } else if (!inv) {
+        showState('rsvp-noparam');
+      } else {
+        doLookup(inv);
+      }
     });
 })();

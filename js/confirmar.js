@@ -46,22 +46,7 @@ function cSend(asistencia) {
     });
 }
 
-(function init() {
-  if (new Date() < new Date('2026-09-01')) {
-    showState('c-soon');
-    return;
-  }
-
-  var params = new URLSearchParams(window.location.search);
-  var inv    = params.get('inv');
-
-  if (!inv) {
-    showState('c-noparam');
-    return;
-  }
-
-  showState('c-loading');
-
+function doFase2Lookup(inv) {
   fetch(APPS_SCRIPT_URL + '?action=fase2lookup&inv=' + encodeURIComponent(inv))
     .then(function(r) { return r.json(); })
     .then(function(data) {
@@ -69,23 +54,54 @@ function cSend(asistencia) {
         showState('c-notfound');
         return;
       }
-
       if (data.yaConfirmo) {
         showState('c-already');
         return;
       }
-
       guestData = data;
-
       var passes = data.pasesFinales;
       document.getElementById('c-name').textContent    = data.nombre;
       document.getElementById('c-passes').textContent  = passes;
       document.getElementById('c-plural').textContent  = passes === 1 ? '' : 's';
       document.getElementById('c-plural2').textContent = passes === 1 ? '' : 's';
-
       showState('c-form');
     })
     .catch(function() {
       showState('c-notfound');
+    });
+}
+
+(function init() {
+  var urlParams = new URLSearchParams(window.location.search);
+  var inv       = urlParams.get('inv');
+
+  showState('c-loading');
+
+  fetch(APPS_SCRIPT_URL + '?action=config')
+    .then(function(r) { return r.json(); })
+    .then(function(cfg) {
+      var fechaFase2 = cfg.fechaFase2 || '2026-09-01';
+
+      if (new Date() < new Date(fechaFase2 + 'T00:00:00')) {
+        showState('c-soon');
+        return;
+      }
+
+      if (!inv) {
+        showState('c-noparam');
+        return;
+      }
+
+      doFase2Lookup(inv);
+    })
+    .catch(function() {
+      // Fallback si el config falla
+      if (new Date() < new Date('2026-09-01T00:00:00')) {
+        showState('c-soon');
+      } else if (!inv) {
+        showState('c-noparam');
+      } else {
+        doFase2Lookup(inv);
+      }
     });
 })();

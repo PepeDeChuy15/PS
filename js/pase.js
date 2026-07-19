@@ -46,12 +46,12 @@ function cSend(asistencia) {
     });
 }
 
-function doFase2Lookup(inv) {
+function doFase2Lookup(inv, antesDeAbrir) {
   fetch(APPS_SCRIPT_URL + '?action=fase2lookup&inv=' + encodeURIComponent(inv))
     .then(function(r) { return r.json(); })
     .then(function(data) {
       if (!data.found) {
-        showState('c-notfound');
+        showState(antesDeAbrir ? 'c-soon' : 'c-notfound');
         return;
       }
       if (data.yaConfirmo) {
@@ -59,6 +59,11 @@ function doFase2Lookup(inv) {
         document.getElementById('c-already-passes').textContent = passes;
         document.getElementById('c-already-plural').textContent = passes === 1 ? '' : 's';
         showState('c-already');
+        return;
+      }
+      // Aún no confirmó y todavía no abre la fase 2
+      if (antesDeAbrir) {
+        showState('c-soon');
         return;
       }
       guestData = data;
@@ -83,28 +88,23 @@ function doFase2Lookup(inv) {
   fetch(APPS_SCRIPT_URL + '?action=config')
     .then(function(r) { return r.json(); })
     .then(function(cfg) {
-      var fechaFase2 = cfg.fechaFase2 || '2026-09-01';
-
-      if (new Date() < new Date(fechaFase2 + 'T00:00:00')) {
-        showState('c-soon');
-        return;
-      }
+      var fechaFase2  = cfg.fechaFase2 || '2026-09-01';
+      var antesDeAbrir = new Date() < new Date(fechaFase2 + 'T00:00:00');
 
       if (!inv) {
-        showState('c-noparam');
+        showState(antesDeAbrir ? 'c-soon' : 'c-noparam');
         return;
       }
 
-      doFase2Lookup(inv);
+      // Siempre consultar: si ya confirmó se muestra aunque aún no sea la fecha
+      doFase2Lookup(inv, antesDeAbrir);
     })
     .catch(function() {
-      // Fallback si el config falla
-      if (new Date() < new Date('2026-09-01T00:00:00')) {
-        showState('c-soon');
-      } else if (!inv) {
-        showState('c-noparam');
+      var antesDeAbrir = new Date() < new Date('2026-09-01T00:00:00');
+      if (!inv) {
+        showState(antesDeAbrir ? 'c-soon' : 'c-noparam');
       } else {
-        doFase2Lookup(inv);
+        doFase2Lookup(inv, antesDeAbrir);
       }
     });
 })();

@@ -1,8 +1,9 @@
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzTbd4EnvoME0szwB8cwkUNLqzKrO89Dz1mW5cIPXpmUuwMjDnFFPFBFDYjAVX4LZK5/exec';
 
-let guestData = null;
-let guestId   = null;
-let pasesVal  = 1;
+let guestData    = null;
+let guestId      = null;
+let pasesVal     = 1;
+let fechaFase2Cfg = null;
 
 function showState(id) {
   document.querySelectorAll('.rsvp-state').forEach(function(el) {
@@ -16,6 +17,17 @@ function formatDate(dateStr) {
                'agosto','septiembre','octubre','noviembre','diciembre'];
   var p = dateStr.split('-');
   return parseInt(p[2], 10) + ' de ' + meses[parseInt(p[1], 10) - 1] + ' de ' + p[0];
+}
+
+function showFase2Notice() {
+  if (!fechaFase2Cfg || !guestId) return;
+  var notice = document.getElementById('rsvp-fase2-notice');
+  var dateEl = document.getElementById('rsvp-fase2-date');
+  var link   = document.getElementById('rsvp-fase2-link');
+  if (!notice) return;
+  dateEl.textContent = formatDate(fechaFase2Cfg);
+  link.href = 'confirmar.html?inv=' + encodeURIComponent(guestId);
+  notice.classList.remove('rsvp-hidden');
 }
 
 function setDeadlineDates(dateStr) {
@@ -72,6 +84,7 @@ function send(asistencia, pases, extra, comentarios) {
         if (asistencia === 'si') {
           title.textContent = '¡Te esperamos!';
           msg.textContent   = 'Tu asistencia ha sido confirmada. ¡Nos vemos el 24 de octubre!';
+          showFase2Notice();
         } else {
           title.textContent = 'Lo sentiremos mucho';
           msg.textContent   = 'Gracias por avisarnos. Te tendremos en nuestros pensamientos ese día.';
@@ -102,6 +115,7 @@ function doLookup(inv) {
         if (data.asistencia === 'si') {
           title.textContent = '¡Ya confirmaste tu asistencia!';
           msg.textContent   = 'Tu lugar ya está reservado. ¡Nos vemos el 24 de octubre!';
+          showFase2Notice();
         } else {
           title.textContent = 'Ya enviaste tu respuesta';
           msg.textContent   = 'Registramos que no podrás asistir. ¡Te extrañaremos!';
@@ -135,6 +149,7 @@ function doLookup(inv) {
     .then(function(r) { return r.json(); })
     .then(function(cfg) {
       var fechaLimite = cfg.fechaLimite || '2026-09-01';
+      fechaFase2Cfg   = cfg.fechaFase2  || '2026-09-01';
 
       setDeadlineDates(fechaLimite);
 

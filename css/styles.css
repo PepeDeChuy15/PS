@@ -797,6 +797,17 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   border-color: var(--lila-oscuro);
 }
 
+#rsvp-fase2-notice {
+  margin-top: 18px;
+  font-size: 13.5px;
+}
+
+#rsvp-fase2-notice a {
+  color: #c9a8f0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .rsvp-deadline-label {
   font-size: 12px;
   letter-spacing: 1.5px;

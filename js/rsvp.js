@@ -116,13 +116,11 @@ function send(asistencia, pases, extra, comentarios) {
 
       guestData = data;
       pasesVal  = 1;
-      extraVal  = 0;
 
       document.getElementById('rsvp-name-display').textContent   = data.nombre;
       document.getElementById('rsvp-passes-display').textContent  = data.pases;
       document.getElementById('rsvp-passes-plural').textContent   = data.pases === 1 ? '' : 's';
       document.getElementById('rsvp-val-pases').textContent       = pasesVal;
-      document.getElementById('rsvp-val-extra').textContent       = extraVal;
 
       document.getElementById('rsvp-step-1').classList.remove('rsvp-hidden');
       document.getElementById('rsvp-step-2').classList.add('rsvp-hidden');

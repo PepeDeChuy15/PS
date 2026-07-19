@@ -818,8 +818,8 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 }
 
 .rsvp-deadline-date {
-  color: #c9a8f0;
-  font-weight: 500;
+  color: #000;
+  font-weight: 700;
   text-transform: none;
   letter-spacing: 0;
 }

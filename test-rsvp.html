@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSVP · Pruebas</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0f0a1a;
+      color: #e0d6f5;
+      min-height: 100vh;
+      padding: 32px 16px;
+    }
+
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #c9a8f0;
+      margin-bottom: 4px;
+      letter-spacing: .5px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 32px;
+    }
+
+    .wrap { max-width: 680px; margin: 0 auto; }
+
+    .card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(201,168,240,.2);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .card h2 {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #c9a8f0;
+      margin-bottom: 16px;
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      margin-bottom: 12px;
+    }
+
+    label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+      margin-bottom: 6px;
+    }
+
+    input, select, textarea {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(201,168,240,.25);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 14px;
+      padding: 10px 14px;
+      outline: none;
+      width: 100%;
+      transition: border-color .2s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(201,168,240,.6);
+    }
+
+    select option { background: #1a0f30; }
+
+    .field { flex: 1; min-width: 140px; }
+
+    button {
+      background: #7a58af;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background .2s, transform .1s;
+      white-space: nowrap;
+    }
+
+    button:hover { background: #8e6ac5; transform: translateY(-1px); }
+    button:active { transform: translateY(0); }
+    button.secondary {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+    }
+    button.secondary:hover { background: rgba(255,255,255,.18); }
+    button.danger { background: #7a2c2c; }
+    button.danger:hover { background: #9e3a3a; }
+
+    .response-box {
+      margin-top: 16px;
+      background: rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 10px;
+      padding: 16px;
+      min-height: 60px;
+      display: none;
+    }
+
+    .response-box.visible { display: block; }
+
+    .status-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .ok    { background: rgba(100,200,100,.2); color: #80e080; border: 1px solid rgba(100,200,100,.3); }
+    .error { background: rgba(200,80,80,.2);   color: #f08080; border: 1px solid rgba(200,80,80,.3); }
+    .warn  { background: rgba(220,170,50,.2);  color: #f0c040; border: 1px solid rgba(220,170,50,.3); }
+
+    pre {
+      font-family: 'Cascadia Code', 'Fira Code', monospace;
+      font-size: 12.5px;
+      color: rgba(255,255,255,.75);
+      white-space: pre-wrap;
+      word-break: break-all;
+      line-height: 1.6;
+    }
+
+    .loader {
+      display: inline-block;
+      width: 16px; height: 16px;
+      border: 2px solid rgba(201,168,240,.3);
+      border-top-color: #c9a8f0;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,.08);
+      margin: 20px 0;
+    }
+
+    .url-preview {
+      font-size: 11px;
+      color: rgba(201,168,240,.5);
+      margin-top: 8px;
+      font-family: monospace;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>RSVP · Panel de Pruebas</h1>
+  <p class="subtitle">Herramienta interna para verificar el flujo completo del sistema</p>
+
+  <!-- FASE 1: LOOKUP -->
+  <div class="card">
+    <h2>Fase 1 — Buscar invitado</h2>
+    <div class="row">
+      <div class="field">
+        <label>ID del invitado</label>
+        <input id="f1-inv" type="text" placeholder="ej. juan-perez">
+      </div>
+      <button onclick="f1Lookup()">Buscar</button>
+    </div>
+    <div class="url-preview" id="f1-lookup-url"></div>
+    <div class="response-box" id="f1-lookup-res"></div>
+  </div>
+
+  <!-- FASE 1: SUBMIT -->
+  <div class="card">
+    <h2>Fase 1 — Enviar confirmación</h2>
+    <div class="row">
+      <div class="field">
+        <label>ID del invitado</label>
+        <input id="f1s-inv" type="text" placeholder="ej. juan-perez">
+      </div>
+      <div class="field" style="max-width:130px">
+        <label>Asistencia</label>
+        <select id="f1s-asistencia">
+          <option value="si">Sí asiste</option>
+          <option value="no">No asiste</option>
+        </select>
+      </div>
+      <div class="field" style="max-width:90px">
+        <label>Pases</label>
+        <input id="f1s-pases" type="number" value="1" min="1" max="10">
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>Comentarios (opcional)</label>
+        <input id="f1s-comentarios" type="text" placeholder="Alergias, notas…">
+      </div>
+      <button class="danger" onclick="f1Submit()">Enviar registro</button>
+    </div>
+    <div class="url-preview" id="f1-submit-url"></div>
+    <div class="response-box" id="f1-submit-res"></div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- FASE 2: LOOKUP -->
+  <div class="card">
+    <h2>Fase 2 — Buscar invitado (confirmación final)</h2>
+    <div class="row">
+      <div class="field">
+        <label>ID del invitado</label>
+        <input id="f2-inv" type="text" placeholder="ej. juan-perez">
+      </div>
+      <button onclick="f2Lookup()">Buscar</button>
+    </div>
+    <div class="url-preview" id="f2-lookup-url"></div>
+    <div class="response-box" id="f2-lookup-res"></div>
+  </div>
+
+  <!-- FASE 2: SUBMIT -->
+  <div class="card">
+    <h2>Fase 2 — Enviar confirmación final</h2>
+    <div class="row">
+      <div class="field">
+        <label>ID del invitado</label>
+        <input id="f2s-inv" type="text" placeholder="ej. juan-perez">
+      </div>
+      <div class="field" style="max-width:130px">
+        <label>Asistencia</label>
+        <select id="f2s-asistencia">
+          <option value="si">Sí asiste</option>
+          <option value="no">No asiste</option>
+        </select>
+      </div>
+      <button class="danger" onclick="f2Submit()">Enviar registro</button>
+    </div>
+    <div class="url-preview" id="f2-submit-url"></div>
+    <div class="response-box" id="f2-submit-res"></div>
+  </div>
+
+  <!-- LINKS DE PRUEBA -->
+  <div class="card">
+    <h2>Abrir página con invitado de prueba</h2>
+    <div class="row">
+      <div class="field">
+        <label>ID del invitado</label>
+        <input id="preview-inv" type="text" placeholder="ej. juan-perez">
+      </div>
+    </div>
+    <div class="row">
+      <button class="secondary" onclick="openPhase1()">Abrir Fase 1 (index)</button>
+      <button class="secondary" onclick="openPhase2()">Abrir Fase 2 (confirmar)</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const URL = 'https://script.google.com/macros/s/AKfycbzTbd4EnvoME0szwB8cwkUNLqzKrO89Dz1mW5cIPXpmUuwMjDnFFPFBFDYjAVX4LZK5/exec';
+
+  function showResult(boxId, urlId, fullUrl, promise) {
+    var box = document.getElementById(boxId);
+    var urlEl = document.getElementById(urlId);
+    if (urlEl) urlEl.textContent = fullUrl;
+    box.className = 'response-box visible';
+    box.innerHTML = '<span class="loader"></span> Consultando…';
+
+    promise
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var ok = data.ok === true || data.found === true;
+        var warn = data.found === false;
+        var badge = ok ? 'ok' : warn ? 'warn' : 'error';
+        var label = ok ? 'OK' : warn ? 'NO ENCONTRADO' : 'ERROR';
+        box.innerHTML =
+          '<span class="status-badge ' + badge + '">' + label + '</span>' +
+          '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+      })
+      .catch(function(err) {
+        box.innerHTML = '<span class="status-badge error">FALLO DE RED</span><pre>' + err.message + '</pre>';
+      });
+  }
+
+  function f1Lookup() {
+    var inv = document.getElementById('f1-inv').value.trim();
+    if (!inv) { alert('Ingresa un ID'); return; }
+    var full = URL + '?action=lookup&inv=' + encodeURIComponent(inv);
+    showResult('f1-lookup-res', 'f1-lookup-url', full, fetch(full));
+  }
+
+  function f1Submit() {
+    var inv  = document.getElementById('f1s-inv').value.trim();
+    var asi  = document.getElementById('f1s-asistencia').value;
+    var pas  = document.getElementById('f1s-pases').value;
+    var com  = document.getElementById('f1s-comentarios').value.trim();
+    if (!inv) { alert('Ingresa un ID'); return; }
+    var p = new URLSearchParams({ action:'submit', inv:inv, asistencia:asi, pases:pas, extra:0, comentarios:com });
+    var full = URL + '?' + p.toString();
+    showResult('f1-submit-res', 'f1-submit-url', full, fetch(full));
+  }
+
+  function f2Lookup() {
+    var inv = document.getElementById('f2-inv').value.trim();
+    if (!inv) { alert('Ingresa un ID'); return; }
+    var full = URL + '?action=fase2lookup&inv=' + encodeURIComponent(inv);
+    showResult('f2-lookup-res', 'f2-lookup-url', full, fetch(full));
+  }
+
+  function f2Submit() {
+    var inv = document.getElementById('f2s-inv').value.trim();
+    var asi = document.getElementById('f2s-asistencia').value;
+    if (!inv) { alert('Ingresa un ID'); return; }
+    var p = new URLSearchParams({ action:'fase2submit', inv:inv, asistencia:asi });
+    var full = URL + '?' + p.toString();
+    showResult('f2-submit-res', 'f2-submit-url', full, fetch(full));
+  }
+
+  function openPhase1() {
+    var inv = document.getElementById('preview-inv').value.trim();
+    if (!inv) { alert('Ingresa un ID'); return; }
+    window.open('index.html?inv=' + encodeURIComponent(inv), '_blank');
+  }
+
+  function openPhase2() {
+    var inv = document.getElementById('preview-inv').value.trim();
+    if (!inv) { alert('Ingresa un ID'); return; }
+    window.open('confirmar.html?inv=' + encodeURIComponent(inv), '_blank');
+  }
+</script>
+</body>
+</html>

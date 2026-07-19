@@ -4,7 +4,6 @@ const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzTbd4EnvoME0sz
 let guestData = null;
 let guestId   = null;
 let pasesVal  = 1;
-let extraVal  = 0;
 
 function showState(id) {
   document.querySelectorAll('.rsvp-state').forEach(function(el) {
@@ -17,9 +16,6 @@ function rsvpChange(type, delta) {
   if (type === 'pases') {
     pasesVal = Math.max(1, Math.min(guestData.pases, pasesVal + delta));
     document.getElementById('rsvp-val-pases').textContent = pasesVal;
-  } else {
-    extraVal = Math.max(0, Math.min(2, extraVal + delta));
-    document.getElementById('rsvp-val-extra').textContent = extraVal;
   }
 }
 
@@ -39,7 +35,7 @@ function rsvpDeny() {
 
 function rsvpSubmit() {
   var comentarios = document.getElementById('rsvp-comments').value.trim();
-  send('si', pasesVal, extraVal, comentarios);
+  send('si', pasesVal, 0, comentarios);
 }
 
 function send(asistencia, pases, extra, comentarios) {

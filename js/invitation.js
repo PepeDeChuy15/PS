@@ -43,5 +43,5 @@ function openInvitation(){
   setTimeout(()=>{
     if(_noteSkipped) return
     skipNote()
-  }, 5000)
+  }, 10000)
 }

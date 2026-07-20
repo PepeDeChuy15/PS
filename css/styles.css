@@ -1686,6 +1686,52 @@ p {
   opacity: 0;
 }
 
+/* Foto integrada sin alterar las proporciones originales de la nota */
+.note-photo {
+  position: relative;
+  width: 250px;
+  max-width: 100%;
+  height: 250px;
+  margin: 28px auto 8px;
+  padding: 6px 6px 22px;
+  overflow: hidden;
+  background: #fffdf9;
+  border: 1px solid rgba(94, 73, 55, .12);
+  border-radius: 3px;
+  box-shadow: 0 9px 22px rgba(55, 39, 31, .16);
+  transform: rotate(-1deg);
+}
+
+.note-photo::after {
+  content: "24 · 10 · 2026";
+  position: absolute;
+  right: 13px;
+  bottom: 3px;
+  color: rgba(94, 73, 55, .58);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+.note-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  image-orientation: from-image;
+  filter: saturate(.9) contrast(.97);
+}
+
+@media (max-width: 600px) {
+  .note-photo {
+    width: 220px;
+    height: 220px;
+    margin: 22px auto 6px;
+  }
+}
+
 /* animacion cuando sale */
 
 .note-screen.show .note-card {

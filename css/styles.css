@@ -931,7 +931,8 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 }
 
 #rsvp-fase2-notice a {
-  color: #c9a8f0;
+  color: #6a3fa0;
+  font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 3px;
 }

@@ -138,6 +138,14 @@ nav a:hover {
   font-size: 25px;
 }
 
+.hero .quote-en {
+  margin-top: 2px;
+  font-size: 16px;
+  font-style: italic;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+
 .hero span {
   color: var(--lila);
 }
@@ -238,6 +246,118 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #777;
+}
+
+/* CARTA ENTRE EL CONTADOR Y EL PROGRAMA */
+
+.marriage-letter-section {
+  padding: 0 20px 70px;
+}
+
+.marriage-letter {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 58px 72px 50px;
+  overflow: hidden;
+  text-align: center;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, .97), rgba(251, 247, 239, .98));
+  border: 1px solid rgba(183, 154, 214, .42);
+  border-radius: 4px;
+  box-shadow:
+    0 20px 45px rgba(72, 54, 43, .11),
+    inset 0 0 30px rgba(183, 154, 214, .06);
+}
+
+.marriage-letter::before,
+.marriage-letter::after {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-color: rgba(142, 107, 191, .22);
+  pointer-events: none;
+}
+
+.marriage-letter::before {
+  top: 14px;
+  left: 14px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.marriage-letter::after {
+  right: 14px;
+  bottom: 14px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.marriage-letter-ornament {
+  display: block;
+  margin-bottom: 20px;
+  color: var(--lila-oscuro);
+  font-size: 30px;
+  line-height: 1;
+}
+
+.marriage-letter blockquote {
+  margin: 0;
+  color: #4d4947;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.marriage-letter-author {
+  margin-top: 25px;
+  color: var(--lila-oscuro);
+  font-family: 'Cinzel', serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.marriage-letter-work {
+  margin-top: 4px;
+  color: #77716e;
+  font-size: 15px;
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .marriage-letter-section {
+    padding: 0 16px 45px;
+  }
+
+  .marriage-letter {
+    padding: 42px 25px 38px;
+  }
+
+  .marriage-letter::before,
+  .marriage-letter::after {
+    width: 55px;
+    height: 55px;
+  }
+
+  .marriage-letter blockquote {
+    font-size: 22px;
+    line-height: 1.5;
+  }
+
+  .marriage-letter-author {
+    margin-top: 20px;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+  }
+
+  .marriage-letter-work {
+    font-size: 14px;
+  }
 }
 
 
@@ -1802,4 +1922,59 @@ p {
 
 .skip-btn:hover {
   color: var(--lila-oscuro);
+}
+
+@media (max-width: 600px) {
+  .note-screen {
+    height: 100dvh;
+    padding: 24px;
+  }
+
+  .note-card {
+    width: 100%;
+    max-width: 380px;
+    max-height: calc(100dvh - 48px);
+    padding: 28px 24px 25px;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+  .note-card::-webkit-scrollbar {
+    display: none;
+  }
+
+  .note-card h2 {
+    margin-bottom: 15px;
+    font-size: 25px;
+  }
+
+  .note-card h2::before {
+    margin-bottom: 5px;
+    font-size: 23px;
+  }
+
+  .note-card p {
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  .note-card .note-signature {
+    margin-top: 16px;
+    font-size: 20px;
+  }
+
+  .note-photo {
+    width: 165px;
+    height: 165px;
+    margin: 16px auto 4px;
+  }
+
+  .note-photo::after {
+    right: 8px;
+    font-size: 9px;
+  }
+
+  .skip-btn {
+    margin-top: 14px;
+  }
 }

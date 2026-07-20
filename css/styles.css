@@ -1932,9 +1932,18 @@ p {
 
 .note-signature {
   margin-top: 25px;
-  font-family: 'Playfair Display';
-  font-size: 24px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 38px;
   color: var(--lila-oscuro);
+}
+
+.signature-heart {
+  display: inline-block;
+  margin-left: 3px;
+  font-family: 'Great Vibes', cursive;
+  font-size: .8em;
+  color: var(--lila-oscuro);
+  transform: rotate(-10deg) translateY(-1px);
 }
 
 .skip-btn {
@@ -1993,7 +2002,7 @@ p {
 
   .note-card .note-signature {
     margin-top: 16px;
-    font-size: 20px;
+    font-size: 32px;
   }
 
   .note-photo {

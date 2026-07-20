@@ -312,6 +312,14 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   line-height: 1.55;
 }
 
+.marriage-letter-intro {
+  display: block;
+  margin-bottom: 12px;
+  font-size: .72em;
+  font-style: normal;
+  letter-spacing: .5px;
+}
+
 .marriage-letter-author {
   margin-top: 25px;
   color: var(--lila-oscuro);
@@ -1038,10 +1046,10 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   height: 560px;
   margin: 36px auto 0;
   position: relative;
-  border-radius: 20px;
+  border-radius: 0;
   overflow: hidden;
-  background: linear-gradient(145deg, #f8f4ed, #eee8df);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, .14);
+  background: transparent;
+  box-shadow: none;
 }
 
 .carousel-img {
@@ -1052,7 +1060,7 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   object-fit: contain;
   object-position: center;
   image-orientation: from-image;
-  border-radius: 20px;
+  border-radius: 0;
   display: block;
   opacity: 0;
   transition: opacity .9s ease;
@@ -1095,11 +1103,11 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
     width: 100%;
     height: 430px;
     margin-top: 28px;
-    border-radius: 16px;
+    border-radius: 0;
   }
 
   .carousel-img {
-    border-radius: 16px;
+    border-radius: 0;
   }
 
   .carousel-dots {

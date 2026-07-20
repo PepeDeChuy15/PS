@@ -997,12 +997,12 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 .confirmar-card {
   width: 100%;
   max-width: 480px;
-  background: rgba(22, 10, 45, 0.86);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(183, 154, 214, .28);
+  background: rgba(218, 201, 238, .70);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(142, 107, 191, .52);
   border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, .45);
+  box-shadow: 0 20px 60px rgba(54, 35, 73, .28);
   padding: 48px 36px;
   text-align: center;
 }
@@ -1016,22 +1016,31 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 .confirmar-names {
   font-family: 'Cinzel', serif;
   font-size: 22px;
-  color: #fff;
+  color: #2c2038;
   letter-spacing: 2px;
   margin-bottom: 4px;
 }
 
 .confirmar-names span {
-  color: #c9a8f0;
+  color: #7545a5;
 }
 
 .confirmar-date {
   font-family: 'Cormorant Garamond', serif;
   font-size: 13px;
   letter-spacing: 3px;
-  color: rgba(255, 255, 255, .45);
+  color: rgba(44, 32, 56, .68);
   text-transform: uppercase;
   margin-bottom: 36px;
+}
+
+.confirmar-card .rsvp-state h3,
+.confirmar-card .rsvp-hint,
+.confirmar-card .rsvp-greeting,
+.confirmar-card .rsvp-passes-info,
+.confirmar-card .rsvp-question {
+  color: #30233d;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, .25);
 }
 
 /* GALERIA */

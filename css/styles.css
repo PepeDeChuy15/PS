@@ -263,7 +263,7 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   overflow: hidden;
   text-align: center;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, .97), rgba(251, 247, 239, .98));
+    linear-gradient(145deg, rgba(255, 255, 255, .30), rgba(251, 247, 239, .30));
   border: 1px solid rgba(183, 154, 214, .42);
   border-radius: 4px;
   box-shadow:
@@ -295,39 +295,42 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   border-bottom: 1px solid;
 }
 
-.marriage-letter-ornament {
-  display: block;
-  margin-bottom: 20px;
-  color: var(--lila-oscuro);
-  font-size: 30px;
-  line-height: 1;
-}
-
-.marriage-letter blockquote {
-  margin: 0;
-  color: #4d4947;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 28px;
-  font-style: italic;
-  line-height: 1.55;
-}
-
-.marriage-letter-intro {
-  display: block;
-  margin-bottom: 12px;
-  font-size: .72em;
-  font-style: normal;
-  letter-spacing: .5px;
-}
-
-.marriage-letter-author {
-  margin-top: 25px;
+.marriage-letter-kicker {
+  margin: 0 0 20px;
   color: var(--lila-oscuro);
   font-family: 'Cinzel', serif;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
+}
+
+.marriage-letter blockquote {
+  margin: 0;
+  color: #4d4947;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 25px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.marriage-letter-author {
+  margin: 25px 0 0;
+  color: var(--lila-oscuro);
+  font-family: 'Cinzel', serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.marriage-letter-heart {
+  display: inline-block;
+  margin-left: 6px;
+  font-family: Georgia, serif;
+  font-size: 1.35em;
+  line-height: 0;
+  vertical-align: -.08em;
 }
 
 .marriage-letter-work {
@@ -353,8 +356,14 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   }
 
   .marriage-letter blockquote {
-    font-size: 22px;
-    line-height: 1.5;
+    font-size: 20px;
+    line-height: 1.48;
+  }
+
+  .marriage-letter-kicker {
+    margin-bottom: 14px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
   }
 
   .marriage-letter-author {
@@ -1944,7 +1953,7 @@ p {
 .note-signature {
   margin-top: 25px;
   font-family: 'Great Vibes', cursive;
-  font-size: 38px;
+  font-size: 30px;
   color: var(--lila-oscuro);
 }
 
@@ -2013,7 +2022,7 @@ p {
 
   .note-card .note-signature {
     margin-top: 16px;
-    font-size: 32px;
+    font-size: 26px;
   }
 
   .note-photo {

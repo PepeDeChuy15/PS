@@ -1944,7 +1944,7 @@ p {
 .note-signature {
   margin-top: 25px;
   font-family: 'Great Vibes', cursive;
-  font-size: 38px;
+  font-size: 24px;
   color: var(--lila-oscuro);
 }
 
@@ -2013,7 +2013,7 @@ p {
 
   .note-card .note-signature {
     margin-top: 16px;
-    font-size: 32px;
+    font-size: 20px;
   }
 
   .note-photo {

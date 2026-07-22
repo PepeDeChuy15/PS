@@ -1073,7 +1073,9 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   border-radius: 0;
   display: block;
   opacity: 0;
-  transition: opacity .9s ease;
+  transform: translateZ(0);
+  will-change: opacity;
+  transition: opacity .6s ease-in-out;
 }
 
 .carousel-img.active {

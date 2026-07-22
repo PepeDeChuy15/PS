@@ -324,15 +324,6 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   text-transform: uppercase;
 }
 
-.marriage-letter-heart {
-  display: inline-block;
-  margin-left: 6px;
-  font-family: Georgia, serif;
-  font-size: 1.35em;
-  line-height: 0;
-  vertical-align: -.08em;
-}
-
 .marriage-letter-work {
   margin-top: 4px;
   color: #77716e;
@@ -1953,7 +1944,7 @@ p {
 .note-signature {
   margin-top: 25px;
   font-family: 'Great Vibes', cursive;
-  font-size: 30px;
+  font-size: 38px;
   color: var(--lila-oscuro);
 }
 
@@ -2022,7 +2013,7 @@ p {
 
   .note-card .note-signature {
     margin-top: 16px;
-    font-size: 26px;
+    font-size: 32px;
   }
 
   .note-photo {

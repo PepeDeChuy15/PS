@@ -1,4 +1,29 @@
 let _noteSkipped = false
+let _musicFade = null
+
+function startBackgroundMusic(){
+  const music = document.getElementById("background-music")
+  if(!music || !music.paused) return
+
+  const targetVolume = 0.07
+  music.volume = 0
+
+  const playback = music.play()
+  if(!playback) return
+
+  playback.then(()=>{
+    window.clearInterval(_musicFade)
+    _musicFade = window.setInterval(()=>{
+      music.volume = Math.min(targetVolume, music.volume + 0.005)
+      if(music.volume >= targetVolume){
+        window.clearInterval(_musicFade)
+        _musicFade = null
+      }
+    }, 150)
+  }).catch(()=>{
+    // Algunos navegadores pueden bloquear el audio aun después del toque.
+  })
+}
 
 function skipNote(){
   if(_noteSkipped) return
@@ -27,6 +52,7 @@ function openInvitation(){
 
   envelope.classList.add("opening")
   seal.classList.add("break")
+  startBackgroundMusic()
 
   setTimeout(()=>{
     intro.classList.add("leaving")

@@ -1601,7 +1601,7 @@ footer {
   top: 0;
   width: 50%;
   height: 100%;
-  background: url('../assets/images/escudo-transparente.png') no-repeat;
+  background: url('../assets/images/sello-ps.png') no-repeat;
   background-size: 200% 100%;
   opacity: 0;
   transition: transform .75s cubic-bezier(.2, .8, .2, 1), opacity .18s ease;
@@ -1663,6 +1663,29 @@ footer {
   color: var(--lila-oscuro);
   font-size: 18px;
   transition: opacity .45s ease, transform .45s ease;
+}
+
+.open-music-hint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  font-size: 1.15em;
+  vertical-align: -.08em;
+  animation: musicHintPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes musicHintPulse {
+  0%,
+  100% {
+    opacity: .65;
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.12);
+  }
 }
 
 @media(max-width:768px) {

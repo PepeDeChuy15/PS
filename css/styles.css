@@ -386,6 +386,123 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 }
 
 
+/* BENDICIÓN DE NUESTROS PADRES */
+
+.parents-blessing-section {
+  width: min(100% - 40px, 720px);
+  margin: 0 auto 80px;
+  background: transparent;
+}
+
+.parents-blessing-photo {
+  height: 370px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 94%, 95% 98%, 90% 95%, 84% 99%, 78% 95%, 71% 98%, 64% 95%, 57% 99%, 50% 95%, 43% 98%, 36% 95%, 29% 99%, 22% 95%, 16% 98%, 10% 95%, 5% 99%, 0 95%);
+}
+
+.parents-blessing-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 44%;
+  filter: saturate(.88) contrast(.96);
+}
+
+.parents-blessing-card {
+  position: relative;
+  padding: 48px 70px 30px;
+  text-align: center;
+  background: transparent;
+}
+
+.parents-blessing-quote {
+  max-width: 580px;
+  margin: 0 auto 38px;
+  color: #4d4947;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 23px;
+  line-height: 1.5;
+}
+
+.parents-blessing-ornament {
+  display: block;
+  margin-bottom: 17px;
+  color: var(--lila-oscuro);
+  font-family: Georgia, serif;
+  font-size: 32px;
+  line-height: 1;
+}
+
+.parents-blessing-card h2 {
+  margin: 0 0 42px;
+  color: #8a7658;
+  font-family: 'Great Vibes', cursive;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.parents-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 45px;
+}
+
+.parents-group h3 {
+  margin: 0 0 15px;
+  color: #8b8580;
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+.parents-group p {
+  margin: 4px 0;
+  color: #373330;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+@media (max-width: 600px) {
+  .parents-blessing-section {
+    width: calc(100% - 32px);
+    margin-bottom: 55px;
+  }
+
+  .parents-blessing-photo {
+    height: 230px;
+  }
+
+  .parents-blessing-card {
+    padding: 35px 24px 20px;
+  }
+
+  .parents-blessing-quote {
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 1.45;
+  }
+
+  .parents-blessing-card h2 {
+    margin-bottom: 34px;
+    font-size: 32px;
+  }
+
+  .parents-groups {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .parents-group p {
+    font-size: 18px;
+  }
+}
+
+
 /* TIMELINE */
 
 .timeline {
@@ -483,34 +600,102 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 
 .info-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  max-width: 900px;
-  margin: 30px auto 0;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  max-width: 720px;
+  margin: 42px auto 0;
   align-items: stretch;
 }
 
 .info-card {
-  padding: 36px 24px 30px;
-  min-height: 220px;
+  position: relative;
+  padding: 42px 28px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.info-card + .info-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 90px;
+  height: 1px;
+  background: rgba(142, 107, 191, .35);
+  transform: translateX(-50%);
+}
+
+.info-icon {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--lila-oscuro);
+  font-size: 42px;
+  line-height: 1;
 }
 
 .info-card h3 {
-  font-size: 18px;
-  color: #1c1c1c;
-  margin-bottom: 22px;
+  margin: 0 0 18px;
+  color: #8a7658;
+  font-family: 'Great Vibes', cursive;
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .info-card p {
   max-width: 520px;
   margin: 0 auto;
-  font-size: 18px;
-  color: #666;
-  line-height: 1.55;
+  color: #57514d;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.info-card .info-highlight {
+  margin-bottom: 12px;
+  color: #2f2b29;
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .info {
+    padding-inline: 16px;
+  }
+
+  .info-grid {
+    margin-top: 28px;
+  }
+
+  .info-card {
+    padding: 34px 10px;
+  }
+
+  .info-icon {
+    font-size: 36px;
+  }
+
+  .info-card h3 {
+    font-size: 34px;
+  }
+
+  .info-card p {
+    font-size: 17px;
+  }
+
+  .info-card .info-highlight {
+    font-size: 14px;
+  }
 }
 
 /* REGALOS */
@@ -1492,7 +1677,6 @@ p {
   line-height: 1.6;
 }
 
-.info-card,
 .timeline-content,
 .countdown-container div {
 

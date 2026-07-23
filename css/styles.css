@@ -267,7 +267,10 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 /* CARTA ENTRE EL CONTADOR Y EL PROGRAMA */
 
 .marriage-letter-section {
-  padding: 0 20px 70px;
+  position: relative;
+  z-index: 4;
+  margin-top: 0;
+  padding: 70px 20px 0;
 }
 
 .marriage-letter {
@@ -278,13 +281,40 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   padding: 58px 72px 50px;
   overflow: hidden;
   text-align: center;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, .30), rgba(251, 247, 239, .30));
-  border: 1px solid rgba(183, 154, 214, .42);
-  border-radius: 4px;
-  box-shadow:
-    0 20px 45px rgba(72, 54, 43, .11),
-    inset 0 0 30px rgba(183, 154, 214, .06);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.details-photo-pair {
+  position: relative;
+  width: min(calc(100% - 64px), 280px);
+  margin: 24px auto 38px;
+  filter: drop-shadow(0 16px 22px rgba(66, 48, 76, .18));
+}
+
+.details-photo-pair img {
+  display: block;
+  width: 100%;
+  height: auto;
+  clip-path: polygon(
+    0 3%, 2% 1%, 5% 3%, 8% 0, 12% 2%, 16% 1%, 20% 3%, 25% 0,
+    30% 2%, 35% 1%, 40% 3%, 45% 0, 50% 2%, 55% 1%, 60% 3%, 65% 0,
+    70% 2%, 75% 1%, 80% 3%, 85% 0, 90% 2%, 95% 1%, 100% 3%,
+    98% 8%, 100% 14%, 98% 21%, 100% 28%, 98% 35%, 100% 42%,
+    98% 49%, 100% 56%, 98% 63%, 100% 70%, 98% 77%, 100% 84%,
+    98% 91%, 100% 97%, 96% 100%, 91% 98%, 86% 100%, 81% 98%,
+    76% 100%, 71% 98%, 66% 100%, 61% 98%, 56% 100%, 51% 98%,
+    46% 100%, 41% 98%, 36% 100%, 31% 98%, 26% 100%, 21% 98%,
+    16% 100%, 11% 98%, 6% 100%, 1% 97%, 0 92%, 2% 85%, 0 78%,
+    2% 71%, 0 64%, 2% 57%, 0 50%, 2% 43%, 0 36%, 2% 29%,
+    0 22%, 2% 15%, 0 8%
+  );
+}
+
+.details-photo-pair + .info {
+  padding-top: 18px;
 }
 
 .marriage-letter::before,
@@ -350,7 +380,17 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 
 @media (max-width: 600px) {
   .marriage-letter-section {
-    padding: 0 16px 45px;
+    margin-top: 0;
+    padding: 48px 16px 0;
+  }
+
+  .details-photo-pair {
+    width: min(calc(100% - 88px), 240px);
+    margin: 18px auto 30px;
+  }
+
+  .details-photo-pair + .info {
+    padding-top: 14px;
   }
 
   .marriage-letter {

@@ -66,6 +66,22 @@ body.locked footer {
   color: var(--lila-oscuro);
 }
 
+.music-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, .85);
+  font-size: 22px;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 8px;
+  line-height: 1;
+  transition: color .2s, background .2s;
+  display: flex;
+  align-items: center;
+}
+.music-btn:hover { background: rgba(255, 255, 255, .1); }
+.header.scrolled .music-btn { color: var(--lila-oscuro); }
+
 .menu-btn {
   display: none;
   font-size: 26px;
@@ -759,6 +775,25 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   color: #6abf69;
 }
 
+.c-qr-wrap {
+  margin: 22px auto 0;
+  text-align: center;
+}
+.c-qr-wrap canvas {
+  border-radius: 14px;
+  background: #f5eeff;
+  padding: 10px;
+  display: block;
+  margin: 0 auto;
+}
+.c-qr-label {
+  margin-top: 10px;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .25);
+}
+
 .rsvp-spinner {
   width: 36px;
   height: 36px;
@@ -1105,6 +1140,35 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 .carousel-dot.active {
   background: #ffffff;
   transform: scale(1.35);
+}
+
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(0, 0, 0, .35);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 26px;
+  line-height: 1;
+  color: rgba(255, 255, 255, .85);
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background .2s, transform .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-prev { left: 12px; }
+.carousel-next { right: 12px; }
+.carousel-prev:hover,
+.carousel-next:hover {
+  background: rgba(0, 0, 0, .55);
+  transform: translateY(-50%) scale(1.08);
 }
 
 @media (max-width: 600px) {

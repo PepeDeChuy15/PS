@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrada · Pepe &amp; Sofi</title>
+  <link rel="icon" type="image/png" href="assets/images/Escudosinfondo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background: #0d0720;
+      color: #e8dff5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+
+    .logo-wrap {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .logo-wrap img { width: 52px; opacity: .85; }
+    .logo-wrap h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 15px;
+      letter-spacing: 3px;
+      color: #c9a8f0;
+      text-transform: uppercase;
+      margin-top: 10px;
+    }
+    .logo-wrap p {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+      margin-top: 4px;
+    }
+
+    .card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(201,168,240,.2);
+      border-radius: 20px;
+      padding: 32px 28px;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    /* FORM */
+    #s-form { display: block; }
+    .form-label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 10px;
+    }
+    .code-input {
+      width: 100%;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(201,168,240,.3);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 18px;
+      font-family: 'Cormorant Garamond', serif;
+      padding: 14px 18px;
+      outline: none;
+      transition: border-color .2s;
+      text-transform: lowercase;
+    }
+    .code-input:focus { border-color: #c9a8f0; }
+    .submit-btn {
+      width: 100%;
+      margin-top: 16px;
+      background: #7a58af;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 15px;
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .submit-btn:hover { background: #8e6ac5; }
+
+    /* LOADING */
+    #s-loading { display: none; text-align: center; }
+    .spinner {
+      width: 36px; height: 36px;
+      border: 3px solid rgba(201,168,240,.2);
+      border-top-color: #c9a8f0;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* SUCCESS */
+    #s-success { display: none; text-align: center; }
+    .big-icon { font-size: 52px; color: #7ecf7e; margin-bottom: 12px; }
+    .result-name {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .result-passes {
+      font-size: 16px;
+      color: rgba(255,255,255,.6);
+      margin-bottom: 24px;
+    }
+    .passes-badge {
+      display: inline-block;
+      background: rgba(126,207,126,.15);
+      border: 1px solid rgba(126,207,126,.4);
+      border-radius: 50px;
+      padding: 6px 20px;
+      font-size: 14px;
+      color: #7ecf7e;
+      margin-bottom: 24px;
+    }
+
+    /* DUPLICATE */
+    #s-duplicate { display: none; text-align: center; }
+    .dup-icon { font-size: 52px; color: #f0c040; margin-bottom: 12px; }
+    .dup-title {
+      font-family: 'Cinzel', serif;
+      font-size: 18px;
+      color: #f0c040;
+      margin-bottom: 8px;
+    }
+    .dup-hint { font-size: 14px; color: rgba(255,255,255,.5); margin-bottom: 24px; }
+
+    /* ERROR */
+    #s-error { display: none; text-align: center; }
+    .err-icon { font-size: 52px; color: #f08080; margin-bottom: 12px; }
+    .err-title {
+      font-family: 'Cinzel', serif;
+      font-size: 18px;
+      color: #f08080;
+      margin-bottom: 8px;
+    }
+    .err-msg { font-size: 14px; color: rgba(255,255,255,.5); margin-bottom: 24px; }
+
+    /* RESET BUTTON */
+    .reset-btn {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      color: rgba(255,255,255,.6);
+      border-radius: 10px;
+      padding: 10px 24px;
+      font-size: 14px;
+      font-family: 'Cormorant Garamond', serif;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .reset-btn:hover { background: rgba(255,255,255,.15); }
+  </style>
+</head>
+<body>
+
+  <div class="logo-wrap">
+    <img src="assets/images/Escudosinfondo.png" alt="Pepe &amp; Sofi">
+    <h1>Pepe &amp; Sofi</h1>
+    <p>Control de entrada · 24 Oct 2026</p>
+  </div>
+
+  <div class="card">
+
+    <!-- formulario -->
+    <div id="s-form">
+      <label class="form-label">Código del invitado</label>
+      <input class="code-input" id="code-input" type="text"
+             placeholder="ej. juan-perez"
+             autocomplete="off" autocorrect="off" spellcheck="false"
+             onkeydown="if(event.key==='Enter') submitCode()">
+      <button class="submit-btn" onclick="submitCode()">Verificar entrada</button>
+    </div>
+
+    <!-- cargando -->
+    <div id="s-loading">
+      <div class="spinner"></div>
+      <p style="color:rgba(255,255,255,.5); font-size:14px;">Verificando…</p>
+    </div>
+
+    <!-- éxito -->
+    <div id="s-success">
+      <i class="ti ti-circle-check big-icon"></i>
+      <p class="result-name" id="ok-name"></p>
+      <p class="result-passes">Pases confirmados</p>
+      <div class="passes-badge">
+        <span id="ok-passes"></span> pase<span id="ok-plural"></span>
+      </div>
+      <br>
+      <button class="reset-btn" onclick="reset()">Siguiente invitado</button>
+    </div>
+
+    <!-- ya canjeado -->
+    <div id="s-duplicate">
+      <i class="ti ti-alert-triangle dup-icon"></i>
+      <p class="dup-title">¡Ya fue registrado!</p>
+      <p class="dup-hint" id="dup-name"></p>
+      <p class="dup-hint" style="font-size:12px;" id="dup-time"></p>
+      <br>
+      <button class="reset-btn" onclick="reset()">Siguiente invitado</button>
+    </div>
+
+    <!-- error -->
+    <div id="s-error">
+      <i class="ti ti-mood-sad err-icon"></i>
+      <p class="err-title">Código no encontrado</p>
+      <p class="err-msg" id="err-msg"></p>
+      <br>
+      <button class="reset-btn" onclick="reset()">Intentar de nuevo</button>
+    </div>
+
+  </div>
+
+  <script src="js/entrada.js"></script>
+</body>
+</html>

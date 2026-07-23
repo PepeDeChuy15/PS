@@ -59,6 +59,14 @@ function doFase2Lookup(inv, antesDeAbrir) {
         document.getElementById('c-already-passes').textContent = passes;
         document.getElementById('c-already-plural').textContent = passes === 1 ? '' : 's';
         showState('c-already');
+        var qrUrl = 'https://pepedechuy15.github.io/PS/entrada.html?code=' + encodeURIComponent(inv);
+        document.getElementById('c-qr-label').textContent = inv.toUpperCase();
+        if (typeof QRCode !== 'undefined') {
+          QRCode.toCanvas(document.getElementById('c-qr'), qrUrl, {
+            width: 180, margin: 1,
+            color: { dark: '#160a2d', light: '#f5eeff' }
+          }).catch(function() {});
+        }
         return;
       }
       // Aún no confirmó y todavía no abre la fase 2

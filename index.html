@@ -97,6 +97,9 @@
       <a href="#galeria">Galería</a>
     </nav>
 
+    <button class="music-btn" id="music-btn" onclick="toggleMusic()" title="Música">
+      <i class="ti ti-volume" id="music-icon"></i>
+    </button>
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
   </header>
@@ -493,6 +496,9 @@
     <h2>Nuestra Historia</h2>
 
     <div class="carousel">
+
+      <button class="carousel-prev" onclick="prevSlide()" aria-label="Anterior">&#8249;</button>
+      <button class="carousel-next" onclick="nextSlide()" aria-label="Siguiente">&#8250;</button>
 
       <img src="assets/images/gallery-optimized/DSC6585.jpg" class="carousel-img active"
         alt="Pepe y Sofi" decoding="async" fetchpriority="high">

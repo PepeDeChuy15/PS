@@ -42,6 +42,19 @@ function skipNote(){
   }, 650)
 }
 
+function toggleMusic(){
+  const music = document.getElementById("background-music")
+  const icon  = document.getElementById("music-icon")
+  if(!music) return
+  if(music.paused){
+    startBackgroundMusic()
+    if(icon){ icon.classList.remove("ti-volume-off"); icon.classList.add("ti-volume") }
+  } else {
+    music.pause()
+    if(icon){ icon.classList.remove("ti-volume"); icon.classList.add("ti-volume-off") }
+  }
+}
+
 function openInvitation(){
   const seal = document.querySelector(".seal")
   const envelope = document.querySelector(".envelope")

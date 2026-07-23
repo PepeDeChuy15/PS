@@ -57,6 +57,8 @@
   }
 
   window.goToSlide = goToSlide;
+  window.prevSlide  = () => goToSlide(index - 1);
+  window.nextSlide  = () => goToSlide(index + 1);
   preloadNext(index);
 
   if ("IntersectionObserver" in window) {

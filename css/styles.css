@@ -791,43 +791,66 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 
 .gifts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  max-width: 900px;
+  grid-template-columns: 1fr;
+  gap: 0;
+  max-width: 760px;
   margin: 0 auto;
 }
 
 .gift-card {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  column-gap: 20px;
+  align-items: start;
   background: transparent;
   border: 0;
+  border-bottom: 1px solid rgba(142, 107, 191, .22);
   box-shadow: none;
   border-radius: 0;
-  padding: 36px 24px 30px;
-  text-align: center;
+  padding: 25px 12px;
+  text-align: left;
+}
+
+.gift-card:last-child {
+  border-bottom: 0;
 }
 
 .gift-icon {
-  font-size: 28px;
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  align-self: center;
+  width: 52px;
+  height: 52px;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  font-size: 25px;
   color: var(--lila-oscuro);
-  display: block;
-  margin-bottom: 14px;
+  border: 1px solid rgba(142, 107, 191, .35);
+  border-radius: 50%;
+  background: rgba(183, 154, 214, .08);
 }
 
 .gift-card h4 {
+  grid-column: 2;
   font-family: 'Cinzel', serif;
   font-size: 15px;
   color: #1c1c1c;
   letter-spacing: 1px;
-  margin-bottom: 10px;
+  margin: 0 0 6px;
 }
 
 .gift-card p {
+  grid-column: 2;
   font-size: 15px;
   color: #777;
-  line-height: 1.6;
+  line-height: 1.5;
+  margin: 0;
 }
 
 .gift-link {
+  grid-column: 2;
+  justify-self: start;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -844,14 +867,79 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   transition: background .3s ease, transform .2s ease;
 }
 
+@media (max-width: 600px) {
+  .gifts-grid {
+    width: 100%;
+  }
+
+  .gift-card {
+    grid-template-columns: 45px minmax(0, 1fr);
+    column-gap: 13px;
+    padding: 19px 4px;
+  }
+
+  .gift-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 21px;
+  }
+
+  .gift-card h4 {
+    font-size: 13px;
+    line-height: 1.25;
+  }
+
+  .gift-card p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .gift-link {
+    margin-top: 12px;
+    padding: 8px 14px;
+    font-size: 10px;
+  }
+}
+
 .gift-link:hover {
   background: #6a4d9a;
   transform: translateY(-2px);
 }
 
+.lodging-torn-photo {
+  width: min(100%, 720px);
+  margin: 58px auto 0;
+  filter: drop-shadow(0 14px 18px rgba(66, 48, 76, .16));
+}
+
+.lodging-torn-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: center;
+  clip-path: polygon(
+    0 5%, 3% 1%, 7% 4%, 11% 0, 16% 3%, 21% 1%, 26% 4%,
+    31% 0, 36% 3%, 41% 1%, 46% 4%, 51% 0, 56% 3%, 61% 1%,
+    66% 4%, 71% 0, 76% 3%, 81% 1%, 86% 4%, 91% 0, 96% 3%,
+    100% 1%, 100% 100%, 0 100%
+  );
+}
+
 .lodging-section {
-  margin-top: 58px;
+  margin-top: 42px;
   text-align: center;
+}
+
+@media (max-width: 600px) {
+  .lodging-torn-photo {
+    width: calc(100% + 32px);
+    margin: 46px -16px 0;
+  }
+
+  .lodging-section {
+    margin-top: 34px;
+  }
 }
 
 .lodging-grid {

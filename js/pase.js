@@ -66,11 +66,17 @@ function doFase2Lookup(inv, antesDeAbrir) {
         var qrUrl = 'https://pepedechuy15.github.io/PS/entrada.html?code=' + encodeURIComponent(inv);
         document.getElementById('c-qr-label').textContent = inv.toUpperCase();
         document.getElementById('c-qr-link').href = qrUrl;
+        var qrContainer = document.getElementById('c-qr');
+        qrContainer.innerHTML = '';
         if (typeof QRCode !== 'undefined') {
-          QRCode.toCanvas(document.getElementById('c-qr'), qrUrl, {
-            width: 180, margin: 1,
-            color: { dark: '#160a2d', light: '#f5eeff' }
-          }).catch(function() {});
+          new QRCode(qrContainer, {
+            text: qrUrl,
+            width: 180,
+            height: 180,
+            colorDark: '#160a2d',
+            colorLight: '#f5eeff',
+            correctLevel: QRCode.CorrectLevel.H
+          });
         }
         return;
       }

@@ -67,7 +67,7 @@
         </div>
       </div>
 
-      <!-- ya respondió -->
+      <!-- ya respondió — muestra QR para canjear -->
       <div class="rsvp-state rsvp-hidden" id="c-already">
         <i class="ti ti-circle-check rsvp-icon rsvp-icon-success"></i>
         <h3>¡Te esperamos!</h3>
@@ -79,7 +79,17 @@
         <div class="c-qr-wrap">
           <canvas id="c-qr"></canvas>
           <p class="c-qr-label" id="c-qr-label"></p>
+          <a id="c-qr-link" href="#" target="_blank" class="c-qr-open-link">
+            Presentar en entrada →
+          </a>
         </div>
+      </div>
+
+      <!-- ya canjeado -->
+      <div class="rsvp-state rsvp-hidden" id="c-redeemed">
+        <i class="ti ti-check rsvp-icon" style="color:#f0c040"></i>
+        <h3>¡Ya ingresaste!</h3>
+        <p class="rsvp-hint">Tu código ya fue canjeado en la entrada. ¡Que disfrutes mucho la celebración!</p>
       </div>
 
       <!-- éxito -->

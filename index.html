@@ -194,7 +194,7 @@
 
       <div class="timeline-event bottom">
         <div class="event-card" style="cursor:pointer"
-          onclick="document.getElementById('boda-religiosa').scrollIntoView({behavior:'smooth'})">
+          onclick="document.getElementById('boda-religiosa').scrollIntoView({behavior:'smooth', block:'center'})">
           <span class="time">03:00 pm</span>
           <i class="ti ti-building-church event-icon"></i>
           <p>Misa</p>
@@ -273,9 +273,11 @@
       <div class="timeline-item" id="boda-religiosa">
         <div class="timeline-icon">⛪</div>
         <div class="timeline-content">
-          <h3>Boda Religiosa</h3>
-          <p>Parroquia del Sagrado Corazón</p>
-          <p>03:00 pm</p>
+          <div class="timeline-details">
+            <h3>Boda Religiosa</h3>
+            <p>Parroquia del Sagrado Corazón</p>
+            <p>03:00 pm</p>
+          </div>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.9367214336726!2d-102.87712172509272!3d23.17250951071701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86830bc61aa40b29%3A0x6872955ad1b5f35e!2sParroquia%20del%20Sagrado%20Coraz%C3%B3n!5e0!3m2!1ses-419!2smx!4v1773006783603!5m2!1ses-419!2smx"></iframe>
 
@@ -292,13 +294,15 @@
 
         <div class="timeline-content">
 
-          <h3>Boda Civil</h3>
-          <p>Antigua San Felipe</p>
-          <p>07:00 pm</p>
+          <div class="timeline-details">
+            <h3>Boda Civil</h3>
+            <p>Antigua San Felipe</p>
+            <p>07:00 pm</p>
 
-          <h3 style="margin-top:15px;">Fiesta</h3>
-          <p>Antigua San Felipe</p>
-          <p>08:00 pm</p>
+            <h3 style="margin-top:15px;">Fiesta</h3>
+            <p>Antigua San Felipe</p>
+            <p>08:00 pm</p>
+          </div>
 
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.7480869098677!2d-102.81350662403973!3d23.17939261045664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86830a79a3c528bd%3A0x800d9e4b5d86343!2sCentro%20de%20Convenciones%20Antigua%20San%20Felipe!5e0!3m2!1ses-419!2smx!4v1773006746587!5m2!1ses-419!2smx"></iframe>
@@ -318,13 +322,15 @@
 
         <div class="timeline-content">
 
-          <h3>Tornaboda</h3>
+          <div class="timeline-details">
+            <h3>Tornaboda</h3>
 
-          <p>Salón AG</p>
+            <p>Salón AG</p>
 
-          <p>25 Octubre</p>
-          <p>12:00 </p>
-          <p>Dress Code: No blanco </p>
+            <p>25 Octubre</p>
+            <p>12:00 </p>
+            <p>Dress Code: No blanco </p>
+          </div>
 
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.654362481721!2d-102.89639282403964!3d23.182811810328186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86830b618bd279ef%3A0x47d84add4bef061a!2zU2Fsw7NuIEFH!5e0!3m2!1ses-419!2smx!4v1773005011032!5m2!1ses-419!2smx"></iframe>
@@ -362,6 +368,13 @@
         <p>Amamos a sus pequeños, pero queremos que en este día sólo tengan que preocuparse por pasarla increíble.
           Agradecemos su comprensión.</p>
       </div>
+
+      <figure class="info-torn-photo">
+        <div class="info-torn-photo-paper">
+          <img src="assets/images/gallery-optimized/DSC6782.jpg" alt="Pepe y Sofi juntos" loading="lazy"
+            decoding="async">
+        </div>
+      </figure>
 
     </div>
 

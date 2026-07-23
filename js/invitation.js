@@ -1,6 +1,24 @@
 let _noteSkipped = false
 let _musicFade = null
 
+function stopBackgroundMusic(reset = false){
+  const music = document.getElementById("background-music")
+  const icon = document.getElementById("music-icon")
+
+  window.clearInterval(_musicFade)
+  _musicFade = null
+
+  if(!music) return
+
+  music.pause()
+  if(reset) music.currentTime = 0
+
+  if(icon){
+    icon.classList.remove("ti-volume")
+    icon.classList.add("ti-volume-off")
+  }
+}
+
 function startBackgroundMusic(){
   const music = document.getElementById("background-music")
   if(!music || !music.paused) return
@@ -50,10 +68,21 @@ function toggleMusic(){
     startBackgroundMusic()
     if(icon){ icon.classList.remove("ti-volume-off"); icon.classList.add("ti-volume") }
   } else {
-    music.pause()
-    if(icon){ icon.classList.remove("ti-volume"); icon.classList.add("ti-volume-off") }
+    stopBackgroundMusic()
   }
 }
+
+document.addEventListener("visibilitychange", ()=>{
+  if(document.hidden) stopBackgroundMusic()
+})
+
+window.addEventListener("pagehide", ()=>{
+  stopBackgroundMusic(true)
+})
+
+window.addEventListener("beforeunload", ()=>{
+  stopBackgroundMusic(true)
+})
 
 function openInvitation(){
   const seal = document.querySelector(".seal")

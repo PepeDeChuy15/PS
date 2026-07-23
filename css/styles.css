@@ -403,7 +403,7 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 /* BENDICIÓN DE NUESTROS PADRES */
 
 .parents-blessing-section {
-  width: min(100% - 40px, 720px);
+  width: 100%;
   margin: 0 auto 80px;
   background: transparent;
 }
@@ -425,6 +425,8 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 
 .parents-blessing-card {
   position: relative;
+  width: min(100% - 40px, 720px);
+  margin: 0 auto;
   padding: 48px 70px 30px;
   text-align: center;
   background: transparent;
@@ -493,7 +495,7 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 
 @media (max-width: 600px) {
   .parents-blessing-section {
-    width: calc(100% - 32px);
+    width: 100%;
     margin-bottom: 55px;
   }
 
@@ -502,6 +504,7 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   }
 
   .parents-blessing-card {
+    width: calc(100% - 32px);
     padding: 35px 24px 20px;
   }
 

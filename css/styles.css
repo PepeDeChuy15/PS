@@ -467,6 +467,16 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   line-height: 1.35;
 }
 
+.parents-wedding-announcement {
+  margin: 52px 0 0;
+  color: var(--lila-oscuro);
+  font-family: 'Cinzel', serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
 @media (max-width: 600px) {
   .parents-blessing-section {
     width: calc(100% - 32px);
@@ -499,6 +509,12 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 
   .parents-group p {
     font-size: 18px;
+  }
+
+  .parents-wedding-announcement {
+    margin-top: 42px;
+    font-size: 19px;
+    letter-spacing: 2px;
   }
 }
 
@@ -1585,7 +1601,7 @@ footer {
   top: 0;
   width: 50%;
   height: 100%;
-  background: url('../assets/images/Escudosinfondo.png') no-repeat;
+  background: url('../assets/images/escudo-transparente.png') no-repeat;
   background-size: 200% 100%;
   opacity: 0;
   transition: transform .75s cubic-bezier(.2, .8, .2, 1), opacity .18s ease;

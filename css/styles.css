@@ -775,29 +775,30 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   color: #6abf69;
 }
 
-.c-qr-wrap {
-  margin: 22px auto 0;
+.c-code-wrap {
+  margin: 24px auto 0;
   text-align: center;
 }
-#c-qr {
-  display: inline-block;
-  background: #f5eeff;
-  padding: 10px;
-  border-radius: 14px;
-  overflow: hidden;
-  line-height: 0;
-}
-#c-qr img,
-#c-qr canvas {
-  display: block;
-  border-radius: 6px;
-}
-.c-qr-label {
-  margin-top: 10px;
-  font-size: 10px;
-  letter-spacing: 2.5px;
+
+.c-code-hint {
+  font-size: 11px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, .25);
+  color: rgba(255, 255, 255, .4);
+  margin-bottom: 12px;
+}
+
+.c-code-display {
+  font-family: 'Cinzel', serif;
+  font-size: 28px;
+  letter-spacing: 4px;
+  color: #fff;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(201, 168, 240, .35);
+  border-radius: 14px;
+  padding: 18px 24px;
+  word-break: break-all;
+  margin: 0 auto;
 }
 
 .c-qr-open-link {

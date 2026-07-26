@@ -7,6 +7,11 @@ function showState(id) {
     el.classList.add('rsvp-hidden');
   });
   document.getElementById(id).classList.remove('rsvp-hidden');
+
+  var wrap = document.querySelector('.confirmar-wrap');
+  if (wrap) {
+    wrap.classList.toggle('pase-confirmed', id === 'c-already');
+  }
 }
 
 function cConfirm() { cSend('si'); }

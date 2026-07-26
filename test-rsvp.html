@@ -406,27 +406,20 @@
     var W = 127, H = 178;
     var doc = new window.jspdf.jsPDF({ unit: 'mm', format: [W, H], orientation: 'portrait' });
 
-    var nombre   = data.nombre || inv;
-    var pases    = parseInt(data.pasesFinales) || 1;
-    var codigo   = (data.codigo || inv).toUpperCase();
+    var nombre = data.nombre || inv;
+    var pases  = parseInt(data.pasesFinales) || 1;
+    var codigo = (data.codigo || inv).toUpperCase();
 
-    // Background
-    doc.setFillColor(252, 248, 245);
-    doc.rect(0, 0, W, H, 'F');
+    // Paleta fiel al pase.html / styles.css
+    var CREAM      = [252, 249, 242];  // --cremita #fcf9f2
+    var LILA_SUAVE = [233, 226, 243];  // --lila-suave #e9e2f3
+    var LILA       = [183, 154, 214];  // --lila #b79ad6
+    var LILA_OSC   = [142, 107, 191];  // --lila-oscuro #8e6bbf
+    var DARK_PURPLE= [44,  32,  56 ];  // #2c2038 (nombres)
+    var MED_PURPLE = [90,  64,  112];  // #5a4070 (fecha / secundario)
+    var ACCENT     = [117, 69,  165];  // #7545a5 (acento &)
 
-    // Header/footer accent bands
-    doc.setFillColor(243, 232, 255);
-    doc.rect(0, 0, W, 9, 'F');
-    doc.rect(0, H - 9, W, 9, 'F');
-
-    // Outer double border
-    doc.setDrawColor(130, 70, 185);
-    doc.setLineWidth(0.85);
-    doc.rect(5, 5, W - 10, H - 10);
-    doc.setLineWidth(0.25);
-    doc.rect(7, 7, W - 14, H - 14);
-
-    // Logo
+    // Carga el logo una sola vez
     var logoImg = new Image();
     logoImg.crossOrigin = 'anonymous';
     var logoLoaded = await new Promise(function(res) {
@@ -434,107 +427,187 @@
       logoImg.onerror = function() { res(false); };
       logoImg.src = 'assets/images/Escudosinfondo.png';
     });
-    if (logoLoaded) {
-      var canvas = document.createElement('canvas');
-      canvas.width  = logoImg.naturalWidth;
-      canvas.height = logoImg.naturalHeight;
-      canvas.getContext('2d').drawImage(logoImg, 0, 0);
-      doc.addImage(canvas.toDataURL('image/png'), 'PNG', (W - 32) / 2, 12, 32, 32);
+    function addLogo(x, y, size) {
+      if (!logoLoaded) return;
+      var c = document.createElement('canvas');
+      c.width = logoImg.naturalWidth; c.height = logoImg.naturalHeight;
+      c.getContext('2d').drawImage(logoImg, 0, 0);
+      doc.addImage(c.toDataURL('image/png'), 'PNG', x, y, size, size);
     }
 
-    // Names
+    // ─── Helpers ────────────────────────────────────────────────────
+    function bg() {
+      doc.setFillColor.apply(doc, CREAM);
+      doc.rect(0, 0, W, H, 'F');
+      // Franja superior e inferior en lila-suave
+      doc.setFillColor.apply(doc, LILA_SUAVE);
+      doc.rect(0, 0, W, 10, 'F');
+      doc.rect(0, H - 10, W, 10, 'F');
+    }
+    function border() {
+      doc.setDrawColor.apply(doc, LILA);
+      doc.setLineWidth(0.75);
+      doc.rect(5, 5, W - 10, H - 10);
+      doc.setLineWidth(0.2);
+      doc.rect(7.5, 7.5, W - 15, H - 15);
+    }
+    function divider(y, x1, x2) {
+      x1 = x1 || 22; x2 = x2 || W - 22;
+      doc.setDrawColor.apply(doc, LILA);
+      doc.setLineWidth(0.28);
+      doc.line(x1, y, x2, y);
+    }
+
+    // ══════════════════════════════════════════════════════
+    //  PÁGINA 1 — PORTADA
+    // ══════════════════════════════════════════════════════
+    bg();
+    border();
+
+    // Logo grande centrado
+    addLogo((W - 44) / 2, 12, 44);
+
+    // Nombres
     doc.setFont('times', 'italic');
-    doc.setFontSize(24);
-    doc.setTextColor(95, 35, 145);
-    doc.text('Pepe & Sofi', W / 2, 52, { align: 'center' });
+    doc.setFontSize(26);
+    doc.setTextColor.apply(doc, DARK_PURPLE);
+    doc.text('Pepe & Sofi', W / 2, 64, { align: 'center' });
 
-    // Date
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(8.5);
-    doc.setTextColor(125, 85, 165);
-    doc.text('24  \xB7  OCTUBRE  \xB7  2026', W / 2, 59, { align: 'center' });
-
-    // Divider 1
-    doc.setDrawColor(175, 135, 215);
-    doc.setLineWidth(0.28);
-    doc.line(22, 63, W - 22, 63);
-
-    // Invitation text
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(8.5);
-    doc.setTextColor(95, 70, 125);
-    doc.text('Con alegr\xEDa te invitamos a celebrar', W / 2, 71, { align: 'center' });
-    doc.text('nuestra boda con nosotros', W / 2, 77, { align: 'center' });
-
-    // Guest name
-    var nombreDisplay = nombre.length > 30 ? nombre.substring(0, 28) + '…' : nombre;
-    doc.setFont('times', 'bolditalic');
-    doc.setFontSize(15);
-    doc.setTextColor(65, 20, 110);
-    doc.text(nombreDisplay, W / 2, 87, { align: 'center' });
-
-    // Passes
+    // Fecha
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(8);
-    doc.setTextColor(115, 85, 150);
+    doc.setTextColor.apply(doc, MED_PURPLE);
+    doc.text('24  \xB7  OCTUBRE  \xB7  2026', W / 2, 72, { align: 'center' });
+
+    divider(77);
+
+    // Texto de invitación (Cormorant-style → times normal)
+    doc.setFont('times', 'normal');
+    doc.setFontSize(10);
+    doc.setTextColor.apply(doc, MED_PURPLE);
+    doc.text('Con alegr\xEDa te invitamos a celebrar', W / 2, 86, { align: 'center' });
+    doc.text('nuestra boda con nosotros', W / 2, 94, { align: 'center' });
+
+    // Nombre del invitado
+    var nombreDisplay = doc.getStringUnitWidth(nombre) * 15 / doc.internal.scaleFactor > (W - 30)
+      ? nombre.substring(0, 26) + '...' : nombre;
+    doc.setFont('times', 'bolditalic');
+    doc.setFontSize(15);
+    doc.setTextColor.apply(doc, DARK_PURPLE);
+    doc.text(nombreDisplay, W / 2, 107, { align: 'center' });
+
+    // Pases
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8);
+    doc.setTextColor.apply(doc, LILA_OSC);
     var pasesLabel = pases + (pases === 1 ? ' pase confirmado' : ' pases confirmados');
-    doc.text(pasesLabel, W / 2, 94, { align: 'center' });
+    doc.text(pasesLabel, W / 2, 115, { align: 'center' });
 
-    // Divider 2
-    doc.setDrawColor(175, 135, 215);
-    doc.setLineWidth(0.28);
-    doc.line(22, 99, W - 22, 99);
+    divider(121);
 
-    // Events
-    function eventBlock(label, venue, time, y) {
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(7.5);
-      doc.setTextColor(105, 45, 155);
-      doc.text(label, W / 2, y, { align: 'center' });
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(7.5);
-      doc.setTextColor(85, 62, 115);
-      doc.text(venue + '  \xB7  ' + time, W / 2, y + 6, { align: 'center' });
-    }
+    // Frase de la invitación
+    doc.setFont('times', 'italic');
+    doc.setFontSize(8.5);
+    doc.setTextColor.apply(doc, LILA_OSC);
+    doc.text('"Amarse es caminar juntos', W / 2, 132, { align: 'center' });
+    doc.text('sin dejar de ser uno mismo"', W / 2, 140, { align: 'center' });
 
-    eventBlock('MISA', 'Parroquia del Sagrado Corazon', '3:00 pm', 107);
-    eventBlock('BODA CIVIL & FIESTA', 'Antigua San Felipe', '7:00 pm', 123);
+    divider(147);
 
-    doc.setFont('helvetica', 'bold');
-    doc.setFontSize(7);
-    doc.setTextColor(105, 45, 155);
-    doc.text('TORNABODA', W / 2, 139, { align: 'center' });
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(7);
-    doc.setTextColor(85, 62, 115);
-    doc.text('Salon AG  \xB7  25 Octubre', W / 2, 144.5, { align: 'center' });
-
-    // Divider 3
-    doc.setDrawColor(175, 135, 215);
-    doc.setLineWidth(0.28);
-    doc.line(22, 149, W - 22, 149);
-
-    // Entry code
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(7.5);
-    doc.setTextColor(105, 78, 145);
-    doc.text('CODIGO DE ENTRADA', W / 2, 157, { align: 'center' });
-
-    doc.setFillColor(241, 232, 255);
-    doc.setDrawColor(155, 105, 205);
-    doc.setLineWidth(0.45);
-    doc.roundedRect((W - 70) / 2, 160, 70, 13, 2.5, 2.5, 'FD');
-
-    doc.setFont('courier', 'bold');
-    doc.setFontSize(14);
-    doc.setTextColor(70, 22, 115);
-    doc.text(codigo, W / 2, 169, { align: 'center' });
-
-    // Footer
+    // Pie de página
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(6.5);
-    doc.setTextColor(155, 125, 190);
-    doc.text('Presenta este codigo al ingresar al evento', W / 2, H - 11, { align: 'center' });
+    doc.setTextColor.apply(doc, LILA);
+    doc.text('pepedechuy15.github.io/PS', W / 2, H - 14, { align: 'center' });
+    doc.setFontSize(6);
+    doc.setTextColor.apply(doc, LILA_OSC);
+    doc.text('Presenta este documento al ingresar al evento', W / 2, H - 9, { align: 'center' });
+
+    // ══════════════════════════════════════════════════════
+    //  PÁGINA 2 — REVERSO: PROGRAMA + CÓDIGO
+    // ══════════════════════════════════════════════════════
+    doc.addPage([W, H]);
+    bg();
+    border();
+
+    // Logo pequeño en la parte superior
+    addLogo((W - 22) / 2, 13, 22);
+
+    // Nombres compactos
+    doc.setFont('times', 'italic');
+    doc.setFontSize(14);
+    doc.setTextColor.apply(doc, DARK_PURPLE);
+    doc.text('Pepe & Sofi', W / 2, 42, { align: 'center' });
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(7.5);
+    doc.setTextColor.apply(doc, MED_PURPLE);
+    doc.text('24 \xB7 OCTUBRE \xB7 2026', W / 2, 49, { align: 'center' });
+
+    divider(54);
+
+    // Encabezado de programa
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(7);
+    doc.setTextColor.apply(doc, ACCENT);
+    doc.text('PROGRAMA DEL D\xCDA', W / 2, 62, { align: 'center' });
+
+    // ─ Evento helper ─
+    function evento(nombre, lugar, hora, y) {
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(7.5);
+      doc.setTextColor.apply(doc, LILA_OSC);
+      doc.text(nombre, W / 2, y, { align: 'center' });
+      doc.setFont('times', 'normal');
+      doc.setFontSize(8.5);
+      doc.setTextColor.apply(doc, DARK_PURPLE);
+      doc.text(lugar, W / 2, y + 6, { align: 'center' });
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(7);
+      doc.setTextColor.apply(doc, MED_PURPLE);
+      doc.text(hora, W / 2, y + 12, { align: 'center' });
+    }
+
+    evento('MISA', 'Parroquia del Sagrado Coraz\xF3n', '3:00 pm', 70);
+
+    // Separador fino entre eventos
+    doc.setDrawColor.apply(doc, LILA_SUAVE);
+    doc.setLineWidth(0.2);
+    doc.line(35, 85, W - 35, 85);
+
+    evento('BODA CIVIL & FIESTA', 'Antigua San Felipe', '7:00 pm', 91);
+
+    doc.setDrawColor.apply(doc, LILA_SUAVE);
+    doc.setLineWidth(0.2);
+    doc.line(35, 106, W - 35, 106);
+
+    evento('TORNABODA', 'Sal\xF3n AG', '25 Octubre', 112);
+
+    divider(127);
+
+    // ─ Código de entrada ─
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(7.5);
+    doc.setTextColor.apply(doc, ACCENT);
+    doc.text('C\xD3DIGO DE ENTRADA', W / 2, 136, { align: 'center' });
+
+    // Caja del código — fondo lila-suave, borde lila
+    var bW = 82, bH = 20, bX = (W - bW) / 2, bY = 140;
+    doc.setFillColor.apply(doc, LILA_SUAVE);
+    doc.setDrawColor.apply(doc, LILA);
+    doc.setLineWidth(0.5);
+    doc.roundedRect(bX, bY, bW, bH, 3, 3, 'FD');
+
+    doc.setFont('courier', 'bold');
+    doc.setFontSize(16);
+    doc.setTextColor.apply(doc, DARK_PURPLE);
+    doc.text(codigo, W / 2, bY + 13, { align: 'center' });
+
+    // Nota final
+    doc.setFont('times', 'italic');
+    doc.setFontSize(8);
+    doc.setTextColor.apply(doc, MED_PURPLE);
+    doc.text('\xA1Te esperamos!', W / 2, 168, { align: 'center' });
 
     doc.save('invitacion-' + inv.replace(/[^a-z0-9]/g, '-') + '.pdf');
   }

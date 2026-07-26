@@ -1443,14 +1443,20 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 .confirmar-card {
   width: 100%;
   max-width: 480px;
-  background: rgba(218, 201, 238, .70);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(218, 201, 238, .56);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(142, 107, 191, .52);
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(54, 35, 73, .28);
   padding: 48px 36px;
   text-align: center;
+}
+
+.fase2-date-highlight {
+  color: #111111;
+  font-weight: 700;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, .45);
 }
 
 .confirmar-logo img {

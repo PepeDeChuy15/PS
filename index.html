@@ -10,7 +10,7 @@
 
   <link rel="icon" type="image/png" href="assets/images/sello-ps-optimized.png">
 
-  <link rel="stylesheet" href="css/styles.css?v=20260725-11">
+  <link rel="stylesheet" href="css/styles.css?v=20260725-13">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,13 +43,15 @@
 
   <div class="intro-screen" id="intro">
     <div class="envelope">
-      <img src="assets/images/sobre2-optimized.png" class="envelope-img" alt="Sobre de la invitación"
-        width="840" height="1260" fetchpriority="high">
-      <button class="seal" type="button" onclick="openInvitation()" aria-label="Abrir invitación">
-        <img src="assets/images/sello-ps-optimized.png" alt="" width="256" height="256">
-        <span class="seal-half seal-half-left"></span>
-        <span class="seal-half seal-half-right"></span>
-      </button>
+      <div class="envelope-visual">
+        <img src="assets/images/sobre2-optimized.png" class="envelope-img" alt="Sobre de la invitación"
+          width="840" height="1260" fetchpriority="high">
+        <button class="seal" type="button" onclick="openInvitation()" aria-label="Abrir invitación">
+          <img src="assets/images/sello-ps-optimized.png" alt="" width="256" height="256">
+          <span class="seal-half seal-half-left"></span>
+          <span class="seal-half seal-half-right"></span>
+        </button>
+      </div>
       <p class="open-text">Abrir invitación, rompe el sello
         <span class="open-music-hint" role="img" aria-label="Sube el volumen" title="Sube el volumen">
           <i class="ti ti-music" aria-hidden="true"></i>

@@ -86,7 +86,7 @@ function send(asistencia, pases, extra, comentarios) {
           msg.textContent   = 'Tu asistencia ha sido confirmada. ¡Nos vemos el 24 de octubre!';
           showFase2Notice();
         } else {
-          title.textContent = 'Lamentamos que no puedas asistir';
+          title.textContent = 'Lamentamos que no puedas asistir :(';
           msg.textContent   = 'Gracias por avisarnos. Te tendremos en nuestros pensamientos ese día.';
         }
         showState('rsvp-success');

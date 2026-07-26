@@ -1866,10 +1866,14 @@ footer {
 
 .seal {
   position: absolute;
-  top: 56.3%;
-  left: 51.4%;
+  top: 54.1%;
+  left: 50%;
   transform: translate(-50%, -50%);
   width: 22%;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  background: transparent;
   cursor: pointer;
   transition: transform .35s ease, opacity .45s ease;
   z-index: 3;
@@ -1886,7 +1890,7 @@ footer {
   top: 0;
   width: 50%;
   height: 100%;
-  background: url('../assets/images/sello-ps.png') no-repeat;
+  background: url('../assets/images/sello-ps-optimized.png') no-repeat;
   background-size: 200% 100%;
   opacity: 0;
   transition: transform .75s cubic-bezier(.2, .8, .2, 1), opacity .18s ease;
@@ -1977,10 +1981,6 @@ footer {
 
   .envelope-img {
     width: 320px;
-  }
-
-  .seal img {
-    width: 70px;
   }
 
   .open-text {

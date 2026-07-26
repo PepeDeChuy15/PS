@@ -8,10 +8,12 @@
 
   <title>Nuestra Boda</title>
 
-  <link rel="icon" type="image/png" href="assets/images/sello-ps.png">
+  <link rel="icon" type="image/png" href="assets/images/sello-ps-optimized.png">
 
-  <link rel="stylesheet" href="css/styles.css?v=20260725-10">
+  <link rel="stylesheet" href="css/styles.css?v=20260725-11">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@300;400;500&family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap"
     rel="stylesheet">
@@ -41,12 +43,13 @@
 
   <div class="intro-screen" id="intro">
     <div class="envelope">
-      <img src="assets/images/sobre2.png" class="envelope-img">
-      <div class="seal" onclick="openInvitation()">
-        <img src="assets/images/sello-ps.png" alt="Sello de Pepe y Sofi">
+      <img src="assets/images/sobre2-optimized.png" class="envelope-img" alt="Sobre de la invitación"
+        width="840" height="1260" fetchpriority="high">
+      <button class="seal" type="button" onclick="openInvitation()" aria-label="Abrir invitación">
+        <img src="assets/images/sello-ps-optimized.png" alt="" width="256" height="256">
         <span class="seal-half seal-half-left"></span>
         <span class="seal-half seal-half-right"></span>
-      </div>
+      </button>
       <p class="open-text">Abrir invitación, rompe el sello
         <span class="open-music-hint" role="img" aria-label="Sube el volumen" title="Sube el volumen">
           <i class="ti ti-music" aria-hidden="true"></i>
@@ -116,7 +119,7 @@
       <h1>Pepe <span>&</span> Sofi</h1>
       <p class="quote">¡Nos Casamos!</p>
       <div class="logo">
-        <img src="assets/images/sello-ps.png" alt="Monograma de Sofi y Pepe">
+        <img src="assets/images/sello-ps-optimized.png" alt="Monograma de Sofi y Pepe">
       </div>
     </div>
   </section>
@@ -586,7 +589,7 @@
 
   <footer>
 
-    <img src="assets/images/sello-ps.png" class="footer-logo">
+    <img src="assets/images/sello-ps-optimized.png" class="footer-logo" alt="Pepe y Sofi" loading="lazy">
 
     <p>24 Octubre 2026</p>
 

@@ -12,15 +12,25 @@
   <script defer src="js/pase.js"></script>
   <style>
     .btn-volver {
-      display: inline-block;
-      margin-top: 14px;
-      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 20px;
+      border: 1px solid rgba(183, 154, 214, 0.35);
+      border-radius: 50px;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
       color: #b79ad6;
       text-decoration: none;
-      letter-spacing: 0.5px;
-      transition: color .2s;
+      transition: background .2s, border-color .2s, color .2s;
     }
-    .btn-volver:hover { color: #8e6bbf; }
+    .btn-volver:hover {
+      background: rgba(183, 154, 214, 0.12);
+      border-color: rgba(183, 154, 214, 0.6);
+      color: #8e6bbf;
+    }
   </style>
 </head>
 
@@ -30,11 +40,14 @@
 
     <div class="confirmar-card">
 
+      <a id="btn-volver" href="index.html" class="btn-volver">
+        <i class="ti ti-arrow-left"></i> Ver invitación
+      </a>
+
       <div class="confirmar-logo">
         <img src="assets/images/sello-ps.png" alt="Pepe & Sofi">
         <p class="confirmar-names">Pepe <span>&</span> Sofi</p>
         <p class="confirmar-date">24 · Octubre · 2026</p>
-        <a id="btn-volver" href="index.html" class="btn-volver">← Ver invitación</a>
       </div>
 
       <!-- sin parámetro -->

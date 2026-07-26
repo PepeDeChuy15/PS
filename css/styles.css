@@ -1167,7 +1167,8 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   text-align: center;
 }
 
-#c-already .rsvp-icon-success {
+#c-already .rsvp-icon-success,
+#c-redeemed .rsvp-icon-success {
   color: #6f3fa0;
   font-size: 46px;
 }

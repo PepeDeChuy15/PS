@@ -1455,7 +1455,7 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 .confirmar-card {
   width: 100%;
   max-width: 480px;
-  background: rgba(218, 201, 238, .56);
+  background: rgba(218, 201, 238, .48);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(142, 107, 191, .52);
@@ -1472,9 +1472,9 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 }
 
 .confirmar-logo img {
-  width: 72px;
-  opacity: .92;
-  margin-bottom: 10px;
+  width: 96px;
+  opacity: .96;
+  margin-bottom: 12px;
 }
 
 .confirmar-names {

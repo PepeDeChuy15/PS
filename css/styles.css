@@ -66,6 +66,25 @@ body.locked footer {
   color: var(--lila-oscuro);
 }
 
+.nav-pase {
+  padding: 6px 18px !important;
+  border: 1.5px solid rgba(255, 255, 255, .75);
+  border-radius: 50px;
+  font-size: 13px;
+  transition: background .25s, border-color .25s, color .25s !important;
+}
+.nav-pase:hover {
+  background: rgba(255, 255, 255, .18);
+}
+.header.scrolled .nav-pase {
+  border-color: var(--lila);
+  background: transparent;
+  color: var(--lila-oscuro) !important;
+}
+.header.scrolled .nav-pase:hover {
+  background: rgba(183, 154, 214, .12);
+}
+
 .music-btn {
   background: none;
   border: none;

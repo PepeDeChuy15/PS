@@ -4,6 +4,15 @@ window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
 
+(function() {
+  var inv = new URLSearchParams(window.location.search).get('inv');
+  var navPase = document.getElementById('nav-pase');
+  if (inv && navPase) {
+    navPase.href = 'pase.html?inv=' + encodeURIComponent(inv);
+    navPase.style.display = '';
+  }
+})();
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {

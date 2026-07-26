@@ -89,6 +89,9 @@ function doFase2Lookup(inv, antesDeAbrir) {
   var urlParams = new URLSearchParams(window.location.search);
   var inv       = urlParams.get('inv');
 
+  var btnVolver = document.getElementById('btn-volver');
+  if (btnVolver && inv) btnVolver.href = 'index.html?inv=' + encodeURIComponent(inv);
+
   showState('c-loading');
 
   fetch(APPS_SCRIPT_URL + '?action=config')

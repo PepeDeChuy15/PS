@@ -1453,9 +1453,9 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   text-align: center;
 }
 
-.fase2-date-highlight {
-  color: #111111;
-  font-weight: 700;
+.confirmar-card .rsvp-hint .fase2-date-highlight {
+  color: #000000 !important;
+  font-weight: 800 !important;
   text-shadow: 0 1px 1px rgba(255, 255, 255, .45);
 }
 

@@ -1453,6 +1453,7 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 }
 
 .confirmar-card {
+  position: relative;
   width: 100%;
   max-width: 480px;
   background: rgba(235, 225, 247, .52);
@@ -1461,8 +1462,34 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   border: 1px solid rgba(142, 107, 191, .52);
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(54, 35, 73, .28);
-  padding: 48px 36px;
+  padding: 48px 36px 88px;
   text-align: center;
+}
+
+.confirmar-card .btn-volver {
+  position: absolute;
+  left: 22px;
+  bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 24px;
+  background: var(--lila-oscuro);
+  color: #ffffff;
+  border: 0;
+  border-radius: 25px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(111, 63, 160, .2);
+  transition: background .3s ease, transform .2s ease;
+}
+
+.confirmar-card .btn-volver:hover {
+  background: #6a4d9a;
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
 .confirmar-card .rsvp-hint .fase2-date-highlight {
@@ -1505,6 +1532,13 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 
   .confirmar-logo img {
     width: 120px;
+  }
+
+  .confirmar-card .btn-volver {
+    left: 16px;
+    bottom: 16px;
+    padding: 9px 18px;
+    font-size: 12px;
   }
 }
 

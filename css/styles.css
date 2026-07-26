@@ -1866,16 +1866,17 @@ footer {
 
 .seal {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 56.3%;
+  left: 51.4%;
   transform: translate(-50%, -50%);
+  width: 22%;
   cursor: pointer;
   transition: transform .35s ease, opacity .45s ease;
   z-index: 3;
 }
 
 .seal img {
-  width: 85px;
+  width: 100%;
   display: block;
   transition: opacity .25s ease, transform .45s ease, filter .45s ease;
 }

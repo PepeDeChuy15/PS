@@ -65,7 +65,6 @@ function doFase2Lookup(inv, antesDeAbrir) {
         showState('c-already');
         var qrUrl = 'https://pepedechuy15.github.io/PS/entrada.html?code=' + encodeURIComponent(inv);
         document.getElementById('c-qr-label').textContent = inv.toUpperCase();
-        document.getElementById('c-qr-link').href = qrUrl;
         return;
       }
       // Aún no confirmó y todavía no abre la fase 2

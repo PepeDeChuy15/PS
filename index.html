@@ -10,7 +10,7 @@
 
   <link rel="icon" type="image/png" href="assets/images/sello-ps-optimized.png">
 
-  <link rel="stylesheet" href="css/styles.css?v=20260726-4">
+  <link rel="stylesheet" href="css/styles.css?v=20260726-5">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -492,16 +492,16 @@
         <!-- formulario -->
         <div class="rsvp-state rsvp-hidden" id="rsvp-form">
 
-          <p class="rsvp-greeting">Hola, <strong id="rsvp-name-display"></strong></p>
-          <p class="rsvp-passes-info">Tu invitación incluye <strong><span id="rsvp-passes-display"></span> pase<span
-                id="rsvp-passes-plural"></span></strong></p>
           <p class="rsvp-presence-message">
-            Tu presencia es muy importante para nosotros. Por favor, confírmanos tu asistencia lo antes posible.
+            Tu presencia, <strong id="rsvp-name-display"></strong>, es muy importante para nosotros.<br>
+            Por favor, confírmanos tu asistencia antes del
+            <strong class="rsvp-presence-deadline">31 de agosto</strong>.
           </p>
+          <p class="rsvp-passes-info">Tu invitación incluye <strong><span id="rsvp-passes-display"></span> pase<span
+                id="rsvp-passes-plural"></span></strong>.</p>
 
           <!-- paso 1: ¿asistirás? -->
           <div id="rsvp-step-1">
-            <p class="rsvp-deadline-label">Confirma antes del <span class="rsvp-deadline-date"></span></p>
             <p class="rsvp-question">¿Confirmas tu asistencia?</p>
             <div class="rsvp-btns">
               <button class="rsvp-btn rsvp-btn-confirm" onclick="rsvpGoStep2()">Sí, asistiré ✓</button>

@@ -1274,18 +1274,24 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 }
 
 .rsvp-passes-info {
-  font-size: 15px;
-  color: #666;
-  margin-bottom: 16px;
+  font-size: 17px;
+  color: #4f4950;
+  margin-bottom: 22px;
 }
 
 .rsvp-presence-message {
-  max-width: 430px;
-  margin: 0 auto 20px;
+  max-width: 520px;
+  margin: 0 auto 14px;
   color: #30233d;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 500;
-  line-height: 1.45;
+  line-height: 1.5;
+}
+
+.rsvp-presence-message #rsvp-name-display,
+.rsvp-presence-deadline {
+  color: #211827;
+  font-weight: 800;
 }
 
 .rsvp-question {

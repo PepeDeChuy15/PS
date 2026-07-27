@@ -208,6 +208,15 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
   position: relative;
 }
 
+.countdown-invitation {
+  max-width: 680px;
+  margin: 0 auto 42px;
+  color: #514b50;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
 /* titulo */
 
 .countdown h2 {
@@ -1834,6 +1843,14 @@ footer {
     font-size: 10px;
     letter-spacing: 1px;
     margin-top: 8px;
+  }
+
+  .countdown-invitation {
+    max-width: 520px;
+    margin-bottom: 34px;
+    padding-inline: 10px;
+    font-size: 20px;
+    line-height: 1.45;
   }
 
 }

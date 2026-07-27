@@ -1267,7 +1267,16 @@ background:linear-gradient(180deg,#f6f2fb,#ffffff);
 .rsvp-passes-info {
   font-size: 15px;
   color: #666;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
+}
+
+.rsvp-presence-message {
+  max-width: 430px;
+  margin: 0 auto 20px;
+  color: #30233d;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.45;
 }
 
 .rsvp-question {
